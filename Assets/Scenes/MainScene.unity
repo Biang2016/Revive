@@ -230,6 +230,7 @@ GameObject:
   m_Component:
   - component: {fileID: 363397751}
   - component: {fileID: 363397750}
+  - component: {fileID: 363397752}
   m_Layer: 0
   m_Name: Water4AdvancedReflectionMain Camera
   m_TagString: Untagged
@@ -287,13 +288,22 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 363397749}
-  m_LocalRotation: {x: 0.11869822, y: 0.78122956, z: 0.5925368, w: -0.15649687}
-  m_LocalPosition: {x: 6.935993, y: -147.54996, z: 36.549248}
+  m_LocalRotation: {x: -0, y: 0.844736, z: -0, w: 0.53518325}
+  m_LocalPosition: {x: -26.74052, y: -63.326363, z: 27.365816}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1019359197}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!45 &363397752
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363397749}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 247ccdeacb49b6445a20ec8b43a0ac07, type: 2}
 --- !u!1 &466137774
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,6 +347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 492662201}
   - component: {fileID: 492662200}
+  - component: {fileID: 492662202}
   m_Layer: 0
   m_Name: Water4AdvancedReflectionSceneCamera
   m_TagString: Untagged
@@ -394,13 +405,22 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 492662199}
-  m_LocalRotation: {x: -0, y: 0.844736, z: -0, w: 0.53518325}
-  m_LocalPosition: {x: -26.74052, y: -63.826363, z: 27.365816}
+  m_LocalRotation: {x: -0.025529493, y: 0.97096616, z: 0.120915145, w: 0.20482303}
+  m_LocalPosition: {x: -22.526306, y: -93.32011, z: 69.01453}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1019359197}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!45 &492662202
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492662199}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 9e9814ad8aaa33b43b393c8f48c9a322, type: 2}
 --- !u!1001 &676709717
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -789,6 +809,21 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &1504809684 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1810165895080750900, guid: 5b38b750e026bd04c953065d1e385921,
+    type: 3}
+  m_PrefabInstance: {fileID: 1810165894156485189}
+  m_PrefabAsset: {fileID: 0}
+--- !u!45 &1504809688
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504809684}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 9e9814ad8aaa33b43b393c8f48c9a322, type: 2}
 --- !u!1 &1647053195
 GameObject:
   m_ObjectHideFlags: 0
@@ -897,12 +932,12 @@ PrefabInstance:
     - target: {fileID: 1810165893524905362, guid: 5b38b750e026bd04c953065d1e385921,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -43
+      value: -39
       objectReference: {fileID: 0}
     - target: {fileID: 1810165893524905362, guid: 5b38b750e026bd04c953065d1e385921,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1810165893524905362, guid: 5b38b750e026bd04c953065d1e385921,
         type: 3}
@@ -953,6 +988,16 @@ PrefabInstance:
         type: 3}
       propertyPath: gravity
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810165893524905363, guid: 5b38b750e026bd04c953065d1e385921,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810165895080750897, guid: 5b38b750e026bd04c953065d1e385921,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b38b750e026bd04c953065d1e385921, type: 3}
