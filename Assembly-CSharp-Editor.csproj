@@ -323,23 +323,23 @@
  <Reference Include="UnityEditor.WebGL.Extensions">
  <HintPath>C:/softwares/Unity3D 2019.2.30f/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll</HintPath>
  </Reference>
- <Reference Include="DOTween50">
- <HintPath>G:/NYUGC/WalkingSimulator/Assets/Plugins/DOTween/DOTween50.dll</HintPath>
- </Reference>
  <Reference Include="DOTween">
  <HintPath>G:/NYUGC/WalkingSimulator/Assets/Plugins/DOTween/DOTween.dll</HintPath>
  </Reference>
- <Reference Include="JetBrains.Rider.Unity.Editor.Plugin.Repacked">
- <HintPath>G:/NYUGC/WalkingSimulator/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll</HintPath>
+ <Reference Include="DOTween43">
+ <HintPath>G:/NYUGC/WalkingSimulator/Assets/Plugins/DOTween/DOTween43.dll</HintPath>
  </Reference>
  <Reference Include="DOTween46">
  <HintPath>G:/NYUGC/WalkingSimulator/Assets/Plugins/DOTween/DOTween46.dll</HintPath>
  </Reference>
+ <Reference Include="DOTween50">
+ <HintPath>G:/NYUGC/WalkingSimulator/Assets/Plugins/DOTween/DOTween50.dll</HintPath>
+ </Reference>
  <Reference Include="DOTweenEditor">
  <HintPath>G:/NYUGC/WalkingSimulator/Assets/Plugins/DOTween/Editor/DOTweenEditor.dll</HintPath>
  </Reference>
- <Reference Include="DOTween43">
- <HintPath>G:/NYUGC/WalkingSimulator/Assets/Plugins/DOTween/DOTween43.dll</HintPath>
+ <Reference Include="JetBrains.Rider.Unity.Editor.Plugin.Repacked">
+ <HintPath>G:/NYUGC/WalkingSimulator/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
  <HintPath>G:/NYUGC/WalkingSimulator/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>

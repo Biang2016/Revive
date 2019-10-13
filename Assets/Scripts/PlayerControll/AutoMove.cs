@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AutoMove : MonoBehaviour
 {
-    [SerializeField] private Camera EyeCamera;
+    [SerializeField] private Transform EyeCameraFrame;
     internal MoveStep[] MoveSteps;
     [SerializeField] private Transform MoveStepContainer;
 
@@ -32,14 +32,17 @@ public class AutoMove : MonoBehaviour
                 break;
             }
 
-            if (ms.NeedShakePosition)
+            if (EyeCameraFrame)
             {
-                EyeCamera.transform.DOShakePosition(ms.ShakePos_Duration, ms.ShakePos_Strength, ms.ShakePos_Vibration, fadeOut: false).SetEase(ms.ShakePosEase);
-            }
+                if (ms.NeedShakePosition)
+                {
+                    EyeCameraFrame.transform.DOShakePosition(ms.ShakePos_Duration, ms.ShakePos_Strength, ms.ShakePos_Vibration, fadeOut: false).SetEase(ms.ShakePosEase);
+                }
 
-            if (ms.NeedShakeRotation)
-            {
-                EyeCamera.transform.DOShakeRotation(ms.ShakeRotate_Duration, ms.ShakeRotate_Strength, ms.ShakeRotate_Vibration, fadeOut: false).SetEase(ms.ShakeRotateEase);
+                if (ms.NeedShakeRotation)
+                {
+                    EyeCameraFrame.transform.DOShakeRotation(ms.ShakeRotate_Duration, ms.ShakeRotate_Strength, ms.ShakeRotate_Vibration, fadeOut: false).SetEase(ms.ShakeRotateEase);
+                }
             }
 
             transform.DORotate(ms.transform.rotation.eulerAngles, ms.TransitDuration).SetEase(ms.RotateEase);
