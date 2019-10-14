@@ -1,43 +1,68 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Controller : MonoBehaviour
 {
-    // public variables
-    public float moveSpeed = 3.0f;
-    public float gravity = 9.81f;
+    public float MoveSpeed = 3.0f;
+    public float JumpPower = 5f;
+    public float Gravity = 9.81f;
+    private float default_MoveSpeed = 3.0f;
+    private float default_JumpPower = 5f;
+    private float default_Gravity = 9.81f;
 
-    public CharacterController myController;
+    public CharacterController MyController;
 
-    // Use this for initialization
+    private float v_y = 0;
+    private Vector3 velocity = Vector3.zero;
+
     void Start()
     {
-        // store a reference to the CharacterController component on this gameObject
-        // it is much more efficient to use GetComponent() once in Start and store
-        // the result rather than continually use etComponent() in the Update function
-        myController = gameObject.GetComponent<CharacterController>();
+        default_MoveSpeed = MoveSpeed;
+        default_JumpPower = JumpPower;
+        default_Gravity = Gravity;
     }
-
-    // Update is called once per frame
     void Update()
     {
-        // Determine how much should move in the z-direction
-        Vector3 movementZ = Input.GetAxis("Vertical") * Vector3.forward * moveSpeed * Time.deltaTime;
+        if (SupermanMode)
+        {
+            MoveSpeed = 20f;
+            Gravity = 0;
+        }
+        else
+        {
+            MoveSpeed = default_MoveSpeed;
+            JumpPower = default_JumpPower;
+            Gravity = default_Gravity;
+        }
 
-        // Determine how much should move in the x-direction
-        Vector3 movementX = Input.GetAxis("Horizontal") * Vector3.right * moveSpeed * Time.deltaTime;
+        velocity.x = Input.GetAxis("Horizontal") * MoveSpeed;
+        velocity.z = Input.GetAxis("Vertical") * MoveSpeed;
 
-        Vector3 movementY = Input.GetAxis("Jump") * Vector3.up * moveSpeed * Time.deltaTime;
+        if (SupermanMode)
+        {
+            velocity.y = Input.GetAxis("Jump") * MoveSpeed;
+        }
+        else
+        {
+            if (MyController.isGrounded)
+            {
+                v_y = 0;
+                velocity.y = 0;
+                if (Input.GetKey(KeyCode.Space))
+                {
+                    velocity.y += JumpPower * MoveSpeed;
+                }
+            }
+            else //在空中时
+            {
+                v_y -= Gravity * Time.deltaTime;
+                velocity.y += v_y;
+            }
+        }
 
-        // Convert combined Vector3 from local space to world space based on the position of the current gameobject (player)
-        Vector3 movement = transform.TransformDirection(movementZ + movementY + movementX);
-
-        // Apply gravity (so the object will fall if not grounded)
-        movement.y -= gravity * Time.deltaTime;
-
-        //Debug.Log ("Movement Vector = " + movement);
-
-        // Actually move the character controller in the movement direction
-        myController.Move(movement);
+        velocity = transform.TransformDirection(velocity);
+        MyController.Move(velocity * Time.deltaTime);
     }
+
+    public bool SupermanMode;
+    public float SupermanSpeed = 20f;
 }
