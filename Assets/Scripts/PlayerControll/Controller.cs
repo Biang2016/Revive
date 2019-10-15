@@ -20,8 +20,14 @@ public class Controller : MonoBehaviour
         default_JumpPower = JumpPower;
         default_Gravity = Gravity;
     }
+
     void Update()
     {
+        if (Input.GetKeyUp(KeyCode.P))
+        {
+            SupermanMode = !SupermanMode;
+        }
+
         if (SupermanMode)
         {
             MoveSpeed = 20f;
