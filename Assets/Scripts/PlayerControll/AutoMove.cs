@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AutoMove : MonoBehaviour
 {
@@ -49,5 +50,9 @@ public class AutoMove : MonoBehaviour
             transform.DOMove(ms.transform.position, ms.TransitDuration).SetEase(ms.MoveEase);
             yield return new WaitForSeconds(ms.TransitDuration);
         }
+
+        OnComplete?.Invoke();
     }
+
+    public UnityEvent OnComplete;
 }

@@ -51,11 +51,14 @@ public class Controller : MonoBehaviour
         {
             if (MyController.isGrounded)
             {
-                v_y = 0;
-                velocity.y = 0;
-                if (Input.GetKey(KeyCode.Space))
+                if (AllowJump)
                 {
-                    velocity.y += JumpPower * MoveSpeed;
+                    v_y = 0;
+                    velocity.y = 0;
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        velocity.y += JumpPower * MoveSpeed;
+                    }
                 }
             }
             else //在空中时
@@ -67,6 +70,14 @@ public class Controller : MonoBehaviour
 
         velocity = transform.TransformDirection(velocity);
         MyController.Move(velocity * Time.deltaTime);
+    }
+
+    public bool AllowJump = false;
+
+    public void SetAllowJump()
+    {
+        AllowJump = true;
+        MyController.radius = 0.82f;
     }
 
     public bool SupermanMode;
