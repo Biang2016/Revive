@@ -11,7 +11,6 @@ public class Controller : MonoBehaviour
 
     public CharacterController MyController;
 
-    private float v_y = 0;
     private Vector3 velocity = Vector3.zero;
 
     void Start()
@@ -53,18 +52,16 @@ public class Controller : MonoBehaviour
             {
                 if (AllowJump)
                 {
-                    v_y = 0;
-                    velocity.y = 0;
                     if (Input.GetKeyDown(KeyCode.Space))
                     {
+                        velocity.y = 0;
                         velocity.y += JumpPower * MoveSpeed;
                     }
                 }
             }
             else //在空中时
             {
-                v_y -= Gravity * Time.deltaTime;
-                velocity.y += v_y;
+                velocity.y -= Gravity;
             }
         }
 
