@@ -10,11 +10,24 @@ public class Controller : MonoBehaviour
     private float default_Gravity = 9.81f;
 
     public CharacterController MyController;
+    public MouseLooker MyMouseLooker;
 
     private Vector3 velocity = Vector3.zero;
 
     void Start()
     {
+        if (Manager.Instance.TravelViewMode)
+        {
+            MyController.enabled = true;
+            MyMouseLooker.enabled = true;
+            AllowJump = true;
+        }
+        else
+        {
+            MyController.enabled = false;
+            MyMouseLooker.enabled = false;
+        }
+
         default_MoveSpeed = MoveSpeed;
         default_JumpPower = JumpPower;
         default_Gravity = Gravity;

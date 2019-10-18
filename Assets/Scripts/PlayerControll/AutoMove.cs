@@ -11,47 +11,66 @@ public class AutoMove : MonoBehaviour
 
     void Start()
     {
-        MoveSteps = new MoveStep[MoveStepContainer.childCount];
-        for (int i = 0; i < MoveStepContainer.childCount; i++)
+        if (!Manager.Instance.TravelViewMode)
         {
-            MoveSteps[i] = MoveStepContainer.GetChild(i).GetComponent<MoveStep>();
-        }
+            MoveSteps = new MoveStep[MoveStepContainer.childCount];
+            for (int i = 0; i < MoveStepContainer.childCount; i++)
+            {
+                MoveSteps[i] = MoveStepContainer.GetChild(i).GetComponent<MoveStep>();
+            }
 
-        StartCoroutine(Co_StartMove());
+            StartCoroutine(Co_StartMove());
+        }
     }
+
+    public bool IsMoving = true;
+    private int CurrentStep = 0;
 
     IEnumerator Co_StartMove()
     {
-        transform.rotation = MoveSteps[0].transform.rotation;
-        transform.position = MoveSteps[0].transform.position;
-        yield return new WaitForSeconds(MoveSteps[0].TransitDuration);
-        for (int i = 1; i < MoveSteps.Length; i++)
+        transform.rotation = MoveSteps[CurrentStep].transform.rotation;
+        transform.position = MoveSteps[CurrentStep].transform.position;
+        yield return new WaitForSeconds(MoveSteps[CurrentStep].TransitDuration);
+        CurrentStep++;
+        while (CurrentStep < MoveSteps.Length)
         {
-            MoveStep ms = MoveSteps[i];
-            if (ms == null)
+            while (!IsMoving)
             {
-                break;
+                yield return null;
             }
 
-            if (EyeCameraFrame)
-            {
-                if (ms.NeedShakePosition)
-                {
-                    EyeCameraFrame.transform.DOShakePosition(ms.ShakePos_Duration, ms.ShakePos_Strength, ms.ShakePos_Vibration, fadeOut: false).SetEase(ms.ShakePosEase);
-                }
-
-                if (ms.NeedShakeRotation)
-                {
-                    EyeCameraFrame.transform.DOShakeRotation(ms.ShakeRotate_Duration, ms.ShakeRotate_Strength, ms.ShakeRotate_Vibration, fadeOut: false).SetEase(ms.ShakeRotateEase);
-                }
-            }
-
-            transform.DORotate(ms.transform.rotation.eulerAngles, ms.TransitDuration).SetEase(ms.RotateEase);
-            transform.DOMove(ms.transform.position, ms.TransitDuration).SetEase(ms.MoveEase);
-            yield return new WaitForSeconds(ms.TransitDuration);
+            yield return Co_ExecuteStep();
+            CurrentStep++;
         }
 
         OnComplete?.Invoke();
+    }
+
+    IEnumerator Co_ExecuteStep()
+    {
+        MoveStep ms = MoveSteps[CurrentStep];
+        if (ms == null)
+        {
+            yield return null;
+        }
+
+        if (EyeCameraFrame)
+        {
+            if (ms.NeedShakePosition)
+            {
+                EyeCameraFrame.transform.DOShakePosition(ms.ShakePos_Duration, ms.ShakePos_Strength, ms.ShakePos_Vibration, fadeOut: false).SetEase(ms.ShakePosEase);
+            }
+
+            if (ms.NeedShakeRotation)
+            {
+                EyeCameraFrame.transform.DOShakeRotation(ms.ShakeRotate_Duration, ms.ShakeRotate_Strength, ms.ShakeRotate_Vibration, fadeOut: false).SetEase(ms.ShakeRotateEase);
+            }
+        }
+
+        transform.DORotate(ms.transform.rotation.eulerAngles, ms.TransitDuration).SetEase(ms.RotateEase);
+        transform.DOMove(ms.transform.position, ms.TransitDuration).SetEase(ms.MoveEase);
+        yield return new WaitForSeconds(ms.TransitDuration);
+        ms.NextEvent?.Invoke();
     }
 
     public UnityEvent OnComplete;

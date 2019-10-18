@@ -1,5 +1,6 @@
 ﻿using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MoveStep : MonoBehaviour
 {
@@ -16,4 +17,8 @@ public class MoveStep : MonoBehaviour
     public float ShakeRotate_Duration;
     public float ShakeRotate_Strength;
     public int ShakeRotate_Vibration;
+
+    public UnityEvent NextEvent;
+
+
 }
