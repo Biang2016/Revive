@@ -6,7 +6,16 @@ public class Manager : MonoSingleton<Manager>
 
     private void Start()
     {
+        RenderSettings.fog = true;
         PuzzleLayer = 1 << LayerMask.NameToLayer("Puzzle");
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.O))
+        {
+            RenderSettings.fog = !RenderSettings.fog;
+        }
     }
 
     public Camera MainCamera;

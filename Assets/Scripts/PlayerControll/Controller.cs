@@ -20,7 +20,7 @@ public class Controller : MonoBehaviour
         {
             MyController.enabled = true;
             MyMouseLooker.enabled = true;
-            AllowJump = true;
+            SetAllowJump();
         }
         else
         {
@@ -35,6 +35,11 @@ public class Controller : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyUp(KeyCode.K))
+        {
+            MyMouseLooker.enabled = !MyMouseLooker.enabled;
+        }
+
         if (Input.GetKeyUp(KeyCode.P))
         {
             SupermanMode = !SupermanMode;
