@@ -7,11 +7,9 @@ using UnityEngine.UI;
 
 public class CameraRecordingManager : MonoSingleton<CameraRecordingManager>
 {
-    [SerializeField] private Image RecordingIcon;
-
     void Start()
     {
-        RecordingIcon.gameObject.SetActive(false);
+        UIManager.Instance.GetBaseUIForm<EditorPanel>().RecordingIcon.gameObject.SetActive(false);
     }
 
     public float RecordTimeIntervalTick = 0f;
@@ -29,22 +27,23 @@ public class CameraRecordingManager : MonoSingleton<CameraRecordingManager>
     {
         if (GameManager.Instance.CurTravelProcess == GameManager.TravelProcess.None)
         {
-            RecordingIcon.gameObject.SetActive(true);
+            UIManager.Instance.GetBaseUIForm<EditorPanel>().RecordingIcon.gameObject.SetActive(true);
             if (IsPlayingRecord)
             {
-                RecordingIcon.color = Color.green;
+                UIManager.Instance.GetBaseUIForm<EditorPanel>().RecordingIcon.color = Color.green;
             }
             else
             {
-                RecordingIcon.color = GameManager.Instance.RecordingStartSceneCameraPath ? Color.red : Color.yellow;
+                UIManager.Instance.GetBaseUIForm<EditorPanel>().RecordingIcon.color = GameManager.Instance.RecordingStartSceneCameraPath ? Color.red : Color.yellow;
             }
+
             if (GameManager.Instance.RecordingStartSceneCameraPath)
             {
-                    RecordFrame rf = new RecordFrame();
-                    rf.Pos = GameManager.Instance.StartSceneCameraCarrier.transform.localPosition;
-                    rf.Rot = GameManager.Instance.StartSceneCameraCarrier.transform.localRotation;
-                    rf.RotCamera = GameManager.Instance.StartSceneCamera.transform.localRotation;
-                    RecordFrames.Add(rf);
+                RecordFrame rf = new RecordFrame();
+                rf.Pos = GameManager.Instance.StartSceneCameraCarrier.transform.localPosition;
+                rf.Rot = GameManager.Instance.StartSceneCameraCarrier.transform.localRotation;
+                rf.RotCamera = GameManager.Instance.StartSceneCamera.transform.localRotation;
+                RecordFrames.Add(rf);
             }
         }
     }

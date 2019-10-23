@@ -26,6 +26,11 @@ public class Player : MonoBehaviour
             foreach (RaycastHit hit in hits)
             {
                 PuzzlePart pp = hit.collider.gameObject.GetComponent<PuzzlePart>();
+                if (pp == null)
+                {
+                    pp = hit.collider.transform.parent.gameObject.GetComponent<PuzzlePart>();
+                }
+
                 if (pp != null)
                 {
                     pp.ParrentPuzzle.PuzzleHits[pp.ParrentPuzzle.PuzzleParts.IndexOf(pp)] = true;

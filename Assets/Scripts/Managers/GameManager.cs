@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
+using UnityStandardAssets.ImageEffects;
 
 public class GameManager : MonoSingleton<GameManager>
 {
@@ -79,6 +81,8 @@ public class GameManager : MonoSingleton<GameManager>
     public bool RecordingStartSceneCameraPath = false;
 
     public Camera MainCamera;
+    public BloomOptimized MainCameraBloom;
+    public Animator MainCameraAnimator;
     public Camera StartSceneCamera;
     public Raft Raft;
     public Player Player;
@@ -129,18 +133,19 @@ public class GameManager : MonoSingleton<GameManager>
         CaveStage1_BeforePuzzle = 1,
         CaveStage1_WhenPuzzle = 2,
         CaveStage1_AfterPuzzle = 3,
-        CaveStage2_Narrow = 4,
-        CaveStage2_OpenPlaceBeforeWaterfall = 5,
-        CaveStage2_AfterWaterfall = 6,
-        CaveStage2_Before3DPlatformJump = 7,
-        CaveStage2_When3DPlatformJump = 8,
-        CaveStage2_After3DPlatformJumpNarrow = 9,
-        PlatformStage3_CameOutFromCave = 10,
-        PlatformStage3_UnlockFirstPuzzle = 11,
-        PlatformStage3_UnlockSecondPuzzle = 12,
-        PlatformStage3_SolvingLastPuzzle = 13,
-        PlatformStage3_RevivingTree = 14,
-        PlatformStage3_TreeRevived = 15,
+        CaveStage1_PuzzleSolveAnimation = 4,
+        CaveStage2_Narrow = 5,
+        CaveStage2_OpenPlaceBeforeWaterfall = 6,
+        CaveStage2_AfterWaterfall = 7,
+        CaveStage2_Before3DPlatformJump = 8,
+        CaveStage2_When3DPlatformJump = 9,
+        CaveStage2_After3DPlatformJumpNarrow = 10,
+        PlatformStage3_CameOutFromCave = 11,
+        PlatformStage3_UnlockFirstPuzzle = 12,
+        PlatformStage3_UnlockSecondPuzzle = 13,
+        PlatformStage3_SolvingLastPuzzle = 14,
+        PlatformStage3_RevivingTree = 15,
+        PlatformStage3_TreeRevived = 16,
     }
 
     [SerializeField] private TravelProcess StartTravelProcess = TravelProcess.None;
@@ -157,10 +162,15 @@ public class GameManager : MonoSingleton<GameManager>
                 StartSceneCameraCarrier.Controller.SuperManMode = true;
                 StartSceneCameraCarrier.gameObject.SetActive(true);
                 Raft.gameObject.SetActive(false);
+                UIManager.Instance.ShowUIForms<EditorPanel>();
 
                 Player.Controller.MyController.enabled = true;
                 Player.Controller.MyMouseLooker.enabled = true;
                 Player.Controller.SetAllowJump();
+            }
+            else
+            {
+                UIManager.Instance.CloseUIForm<EditorPanel>();
             }
 
             if (value != curTravelProcess)
@@ -193,8 +203,19 @@ public class GameManager : MonoSingleton<GameManager>
                         Raft.AutoMove.IsMoving = false;
                         break;
                     }
+                    case TravelProcess.CaveStage1_PuzzleSolveAnimation:
+                    {
+                        MainCameraAnimator.SetTrigger("PuzzleASolved");
+                        StartCoroutine(Co_PuzzleASolved());
+                        Player.Controller.MyMouseLooker.enabled = false;
+                        Player.Controller.MyController.enabled = false;
+
+                        break;
+                    }
                     case TravelProcess.CaveStage1_AfterPuzzle:
                     {
+                        Player.Controller.MyMouseLooker.enabled = true;
+                        Player.Controller.MyController.enabled = true;
                         Raft.AutoMove.IsMoving = true;
                         Player.Controller.SetAllowJump();
                         Player.Controller.SetColliderRadiusOnLand();
@@ -213,5 +234,16 @@ public class GameManager : MonoSingleton<GameManager>
 
             curTravelProcess = value;
         }
+    }
+
+    public void PuzzleASolved()
+    {
+        CurTravelProcess = TravelProcess.CaveStage1_PuzzleSolveAnimation;
+    }
+
+    IEnumerator Co_PuzzleASolved()
+    {
+        yield return new WaitForSeconds(2f);
+        CurTravelProcess = TravelProcess.CaveStage1_AfterPuzzle;
     }
 }

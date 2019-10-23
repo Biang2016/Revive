@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [ExecuteInEditMode]
 public class Puzzle : MonoBehaviour
@@ -51,12 +52,10 @@ public class Puzzle : MonoBehaviour
     public void SolvePuzzle()
     {
         IsSolved = true;
-        Debug.Log("PuzzleSolved+++++++++++++++++++++++++");
-        foreach (PuzzlePart pp in PuzzleParts)
-        {
-            pp.gameObject.SetActive(false);
-        }
+        SolveEvent?.Invoke();
     }
+
+    public UnityEvent SolveEvent;
 
     #region PuzzleAutoGenerate
 
