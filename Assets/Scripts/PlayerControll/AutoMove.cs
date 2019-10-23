@@ -9,18 +9,15 @@ public class AutoMove : MonoBehaviour
     internal MoveStep[] MoveSteps;
     [SerializeField] private Transform MoveStepContainer;
 
-    void Start()
+    internal void AutoMoveStart()
     {
-        if (!Manager.Instance.TravelViewMode)
+        MoveSteps = new MoveStep[MoveStepContainer.childCount];
+        for (int i = 0; i < MoveStepContainer.childCount; i++)
         {
-            MoveSteps = new MoveStep[MoveStepContainer.childCount];
-            for (int i = 0; i < MoveStepContainer.childCount; i++)
-            {
-                MoveSteps[i] = MoveStepContainer.GetChild(i).GetComponent<MoveStep>();
-            }
-
-            StartCoroutine(Co_StartMove());
+            MoveSteps[i] = MoveStepContainer.GetChild(i).GetComponent<MoveStep>();
         }
+
+        StartCoroutine(Co_StartMove());
     }
 
     public bool IsMoving = true;
@@ -42,8 +39,6 @@ public class AutoMove : MonoBehaviour
             yield return Co_ExecuteStep();
             CurrentStep++;
         }
-
-        OnComplete?.Invoke();
     }
 
     IEnumerator Co_ExecuteStep()
@@ -72,6 +67,4 @@ public class AutoMove : MonoBehaviour
         yield return new WaitForSeconds(ms.TransitDuration);
         ms.NextEvent?.Invoke();
     }
-
-    public UnityEvent OnComplete;
 }

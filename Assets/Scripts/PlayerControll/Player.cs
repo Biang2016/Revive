@@ -3,26 +3,22 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private void Start()
-    {
-        AudioManager.Instance.BGMFadeIn("bgm/Stream");
-    }
-
-    public void StartPuzzleA()
-    {
-        Manager.Instance.Raft.IsMoving = false;
-    }
+    public AutoMove AutoMove;
+    public Controller Controller;
 
     void Update()
     {
-        RayCastPuzzleSolve();
+        if (GameManager.Instance.CurTravelProcess == GameManager.TravelProcess.CaveStage1_WhenPuzzle)
+        {
+            RayCastPuzzleSolve();
+        }
     }
 
     public bool RayCastPuzzleSolve()
     {
-        Ray ray = Manager.Instance.MainCamera.ScreenPointToRay(Input.mousePosition);
+        Ray ray = GameManager.Instance.MainCamera.ScreenPointToRay(Input.mousePosition);
 
-        RaycastHit[] hits = Physics.RaycastAll(ray, 500f, Manager.Instance.PuzzleLayer);
+        RaycastHit[] hits = Physics.RaycastAll(ray, 500f, GameManager.Instance.PuzzleLayer);
         if (hits.Length != 0)
         {
             HashSet<Puzzle> triedPuzzle = new HashSet<Puzzle>();
@@ -47,5 +43,10 @@ public class Player : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void StartCaveStage1Puzzle()
+    {
+        GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.CaveStage1_WhenPuzzle;
     }
 }

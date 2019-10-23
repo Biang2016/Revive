@@ -14,20 +14,8 @@ public class Controller : MonoBehaviour
 
     private Vector3 velocity = Vector3.zero;
 
-    void Start()
+    void Awake()
     {
-        if (Manager.Instance.TravelViewMode)
-        {
-            MyController.enabled = true;
-            MyMouseLooker.enabled = true;
-            SetAllowJump();
-        }
-        else
-        {
-            MyController.enabled = false;
-            MyMouseLooker.enabled = false;
-        }
-
         default_MoveSpeed = MoveSpeed;
         default_JumpPower = JumpPower;
         default_Gravity = Gravity;
@@ -35,32 +23,10 @@ public class Controller : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.K))
-        {
-            MyMouseLooker.enabled = !MyMouseLooker.enabled;
-        }
-
-        if (Input.GetKeyUp(KeyCode.P))
-        {
-            SupermanMode = !SupermanMode;
-        }
-
-        if (SupermanMode)
-        {
-            MoveSpeed = 20f;
-            Gravity = 0;
-        }
-        else
-        {
-            MoveSpeed = default_MoveSpeed;
-            JumpPower = default_JumpPower;
-            Gravity = default_Gravity;
-        }
-
         velocity.x = Input.GetAxis("Horizontal") * MoveSpeed;
         velocity.z = Input.GetAxis("Vertical") * MoveSpeed;
 
-        if (SupermanMode)
+        if (SuperManMode)
         {
             velocity.y = Input.GetAxis("Jump") * MoveSpeed;
         }
@@ -77,7 +43,7 @@ public class Controller : MonoBehaviour
                     }
                 }
             }
-            else //在空中时
+            else
             {
                 velocity.y -= Gravity;
             }
@@ -87,14 +53,45 @@ public class Controller : MonoBehaviour
         MyController.Move(velocity * Time.deltaTime);
     }
 
+    [SerializeField]private bool superManMode = false;
+
+    public bool SuperManMode
+    {
+        get { return superManMode; }
+        set
+        {
+            superManMode = value;
+            if (value)
+            {
+                MoveSpeed = GameManager.Instance.SupermanSpeed;
+                Gravity = 0;
+            }
+            else
+            {
+                MoveSpeed = default_MoveSpeed;
+                JumpPower = default_JumpPower;
+                Gravity = default_Gravity;
+            }
+        }
+    }
+
     public bool AllowJump = false;
 
     public void SetAllowJump()
     {
         AllowJump = true;
-        MyController.radius = 0.82f;
     }
 
-    public bool SupermanMode;
-    public float SupermanSpeed = 20f;
+    public float ControllerRadiusOnLand = 0.82f;
+    public float ControllerRadiusOnRaft = 0.1f;
+
+    public void SetColliderRadiusOnRaft()
+    {
+        MyController.radius = ControllerRadiusOnRaft;
+    }
+
+    public void SetColliderRadiusOnLand()
+    {
+        MyController.radius = ControllerRadiusOnLand;
+    }
 }
