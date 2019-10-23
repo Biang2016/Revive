@@ -23,6 +23,18 @@ public class Controller : MonoBehaviour
 
     void Update()
     {
+        if (SuperManMode)
+        {
+            MoveSpeed = GameManager.Instance.SupermanSpeed;
+            Gravity = 0;
+        }
+        else
+        {
+            MoveSpeed = default_MoveSpeed;
+            JumpPower = default_JumpPower;
+            Gravity = default_Gravity;
+        }
+
         velocity.x = Input.GetAxis("Horizontal") * MoveSpeed;
         velocity.z = Input.GetAxis("Vertical") * MoveSpeed;
 
@@ -53,27 +65,7 @@ public class Controller : MonoBehaviour
         MyController.Move(velocity * Time.deltaTime);
     }
 
-    [SerializeField]private bool superManMode = false;
-
-    public bool SuperManMode
-    {
-        get { return superManMode; }
-        set
-        {
-            superManMode = value;
-            if (value)
-            {
-                MoveSpeed = GameManager.Instance.SupermanSpeed;
-                Gravity = 0;
-            }
-            else
-            {
-                MoveSpeed = default_MoveSpeed;
-                JumpPower = default_JumpPower;
-                Gravity = default_Gravity;
-            }
-        }
-    }
+    public bool SuperManMode = false;
 
     public bool AllowJump = false;
 

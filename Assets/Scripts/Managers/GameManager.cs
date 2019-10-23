@@ -29,7 +29,54 @@ public class GameManager : MonoSingleton<GameManager>
             Player.Controller.SuperManMode = !Player.Controller.SuperManMode;
             StartSceneCameraCarrier.Controller.SuperManMode = !StartSceneCameraCarrier.Controller.SuperManMode;
         }
+
+        if (Input.GetKey(KeyCode.Equals))
+        {
+            SupermanSpeed *= 1.01f;
+        }
+
+        if (Input.GetKey(KeyCode.Minus))
+        {
+            SupermanSpeed /= 1.01f;
+        }
+
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        {
+            SupermanSpeed *= 1.1f;
+        }
+
+        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        {
+            SupermanSpeed /= 1.1f;
+        }
+
+        if (Input.GetKeyUp(KeyCode.F10))
+        {
+            if (!RecordingStartSceneCameraPath)
+            {
+                CameraRecordingManager.Instance.PlayRecording();
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.F11))
+        {
+            if (!CameraRecordingManager.Instance.IsPlayingRecord)
+            {
+                RecordingStartSceneCameraPath = true;
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.F12))
+        {
+            if (!CameraRecordingManager.Instance.IsPlayingRecord)
+            {
+                RecordingStartSceneCameraPath = false;
+                CameraRecordingManager.Instance.SaveRecord();
+            }
+        }
     }
+
+    public bool RecordingStartSceneCameraPath = false;
 
     public Camera MainCamera;
     public Camera StartSceneCamera;

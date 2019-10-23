@@ -44,7 +44,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.3, y: 0.3, z: 0.3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &6444851181641916300
 MeshRenderer:
@@ -151,7 +151,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 614297e5d0d1233469eff6a1ecf025de, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -196,8 +196,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 9, y: 5, z: 0.3960004}
-  m_Center: {x: 0.28861576, y: -1.2838343, z: 0.0990004}
+  m_Size: {x: 3, y: 3, z: 0.1}
+  m_Center: {x: -0.20791528, y: -0.2133771, z: 0.2970006}
 --- !u!1 &7608120604291414276
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,7 +257,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 614297e5d0d1233469eff6a1ecf025de, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -302,8 +302,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6, y: 6, z: 0.39600065}
-  m_Center: {x: 0.8123776, y: 0.898408, z: 0.09900008}
+  m_Size: {x: 3, y: 3, z: 0.1}
+  m_Center: {x: -0.1689834, y: -0.13419306, z: 0.09900008}
 --- !u!1 &7608120604391180146
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,7 +413,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 614297e5d0d1233469eff6a1ecf025de, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -458,5 +458,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.6, y: 8, z: 0.39600006}
-  m_Center: {x: -1.784761, y: 0.45981127, z: 0.09899993}
+  m_Size: {x: 3, y: 3, z: 0.1}
+  m_Center: {x: -0.19019467, y: -0.1129961, z: 0.09899993}

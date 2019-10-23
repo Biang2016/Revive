@@ -28,9 +28,13 @@ public class Puzzle : MonoBehaviour
         }
     }
 
+    public bool PlayerEnter = false;
+
     public void CheckPuzzleSolved()
     {
         if (IsSolved) return;
+        if (!PlayerEnter) return;
+
         bool solve = true;
         for (int i = 0; i < PuzzleHits.Length; i++)
         {
