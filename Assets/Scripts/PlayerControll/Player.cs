@@ -12,6 +12,11 @@ public class Player : MonoBehaviour
         {
             RayCastPuzzleSolve();
         }
+
+        if (GameManager.Instance.CurTravelProcess == GameManager.TravelProcess.None)
+        {
+            RayCastPuzzleSolve();
+        }
     }
 
     public bool RayCastPuzzleSolve()
@@ -39,8 +44,6 @@ public class Player : MonoBehaviour
                 }
             }
 
-            Debug.Log("Cast" + ppCount);
-
             foreach (Puzzle puzzle in triedPuzzle)
             {
                 puzzle.CheckPuzzleSolved();
@@ -51,6 +54,11 @@ public class Player : MonoBehaviour
     }
 
     public void StartCaveStage1Puzzle()
+    {
+        GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.CaveStage1_WhenPuzzle;
+    }
+
+    public void StartCaveStage3Puzzle()
     {
         GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.CaveStage1_WhenPuzzle;
     }
