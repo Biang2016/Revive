@@ -92,6 +92,7 @@
     <Compile Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Editor\Utils\EditorResources.cs" />
     <Compile Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Editor\Utils\FxStyles.cs" />
     <Compile Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Editor\Utils\ReflectionUtils.cs" />
+    <Compile Include="Assets\Imports\UnityParticleEffets\Shared\Ramps\Editor\RampAssetEditor.cs" />
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>/Users/biang/WorkSpace/NYUGC/GameStudio1/WalkingSImulator/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>

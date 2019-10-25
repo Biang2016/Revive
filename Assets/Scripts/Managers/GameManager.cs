@@ -190,7 +190,7 @@ public class GameManager : MonoSingleton<GameManager>
                     }
                     case TravelProcess.CaveStage1_BeforePuzzle:
                     {
-                        AudioManager.Instance.BGMFadeIn("bgm/Cave1");
+                        AudioManager.Instance.BGMFadeIn("bgm/Cave1", 0.5f);
                         StartSceneCameraCarrier.gameObject.SetActive(false);
                         Raft.gameObject.SetActive(true);
 
@@ -248,7 +248,7 @@ public class GameManager : MonoSingleton<GameManager>
                     }
                     case TravelProcess.CaveStage2_After3DPlatformJumpNarrow:
                     {
-                        AudioManager.Instance.BGMFadeIn("bgm/WhisperStage2",3f);
+                        AudioManager.Instance.BGMFadeIn("bgm/WhisperStage2", 3f);
                         break;
                     }
                 }

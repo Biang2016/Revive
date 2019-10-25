@@ -113,6 +113,12 @@
     <Compile Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\Shaders\Sky\Sky.cs" />
     <Compile Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\UI\NVJOBUI.cs" />
     <Compile Include="Assets\Imports\NVJOB Water Shader SAF\Water Shader\Water.cs" />
+    <Compile Include="Assets\Imports\UnityParticleEffets\EffectExamples\Misc Effects\Scripts\SpawnEffect.cs" />
+    <Compile Include="Assets\Imports\UnityParticleEffets\Shared\Ramps\Runtime\RampAsset.cs" />
+    <Compile Include="Assets\Imports\UnityParticleEffets\Shared\Scripts\AdjustTimeScale.cs" />
+    <Compile Include="Assets\Imports\UnityParticleEffets\Shared\Scripts\ProximityActivate.cs" />
+    <Compile Include="Assets\Imports\UnityParticleEffets\Shared\Scripts\SimpleCameraController.cs" />
+    <Compile Include="Assets\Imports\UnityParticleEffets\Shared\Scripts\SimpleCharacterMotor.cs" />
     <Compile Include="Assets\Imports\Water\Water\Scripts\Displace.cs" />
     <Compile Include="Assets\Imports\Water\Water\Scripts\GerstnerDisplace.cs" />
     <Compile Include="Assets\Imports\Water\Water\Scripts\MeshContainer.cs" />
@@ -145,11 +151,14 @@
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\Scripts\Managers\StartSceneCameraCarrier.cs" />
     <Compile Include="Assets\Scripts\PlayerControll\AutoMove.cs" />
+    <Compile Include="Assets\Scripts\PlayerControll\BackwardAirWall.cs" />
     <Compile Include="Assets\Scripts\PlayerControll\Controller.cs" />
     <Compile Include="Assets\Scripts\PlayerControll\MouseLooker.cs" />
     <Compile Include="Assets\Scripts\PlayerControll\MoveStep.cs" />
     <Compile Include="Assets\Scripts\PlayerControll\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerControll\Raft.cs" />
+    <Compile Include="Assets\Scripts\PlayerControll\TravelTrigger.cs" />
+    <Compile Include="Assets\Scripts\Puzzles\Cave1WaterStone.cs" />
     <Compile Include="Assets\Scripts\Puzzles\CheckPoint.cs" />
     <Compile Include="Assets\Scripts\Puzzles\Puzzle.cs" />
     <Compile Include="Assets\Scripts\Puzzles\PuzzlePart.cs" />
@@ -173,7 +182,9 @@
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Resources\Shaders\Tonemapping.cginc" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Editor Resources\Monitors\HistogramCompute.compute" />
+    <None Include="Assets\Imports\UnityParticleEffets\EffectExamples\Misc Effects\Shaders\Dissolve.shader" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Resources\Shaders\Uber.shader" />
+    <None Include="Assets\Imports\UnityParticleEffets\EffectExamples\Misc Effects\Shaders\FireFly.shader" />
     <None Include="Assets\Imports\Water\Water4\Shaders\FXWater4Simple.shader" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Resources\Shaders\Blit.shader" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Editor Resources\Monitors\WaveformRender.shader" />
@@ -182,6 +193,7 @@
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Resources\Shaders\MotionBlur.shader" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\Dynamic Sky Lite\Dynamic Sky Lite Standard Horizon.shader" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Resources\Shaders\AmbientOcclusion.shader" />
+    <None Include="Assets\Imports\UnityParticleEffets\EffectExamples\Misc Effects\Prefabs\Readme_Dissolve_Respawn_.txt" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Resources\Bluenoise64\LICENSE.txt" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Resources\Shaders\BuiltinDebugViews.shader" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\Shaders\Sky\Sky (Diffuse, Detail, Parallax, Transparent, Nolight, Noshadow, Optimized, Render 500).shader" />
@@ -192,6 +204,7 @@
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\Shaders\SpeedTree\STBCustomCore.cginc" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Resources\Shaders\Bloom.cginc" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Resources\Shaders\TAA.shader" />
+    <None Include="Assets\Imports\UnityParticleEffets\EffectExamples\Misc Effects\Shaders\Respawn.shader" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Resources\Shaders\EyeHistogram.compute" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Resources\Shaders\TAA.cginc" />
     <None Include="Assets\Imports\Advanced Dissolve\Shaders\Cl_3D-Dissolve-Sphere-One.shader" />
@@ -207,6 +220,7 @@
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Resources\Shaders\Bloom.shader" />
     <None Include="Assets\Materials\Shaders\GodRays.shader" />
     <None Include="Assets\StreamingAssets\CameraAnim.txt" />
+    <None Include="Assets\Imports\UnityParticleEffets\EffectExamples\Magic Effects\Shaders\Ice.shader" />
     <None Include="Assets\Imports\Advanced Dissolve\Shaders\Cl_3D-Dissolve-Cylinder-Four.shader" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Editor Resources\Monitors\VectorscopeRender.shader" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Resources\Shaders\EyeAdaptation.shader" />

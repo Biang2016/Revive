@@ -57,6 +57,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Plugins\FindReference2\Editor\Script\FR2_Asset.cs" />
+    <Compile Include="Assets\Plugins\FindReference2\Editor\Script\FR2_Cache.cs" />
+    <Compile Include="Assets\Plugins\FindReference2\Editor\Script\FR2_CacheEditor.cs" />
+    <Compile Include="Assets\Plugins\FindReference2\Editor\Script\FR2_Duplicate.cs" />
+    <Compile Include="Assets\Plugins\FindReference2\Editor\Script\FR2_Export.cs" />
+    <Compile Include="Assets\Plugins\FindReference2\Editor\Script\FR2_Ref.cs" />
+    <Compile Include="Assets\Plugins\FindReference2\Editor\Script\FR2_RefTree.cs" />
+    <Compile Include="Assets\Plugins\FindReference2\Editor\Script\FR2_TreeUI.cs" />
+    <Compile Include="Assets\Plugins\FindReference2\Editor\Script\FR2_TreeUI2.cs" />
+    <Compile Include="Assets\Plugins\FindReference2\Editor\Script\FR2_Unity.cs" />
+    <Compile Include="Assets\Plugins\FindReference2\Editor\Script\FR2_Window.cs" />
     <Compile Include="Assets\Standard Assets\Editor\ImageEffects\AntialiasingEditor.cs" />
     <Compile Include="Assets\Standard Assets\Editor\ImageEffects\BloomAndFlaresEditor.cs" />
     <Compile Include="Assets\Standard Assets\Editor\ImageEffects\BloomEditor.cs" />
