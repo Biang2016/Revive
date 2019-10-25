@@ -27,7 +27,7 @@ public class AutoMove : MonoBehaviour
     {
         transform.rotation = MoveSteps[CurrentStep].transform.rotation;
         transform.position = MoveSteps[CurrentStep].transform.position;
-        yield return new WaitForSeconds(MoveSteps[CurrentStep].TransitDuration);
+        yield return new WaitForSeconds(MoveSteps[CurrentStep].TransitDuration / GameManager.Instance.AutoMoveSpeedUpFactor);
         CurrentStep++;
         while (CurrentStep < MoveSteps.Length)
         {
@@ -53,18 +53,18 @@ public class AutoMove : MonoBehaviour
         {
             if (ms.NeedShakePosition)
             {
-                EyeCameraFrame.transform.DOShakePosition(ms.ShakePos_Duration, ms.ShakePos_Strength, ms.ShakePos_Vibration, fadeOut: false).SetEase(ms.ShakePosEase);
+                EyeCameraFrame.transform.DOShakePosition(ms.ShakePos_Duration / GameManager.Instance.AutoMoveSpeedUpFactor, ms.ShakePos_Strength, ms.ShakePos_Vibration, fadeOut: false).SetEase(ms.ShakePosEase);
             }
 
             if (ms.NeedShakeRotation)
             {
-                EyeCameraFrame.transform.DOShakeRotation(ms.ShakeRotate_Duration, ms.ShakeRotate_Strength, ms.ShakeRotate_Vibration, fadeOut: false).SetEase(ms.ShakeRotateEase);
+                EyeCameraFrame.transform.DOShakeRotation(ms.ShakeRotate_Duration / GameManager.Instance.AutoMoveSpeedUpFactor, ms.ShakeRotate_Strength, ms.ShakeRotate_Vibration, fadeOut: false).SetEase(ms.ShakeRotateEase);
             }
         }
 
-        transform.DORotate(ms.transform.rotation.eulerAngles, ms.TransitDuration).SetEase(ms.RotateEase);
-        transform.DOMove(ms.transform.position, ms.TransitDuration).SetEase(ms.MoveEase);
-        yield return new WaitForSeconds(ms.TransitDuration);
+        transform.DORotate(ms.transform.rotation.eulerAngles, ms.TransitDuration / GameManager.Instance.AutoMoveSpeedUpFactor).SetEase(ms.RotateEase);
+        transform.DOMove(ms.transform.position, ms.TransitDuration / GameManager.Instance.AutoMoveSpeedUpFactor).SetEase(ms.MoveEase);
+        yield return new WaitForSeconds(ms.TransitDuration / GameManager.Instance.AutoMoveSpeedUpFactor);
         ms.NextEvent?.Invoke();
     }
 }

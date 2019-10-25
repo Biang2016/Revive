@@ -1,22 +1,24 @@
 ﻿using System.Collections;
+using System.Media;
 using UnityEngine;
 using UnityStandardAssets.ImageEffects;
 
 public class GameManager : MonoSingleton<GameManager>
 {
     internal int PuzzleLayer;
+    public float AutoMoveSpeedUpFactor = 1.0f;
 
     void Awake()
     {
         RenderSettings.fog = true;
         PuzzleLayer = 1 << LayerMask.NameToLayer("Puzzle");
-        AudioManager.Instance.BGMFadeIn("bgm/WhisperOfHope");
     }
 
     void Update()
     {
         if (Input.GetKeyUp(KeyCode.O))
         {
+            //Cave1WaterStone.PuzzleSolved();
             RenderSettings.fog = !RenderSettings.fog;
         }
 
@@ -87,6 +89,7 @@ public class GameManager : MonoSingleton<GameManager>
     public Raft Raft;
     public Player Player;
     public StartSceneCameraCarrier StartSceneCameraCarrier;
+    public Cave1WaterStone Cave1WaterStone;
 
     public float SupermanSpeed = 20f;
 
@@ -132,8 +135,8 @@ public class GameManager : MonoSingleton<GameManager>
         StartScene = 0,
         CaveStage1_BeforePuzzle = 1,
         CaveStage1_WhenPuzzle = 2,
-        CaveStage1_AfterPuzzle = 3,
-        CaveStage1_PuzzleSolveAnimation = 4,
+        CaveStage1_PuzzleSolveAnimation = 3,
+        CaveStage1_AfterPuzzle = 4,
         CaveStage2_Narrow = 5,
         CaveStage2_OpenPlaceBeforeWaterfall = 6,
         CaveStage2_AfterWaterfall = 7,
@@ -187,6 +190,7 @@ public class GameManager : MonoSingleton<GameManager>
                     }
                     case TravelProcess.CaveStage1_BeforePuzzle:
                     {
+                        AudioManager.Instance.BGMFadeIn("bgm/Cave1");
                         StartSceneCameraCarrier.gameObject.SetActive(false);
                         Raft.gameObject.SetActive(true);
 
@@ -206,10 +210,11 @@ public class GameManager : MonoSingleton<GameManager>
                     case TravelProcess.CaveStage1_PuzzleSolveAnimation:
                     {
                         MainCameraAnimator.SetTrigger("PuzzleASolved");
+                        AudioManager.Instance.SoundPlay("sfx/PuzzleASolved");
                         StartCoroutine(Co_PuzzleASolved());
+                        Cave1WaterStone.PuzzleSolved();
                         Player.Controller.MyMouseLooker.enabled = false;
                         Player.Controller.MyController.enabled = false;
-
                         break;
                     }
                     case TravelProcess.CaveStage1_AfterPuzzle:
@@ -217,16 +222,33 @@ public class GameManager : MonoSingleton<GameManager>
                         Player.Controller.MyMouseLooker.enabled = true;
                         Player.Controller.MyController.enabled = true;
                         Raft.AutoMove.IsMoving = true;
-                        Player.Controller.SetAllowJump();
-                        Player.Controller.SetColliderRadiusOnLand();
                         break;
                     }
                     case TravelProcess.CaveStage2_Narrow:
                     {
+                        Player.Controller.SetAllowJump();
+                        Player.Controller.SetColliderRadiusOnLand();
                         break;
                     }
                     case TravelProcess.CaveStage2_OpenPlaceBeforeWaterfall:
                     {
+                        break;
+                    }
+                    case TravelProcess.CaveStage2_AfterWaterfall:
+                    {
+                        break;
+                    }
+                    case TravelProcess.CaveStage2_Before3DPlatformJump:
+                    {
+                        break;
+                    }
+                    case TravelProcess.CaveStage2_When3DPlatformJump:
+                    {
+                        break;
+                    }
+                    case TravelProcess.CaveStage2_After3DPlatformJumpNarrow:
+                    {
+                        AudioManager.Instance.BGMFadeIn("bgm/WhisperStage2",3f);
                         break;
                     }
                 }

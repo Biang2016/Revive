@@ -58,8 +58,13 @@ public class Player : MonoBehaviour
         GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.CaveStage1_WhenPuzzle;
     }
 
-    public void StartCaveStage3Puzzle()
+    public void StartCaveStage2Narrow()
     {
-        GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.CaveStage1_WhenPuzzle;
+        GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.CaveStage2_Narrow;
+    }
+
+    public void OnEnterLastCave()
+    {
+        GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.CaveStage2_After3DPlatformJumpNarrow;
     }
 }

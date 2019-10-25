@@ -31,12 +31,7 @@ public class AudioManager : MonoSingleton<AudioManager>
         AudioMixer.SetFloat("BGMVolume", 0f);
     }
 
-    public void SoundPlayIsNoise(string audioName)
-    {
-        SoundPlay(audioName, true);
-    }
-
-    public void SoundPlay(string audioName, bool isNoise)
+    public void SoundPlay(string audioName)
     {
         SoundPlay(audioName, 1f);
     }
