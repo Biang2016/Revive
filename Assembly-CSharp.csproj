@@ -12,7 +12,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{3B1A4FF3-3D30-6BEB-9FD6-585D26FA1FD2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -150,8 +151,8 @@
     <Compile Include="Assets\Scripts\Managers\EditorPanel.cs" />
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\Scripts\Managers\StartSceneCameraCarrier.cs" />
-    <Compile Include="Assets\Scripts\PlayerControll\AutoMove.cs" />
     <Compile Include="Assets\Scripts\PlayerControll\BackwardAirWall.cs" />
+    <Compile Include="Assets\Scripts\PlayerControll\AutoMove.cs" />
     <Compile Include="Assets\Scripts\PlayerControll\Controller.cs" />
     <Compile Include="Assets\Scripts\PlayerControll\MouseLooker.cs" />
     <Compile Include="Assets\Scripts\PlayerControll\MoveStep.cs" />

@@ -1813,13 +1813,14 @@ MonoBehaviour:
   - guid: 9fc0d4010bbf28b4594072e72b8655ab
     ScriptSymbols: []
     ScriptTokens: []
-    stamp: 1572017283
+    stamp: 1572022035
     type: 3
     UseGUIDs:
     - ab7065615d9765f4196d0580d05eabcf
     - 428dd2d1139ed3f429af75ed771ae887
     - 4ee15682b85944f4ab7a5a12f54bf163
     - cbf6feac63b0439eb5f5124ca1648ee2
+    - b20867f0e529161498f07a42b14342b0
     - cb88ae7ed30b473ab7e893f4ecc400b9
     - ee17a15d13c80df4aaaddfd9ffabdad4
     - 51a8d4003be3f3b4ea21b1ab2c8c8fac
@@ -1857,7 +1858,6 @@ MonoBehaviour:
     - 414315c8d4d18674eb17deca7f35dcba
     - a5f2339f242f6cc41a982ec55ea3c201
     - 2a91e8dd37cdd41efb4859b65aced7a2
-    - b20867f0e529161498f07a42b14342b0
     - dc965afdd7839c34f947ef5a0f3f3133
     - 640c7d4cf5019bf4ca0c74e00c94b249
     - 07080ee0ecf2db140825e527f58d4bf6
@@ -12956,7 +12956,7 @@ MonoBehaviour:
   - guid: a5f2339f242f6cc41a982ec55ea3c201
     ScriptSymbols: []
     ScriptTokens: []
-    stamp: 1572017457
+    stamp: 1572022035
     type: 5
     UseGUIDs:
     - 475c4a4e617a8401b84ca7b32c7cc460

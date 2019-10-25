@@ -67,4 +67,9 @@ public class Player : MonoBehaviour
     {
         GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.CaveStage2_After3DPlatformJumpNarrow;
     }
+
+    public void OnLeaveLastCave()
+    {
+        GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.PlatformStage3_CameOutFromCave;
+    }
 }

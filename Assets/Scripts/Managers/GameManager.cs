@@ -6,12 +6,16 @@ using UnityStandardAssets.ImageEffects;
 public class GameManager : MonoSingleton<GameManager>
 {
     internal int PuzzleLayer;
+    internal int TerrainLayer;
+    internal int PlayerLayer;
     public float AutoMoveSpeedUpFactor = 1.0f;
 
     void Awake()
     {
         RenderSettings.fog = true;
         PuzzleLayer = 1 << LayerMask.NameToLayer("Puzzle");
+        TerrainLayer = 1 << LayerMask.NameToLayer("Terrain");
+        PlayerLayer = 1 << LayerMask.NameToLayer("Player");
     }
 
     void Update()
@@ -190,6 +194,7 @@ public class GameManager : MonoSingleton<GameManager>
                     }
                     case TravelProcess.CaveStage1_BeforePuzzle:
                     {
+                        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Terrain"), false);
                         AudioManager.Instance.BGMFadeIn("bgm/Cave1", 0.5f);
                         StartSceneCameraCarrier.gameObject.SetActive(false);
                         Raft.gameObject.SetActive(true);
@@ -226,6 +231,7 @@ public class GameManager : MonoSingleton<GameManager>
                     }
                     case TravelProcess.CaveStage2_Narrow:
                     {
+                        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Terrain"), true);
                         Player.Controller.SetAllowJump();
                         Player.Controller.SetColliderRadiusOnLand();
                         break;
