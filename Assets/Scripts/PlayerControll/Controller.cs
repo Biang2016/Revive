@@ -5,7 +5,7 @@ public class Controller : MonoBehaviour
     public float MoveSpeed = 3.0f;
     public float JumpPower = 5f;
     public float Gravity = 9.81f;
-    private float default_MoveSpeed = 3.0f;
+    internal float default_MoveSpeed = 3.0f;
     private float default_JumpPower = 5f;
     private float default_Gravity = 9.81f;
 
@@ -74,7 +74,7 @@ public class Controller : MonoBehaviour
         AllowJump = true;
     }
 
-    public float ControllerRadiusOnLand = 0.82f;
+    public float ControllerRadiusOnLand = 0.4f;
     public float ControllerRadiusOnRaft = 0.1f;
 
     public void SetColliderRadiusOnRaft()

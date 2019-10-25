@@ -65,6 +65,7 @@ public class AutoMove : MonoBehaviour
         transform.DORotate(ms.transform.rotation.eulerAngles, ms.TransitDuration / GameManager.Instance.AutoMoveSpeedUpFactor).SetEase(ms.RotateEase);
         transform.DOMove(ms.transform.position, ms.TransitDuration / GameManager.Instance.AutoMoveSpeedUpFactor).SetEase(ms.MoveEase);
         yield return new WaitForSeconds(ms.TransitDuration / GameManager.Instance.AutoMoveSpeedUpFactor);
+        transform.DOPause();
         ms.NextEvent?.Invoke();
     }
 }

@@ -22,7 +22,6 @@ public class GameManager : MonoSingleton<GameManager>
     {
         if (Input.GetKeyUp(KeyCode.O))
         {
-            //Cave1WaterStone.PuzzleSolved();
             RenderSettings.fog = !RenderSettings.fog;
         }
 
@@ -107,7 +106,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public enum GameStates
     {
-        None = 100,
+        None = -1,
         StartScene = 0,
         Traveling = 1,
         Pause = 2,
@@ -135,7 +134,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public enum TravelProcess
     {
-        None = 100,
+        None = -1,
         StartScene = 0,
         CaveStage1_BeforePuzzle = 1,
         CaveStage1_WhenPuzzle = 2,
@@ -194,7 +193,7 @@ public class GameManager : MonoSingleton<GameManager>
                     }
                     case TravelProcess.CaveStage1_BeforePuzzle:
                     {
-                        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Terrain"), false);
+//                        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Terrain"), false);
                         AudioManager.Instance.BGMFadeIn("bgm/Cave1", 0.5f);
                         StartSceneCameraCarrier.gameObject.SetActive(false);
                         Raft.gameObject.SetActive(true);
@@ -202,6 +201,11 @@ public class GameManager : MonoSingleton<GameManager>
                         Player.AutoMove.AutoMoveStart();
                         Raft.AutoMove.AutoMoveStart();
                         Player.Controller.SetColliderRadiusOnRaft();
+                        Player.Controller.MoveSpeed = 3f;
+                        Player.Controller.default_MoveSpeed = 3f;
+                        Player.Controller.MyMouseLooker.XSensitivity = 2f;
+                        Player.Controller.MyMouseLooker.YSensitivity = 2f;
+
                         Player.Controller.AllowJump = false;
                         Player.Controller.MyController.enabled = false;
                         Player.Controller.MyMouseLooker.enabled = false;
@@ -209,6 +213,10 @@ public class GameManager : MonoSingleton<GameManager>
                     }
                     case TravelProcess.CaveStage1_WhenPuzzle:
                     {
+                        Player.Controller.MoveSpeed = 3f;
+                        Player.Controller.default_MoveSpeed = 3f;
+                        Player.Controller.MyMouseLooker.XSensitivity = 0.5f;
+                        Player.Controller.MyMouseLooker.YSensitivity = 0.5f;
                         Raft.AutoMove.IsMoving = false;
                         break;
                     }
@@ -224,6 +232,8 @@ public class GameManager : MonoSingleton<GameManager>
                     }
                     case TravelProcess.CaveStage1_AfterPuzzle:
                     {
+                        Player.Controller.MyMouseLooker.XSensitivity = 2f;
+                        Player.Controller.MyMouseLooker.YSensitivity = 2f;
                         Player.Controller.MyMouseLooker.enabled = true;
                         Player.Controller.MyController.enabled = true;
                         Raft.AutoMove.IsMoving = true;
@@ -231,7 +241,12 @@ public class GameManager : MonoSingleton<GameManager>
                     }
                     case TravelProcess.CaveStage2_Narrow:
                     {
-                        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Terrain"), true);
+                        Player.Controller.MoveSpeed = 10f;
+                        Player.Controller.default_MoveSpeed = 10f;
+                        Player.Controller.MyMouseLooker.XSensitivity = 2f;
+                        Player.Controller.MyMouseLooker.YSensitivity = 2f;
+
+//                        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Terrain"), true);
                         Player.Controller.SetAllowJump();
                         Player.Controller.SetColliderRadiusOnLand();
                         break;
