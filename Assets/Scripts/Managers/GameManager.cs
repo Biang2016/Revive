@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Media;
 using UnityEngine;
 using UnityStandardAssets.ImageEffects;
@@ -93,6 +94,8 @@ public class GameManager : MonoSingleton<GameManager>
     public Player Player;
     public StartSceneCameraCarrier StartSceneCameraCarrier;
     public Cave1WaterStone Cave1WaterStone;
+    public Transform SurroundingRoot;
+    public Platformer3D Platformer3D;
 
     public float SupermanSpeed = 20f;
 
@@ -136,22 +139,26 @@ public class GameManager : MonoSingleton<GameManager>
     {
         None = -1,
         StartScene = 0,
-        CaveStage1_BeforePuzzle = 1,
-        CaveStage1_WhenPuzzle = 2,
-        CaveStage1_PuzzleSolveAnimation = 3,
-        CaveStage1_AfterPuzzle = 4,
-        CaveStage2_Narrow = 5,
-        CaveStage2_OpenPlaceBeforeWaterfall = 6,
-        CaveStage2_AfterWaterfall = 7,
-        CaveStage2_Before3DPlatformJump = 8,
-        CaveStage2_When3DPlatformJump = 9,
-        CaveStage2_After3DPlatformJumpNarrow = 10,
-        PlatformStage3_CameOutFromCave = 11,
-        PlatformStage3_UnlockFirstPuzzle = 12,
-        PlatformStage3_UnlockSecondPuzzle = 13,
-        PlatformStage3_SolvingLastPuzzle = 14,
-        PlatformStage3_RevivingTree = 15,
-        PlatformStage3_TreeRevived = 16,
+        CaveStage1_DropDown,
+        CaveStage1_DropEnterCave,
+        CaveStage1_WakeUp,
+        CaveStage1_Stand,
+        CaveStage1_BeforePuzzle,
+        CaveStage1_WhenPuzzle,
+        CaveStage1_PuzzleSolveAnimation,
+        CaveStage1_AfterPuzzle,
+        CaveStage2_Narrow,
+        CaveStage2_OpenPlaceBeforeWaterfall,
+        CaveStage2_AfterWaterfall,
+        CaveStage2_Before3DPlatformJump,
+        CaveStage2_When3DPlatformJump,
+        CaveStage2_After3DPlatformJumpNarrow,
+        PlatformStage3_CameOutFromCave,
+        PlatformStage3_UnlockFirstPuzzle,
+        PlatformStage3_UnlockSecondPuzzle,
+        PlatformStage3_SolvingLastPuzzle,
+        PlatformStage3_RevivingTree,
+        PlatformStage3_TreeRevived,
     }
 
     [SerializeField] private TravelProcess StartTravelProcess = TravelProcess.None;
@@ -169,10 +176,6 @@ public class GameManager : MonoSingleton<GameManager>
                 StartSceneCameraCarrier.gameObject.SetActive(true);
                 Raft.gameObject.SetActive(false);
                 UIManager.Instance.ShowUIForms<EditorPanel>();
-
-                Player.Controller.MyController.enabled = true;
-                Player.Controller.MyMouseLooker.enabled = true;
-                Player.Controller.SetAllowJump();
             }
             else
             {
@@ -189,12 +192,11 @@ public class GameManager : MonoSingleton<GameManager>
                     }
                     case TravelProcess.StartScene:
                     {
+                        // start UI
                         break;
                     }
-                    case TravelProcess.CaveStage1_BeforePuzzle:
+                    case TravelProcess.CaveStage1_DropDown:
                     {
-//                        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Terrain"), false);
-                        AudioManager.Instance.BGMFadeIn("bgm/Cave1", 0.5f);
                         StartSceneCameraCarrier.gameObject.SetActive(false);
                         Raft.gameObject.SetActive(true);
 
@@ -209,6 +211,33 @@ public class GameManager : MonoSingleton<GameManager>
                         Player.Controller.AllowJump = false;
                         Player.Controller.MyController.enabled = false;
                         Player.Controller.MyMouseLooker.enabled = false;
+                        Player.Controller.CapsuleCollider.enabled = true;
+
+                        //click UI start button enter this phase
+                        // start drop down sound
+                        break;
+                    }
+                    case TravelProcess.CaveStage1_DropEnterCave:
+                    {
+                        // start black
+                        break;
+                    }
+                    case TravelProcess.CaveStage1_WakeUp:
+                    {
+                        AudioManager.Instance.BGMFadeIn("bgm/bgm_stage1", 3f, 1f);
+                        AudioManager.Instance.SoundPlay("sfx/Cave1Mixed", 1f);
+                        break;
+                    }
+                    case TravelProcess.CaveStage1_Stand:
+                    {
+                        Player.Controller.enabled = true;
+                        Player.Controller.MyController.enabled = false;
+                        Player.Controller.MyMouseLooker.enabled = true;
+                        Player.Controller.CapsuleCollider.enabled = true;
+                        break;
+                    }
+                    case TravelProcess.CaveStage1_BeforePuzzle:
+                    {
                         break;
                     }
                     case TravelProcess.CaveStage1_WhenPuzzle:
@@ -218,12 +247,14 @@ public class GameManager : MonoSingleton<GameManager>
                         Player.Controller.MyMouseLooker.XSensitivity = 0.5f;
                         Player.Controller.MyMouseLooker.YSensitivity = 0.5f;
                         Raft.AutoMove.IsMoving = false;
+                        Player.Controller.MyController.enabled = true;
+                        Player.Controller.CapsuleCollider.enabled = false;
                         break;
                     }
                     case TravelProcess.CaveStage1_PuzzleSolveAnimation:
                     {
                         MainCameraAnimator.SetTrigger("PuzzleASolved");
-                        AudioManager.Instance.SoundPlay("sfx/PuzzleASolved");
+                        AudioManager.Instance.SoundPlay("sfx/puzzle1");
                         StartCoroutine(Co_PuzzleASolved());
                         Cave1WaterStone.PuzzleSolved();
                         Player.Controller.MyMouseLooker.enabled = false;
@@ -237,18 +268,25 @@ public class GameManager : MonoSingleton<GameManager>
                         Player.Controller.MyMouseLooker.enabled = true;
                         Player.Controller.MyController.enabled = true;
                         Raft.AutoMove.IsMoving = true;
+                        Player.Controller.MyController.enabled = false;
+                        Player.Controller.CapsuleCollider.enabled = true;
                         break;
                     }
                     case TravelProcess.CaveStage2_Narrow:
                     {
+                        Player.Controller.MyController.enabled = true;
+                        Player.Controller.CapsuleCollider.enabled = false;
                         Player.Controller.MoveSpeed = 10f;
                         Player.Controller.default_MoveSpeed = 10f;
                         Player.Controller.MyMouseLooker.XSensitivity = 2f;
                         Player.Controller.MyMouseLooker.YSensitivity = 2f;
 
-//                        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Terrain"), true);
                         Player.Controller.SetAllowJump();
                         Player.Controller.SetColliderRadiusOnLand();
+
+                        Player.transform.SetParent(SurroundingRoot);
+                        Raft.gameObject.SetActive(false);
+                        AudioManager.Instance.SoundStop("sfx/Cave1Mixed");
                         break;
                     }
                     case TravelProcess.CaveStage2_OpenPlaceBeforeWaterfall:
@@ -261,6 +299,7 @@ public class GameManager : MonoSingleton<GameManager>
                     }
                     case TravelProcess.CaveStage2_Before3DPlatformJump:
                     {
+                        Platformer3D.ShowFirst();
                         break;
                     }
                     case TravelProcess.CaveStage2_When3DPlatformJump:
@@ -269,7 +308,7 @@ public class GameManager : MonoSingleton<GameManager>
                     }
                     case TravelProcess.CaveStage2_After3DPlatformJumpNarrow:
                     {
-                        AudioManager.Instance.BGMFadeIn("bgm/WhisperStage2", 3f);
+                        AudioManager.Instance.BGMFadeIn("bgm/WhisperStage2", 3f, 1f);
                         break;
                     }
                 }

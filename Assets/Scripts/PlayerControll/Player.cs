@@ -53,6 +53,16 @@ public class Player : MonoBehaviour
         return false;
     }
 
+    public void OnWakeUp()
+    {
+        GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.CaveStage1_WakeUp;
+    }
+
+    public void OnStand()
+    {
+        GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.CaveStage1_Stand;
+    }
+
     public void StartCaveStage1Puzzle()
     {
         GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.CaveStage1_WhenPuzzle;
@@ -71,5 +81,10 @@ public class Player : MonoBehaviour
     public void OnLeaveLastCave()
     {
         GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.PlatformStage3_CameOutFromCave;
+    }
+
+    public void OnStart3DPlatformer()
+    {
+        GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.CaveStage2_Before3DPlatformJump;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -86,10 +87,14 @@ public class AudioManager : MonoSingleton<AudioManager>
 
     public void SoundStop(string audioName)
     {
-        GameObject obj = transform.Find(audioName).gameObject;
-        if (obj != null)
+        Transform tran = transform.Find(audioName);
+        if (tran != null)
         {
-            Destroy(obj);
+            GameObject obj = tran.gameObject;
+            if (obj != null)
+            {
+                Destroy(obj);
+            }
         }
     }
 
@@ -103,7 +108,7 @@ public class AudioManager : MonoSingleton<AudioManager>
 
     private string currentBGM;
 
-    public void BGMFadeIn(string bgmName, float duration = 1f, float volume = 0.6f)
+    public void BGMFadeIn(string bgmName, float fadeInDuration, float volume)
     {
         if (currentBGM != bgmName)
         {
@@ -113,9 +118,9 @@ public class AudioManager : MonoSingleton<AudioManager>
                 if (bgmSound != null)
                 {
                     currentBGM = bgmName;
-                    StartCoroutine(Co_BGMFadeOut(duration));
+                    StartCoroutine(Co_BGMFadeOut(fadeInDuration));
                     PlayOnceBGMAudioClip(bgmSound, volume);
-                    StartCoroutine(Co_BGMFadeIn(duration, volume));
+                    StartCoroutine(Co_BGMFadeIn(fadeInDuration, volume));
                 }
             }
         }
@@ -124,8 +129,13 @@ public class AudioManager : MonoSingleton<AudioManager>
     private Coroutine BGMLoop;
     private List<string> CurrentLoopList = new List<string>();
 
-    public void BGMLoopInList(List<string> bgmNames, float volume = 1.0f)
+    public void BGMLoopInList(List<string> bgmNames, float fadeInDuration, float volume = 1.0f)
     {
+        if (bgmNames.Count == 1)
+        {
+            bgmNames.Add(bgmNames[0]);
+        }
+
         bool isLoopingSameList = true;
         if (CurrentLoopList.Count == bgmNames.Count)
         {
@@ -142,40 +152,25 @@ public class AudioManager : MonoSingleton<AudioManager>
         if (isLoopingSameList) return;
         if (BGMLoop != null) StopCoroutine(BGMLoop);
         StartCoroutine(Co_BGMFadeOut(0.5f));
-        BGMLoop = StartCoroutine(Co_BGMLoopInList(bgmNames, volume));
+        BGMLoop = StartCoroutine(Co_BGMLoopInList(bgmNames, fadeInDuration, volume));
         CurrentLoopList = bgmNames;
     }
 
-    IEnumerator Co_BGMLoopInList(List<string> bgmNames, float volume = 1.0f)
+    IEnumerator Co_BGMLoopInList(List<string> bgmNames, float fadeInDuration, float volume)
     {
-        if (bgmNames.Count == 1)
+        int lastIndex = Random.Range(0, bgmNames.Count);
+        while (true)
         {
-            while (true)
+            int index = Random.Range(0, bgmNames.Count);
+            if (index != lastIndex)
             {
+                lastIndex = index;
                 while (BGMAudioSource != null && BGMAudioSource.isPlaying)
                 {
                     yield return new WaitForSeconds(0.5f);
                 }
 
-                BGMFadeIn(bgmNames[0], volume: volume);
-            }
-        }
-        else
-        {
-            int lastIndex = Random.Range(0, bgmNames.Count);
-            while (true)
-            {
-                int index = Random.Range(0, bgmNames.Count);
-                if (index != lastIndex)
-                {
-                    lastIndex = index;
-                    while (BGMAudioSource != null && BGMAudioSource.isPlaying)
-                    {
-                        yield return new WaitForSeconds(0.5f);
-                    }
-
-                    BGMFadeIn(bgmNames[index], volume: volume);
-                }
+                BGMFadeIn(bgmNames[index], fadeInDuration, volume: volume);
             }
         }
     }

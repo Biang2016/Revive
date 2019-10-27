@@ -8,6 +8,8 @@ public class AutoMove : MonoBehaviour
     [SerializeField] private Transform EyeCameraFrame;
     internal MoveStep[] MoveSteps;
     [SerializeField] private Transform MoveStepContainer;
+    [SerializeField] private Transform TranslateTrans;
+    [SerializeField] private Transform RotateTrans;
 
     internal void AutoMoveStart()
     {
@@ -25,8 +27,8 @@ public class AutoMove : MonoBehaviour
 
     IEnumerator Co_StartMove()
     {
-        transform.rotation = MoveSteps[CurrentStep].transform.rotation;
-        transform.position = MoveSteps[CurrentStep].transform.position;
+        RotateTrans.rotation = MoveSteps[CurrentStep].transform.rotation;
+        TranslateTrans.position = MoveSteps[CurrentStep].transform.position;
         yield return new WaitForSeconds(MoveSteps[CurrentStep].TransitDuration / GameManager.Instance.AutoMoveSpeedUpFactor);
         CurrentStep++;
         while (CurrentStep < MoveSteps.Length)
@@ -62,8 +64,8 @@ public class AutoMove : MonoBehaviour
             }
         }
 
-        transform.DORotate(ms.transform.rotation.eulerAngles, ms.TransitDuration / GameManager.Instance.AutoMoveSpeedUpFactor).SetEase(ms.RotateEase);
-        transform.DOMove(ms.transform.position, ms.TransitDuration / GameManager.Instance.AutoMoveSpeedUpFactor).SetEase(ms.MoveEase);
+        RotateTrans.DORotate(ms.transform.rotation.eulerAngles, ms.TransitDuration / GameManager.Instance.AutoMoveSpeedUpFactor).SetEase(ms.RotateEase);
+        TranslateTrans.DOMove(ms.transform.position, ms.TransitDuration / GameManager.Instance.AutoMoveSpeedUpFactor).SetEase(ms.MoveEase);
         yield return new WaitForSeconds(ms.TransitDuration / GameManager.Instance.AutoMoveSpeedUpFactor);
         transform.DOPause();
         ms.NextEvent?.Invoke();

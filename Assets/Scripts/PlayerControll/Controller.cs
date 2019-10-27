@@ -11,6 +11,7 @@ public class Controller : MonoBehaviour
 
     public CharacterController MyController;
     public MouseLooker MyMouseLooker;
+    public CapsuleCollider CapsuleCollider;
 
     private Vector3 velocity = Vector3.zero;
 
