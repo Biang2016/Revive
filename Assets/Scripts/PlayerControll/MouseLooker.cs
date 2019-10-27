@@ -20,6 +20,21 @@ public class MouseLooker : MonoBehaviour
 
     void Start()
     {
+        ResetMouseLooker();
+    }
+
+   void OnDisable()
+    {
+        LockCursor(false);
+    }
+
+   void OnEnable()
+   {
+       ResetMouseLooker();
+   }
+
+    public void ResetMouseLooker()
+    {
         // start the game with the cursor locked
         LockCursor(true);
 

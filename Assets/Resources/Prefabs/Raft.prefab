@@ -80,7 +80,7 @@ MonoBehaviour:
   EyeCameraFrame: {fileID: 948442345533105110}
   MoveStepContainer: {fileID: 0}
   TranslateTrans: {fileID: 521422395373188276}
-  RotateTrans: {fileID: 6663875873903375815}
+  RotateTrans: {fileID: 521422395373188276}
   IsMoving: 1
 --- !u!114 &1537474574
 MonoBehaviour:
@@ -152,8 +152,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 07080ee0ecf2db140825e527f58d4bf6, type: 2}
   - {fileID: 2100000, guid: 640c7d4cf5019bf4ca0c74e00c94b249, type: 2}
+  - {fileID: 2100000, guid: 07080ee0ecf2db140825e527f58d4bf6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -287,11 +287,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1810165893524905360, guid: 5b38b750e026bd04c953065d1e385921,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 1810165893524905362, guid: 5b38b750e026bd04c953065d1e385921,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -346,53 +341,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8036386425513216137, guid: 5b38b750e026bd04c953065d1e385921,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 1810165893524905372, guid: 5b38b750e026bd04c953065d1e385921,
-        type: 3}
-      propertyPath: MaximumX
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 1810165893524905363, guid: 5b38b750e026bd04c953065d1e385921,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1810165893524905363, guid: 5b38b750e026bd04c953065d1e385921,
-        type: 3}
-      propertyPath: m_StepOffset
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1810165893524905363, guid: 5b38b750e026bd04c953065d1e385921,
-        type: 3}
-      propertyPath: m_SkinWidth
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2116445635, guid: 5b38b750e026bd04c953065d1e385921, type: 3}
-      propertyPath: TranslateTrans
-      value: 
-      objectReference: {fileID: 4775717937996005500}
-    - target: {fileID: 2116445635, guid: 5b38b750e026bd04c953065d1e385921, type: 3}
-      propertyPath: RotateTrans
-      value: 
-      objectReference: {fileID: 4775717937996005500}
-    - target: {fileID: 1810165895080750900, guid: 5b38b750e026bd04c953065d1e385921,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 1810165895080750902, guid: 5b38b750e026bd04c953065d1e385921,
-        type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 3863
-      objectReference: {fileID: 0}
-    - target: {fileID: 1504809690, guid: 5b38b750e026bd04c953065d1e385921, type: 3}
-      propertyPath: intensity
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b38b750e026bd04c953065d1e385921, type: 3}

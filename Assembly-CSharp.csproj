@@ -169,6 +169,8 @@
     <Compile Include="Assets\Scripts\Puzzles\PlatformerDeadZone.cs" />
     <Compile Include="Assets\Scripts\Puzzles\PlatformerStone.cs" />
     <Compile Include="Assets\Scripts\Puzzles\Puzzle.cs" />
+    <Compile Include="Assets\Scripts\Puzzles\PuzzleC.cs" />
+    <Compile Include="Assets\Scripts\Puzzles\PuzzleCStepStone.cs" />
     <Compile Include="Assets\Scripts\Puzzles\PuzzlePart.cs" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Resources\Shaders\DepthOfField.shader" />
     <None Include="Assets\Imports\Advanced Dissolve\Shaders\Cl_3D-Dissolve-Cylinder-One.shader" />

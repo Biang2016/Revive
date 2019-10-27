@@ -96,6 +96,7 @@ public class GameManager : MonoSingleton<GameManager>
     public Cave1WaterStone Cave1WaterStone;
     public Transform SurroundingRoot;
     public Platformer3D Platformer3D;
+    public PuzzleC PuzzleC;
 
     public float SupermanSpeed = 20f;
 

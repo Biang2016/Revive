@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public Camera MyCamera;
     public AutoMove AutoMove;
     public Controller Controller;
 

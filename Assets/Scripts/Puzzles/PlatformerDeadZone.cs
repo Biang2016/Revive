@@ -10,6 +10,7 @@ public class PlatformerDeadZone : MonoBehaviour
         if (player != null)
         {
             player.Controller.MyController.enabled = false;
+            player.Controller.MyMouseLooker.enabled = false;
             player.Controller.enabled = false;
 
             player.transform.SetParent(GameManager.Instance.SurroundingRoot);
@@ -18,7 +19,11 @@ public class PlatformerDeadZone : MonoBehaviour
 
             GameManager.Instance.Platformer3D.ResetAll();
             GameManager.Instance.Platformer3D.ShowFirst();
+
+            Input.ResetInputAxes();
+            player.MyCamera.transform.rotation = RebornPivot.rotation;
             player.Controller.MyController.enabled = true;
+            player.Controller.MyMouseLooker.enabled = true;
             player.Controller.enabled = true;
 
             AudioManager.Instance.SoundPlay("sfx/puzzle1");
