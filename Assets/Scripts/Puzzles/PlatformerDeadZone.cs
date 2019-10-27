@@ -20,6 +20,8 @@ public class PlatformerDeadZone : MonoBehaviour
             GameManager.Instance.Platformer3D.ShowFirst();
             player.Controller.MyController.enabled = true;
             player.Controller.enabled = true;
+
+            AudioManager.Instance.SoundPlay("sfx/puzzle1");
         }
     }
 }

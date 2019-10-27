@@ -127,7 +127,7 @@ Material:
     - _numSteps: 4
     m_Colors:
     - _Color: {r: 0.11320752, g: 0.000000007197541, b: 0, a: 1}
-    - _EdgeColor1: {r: 21.112133, g: 13.908877, b: 0, a: 1}
+    - _EdgeColor1: {r: 0, g: 11.344765, b: 21.112133, a: 1}
     - _Emission: {r: 0.028301895, g: 0.0033051027, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissiveColor: {r: 1, g: 1, b: 1, a: 1}

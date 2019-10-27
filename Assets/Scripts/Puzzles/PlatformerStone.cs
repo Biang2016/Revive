@@ -7,8 +7,10 @@ public class PlatformerStone : MonoBehaviour
     [SerializeField] private float SpawnEffectTime = 2;
     [SerializeField] private AnimationCurve fadeIn;
     [SerializeField] private ParticleSystem ParticleSystem;
+    [SerializeField] private Animator MoveAnimator;
     float timer = 0;
     [SerializeField] private Renderer Renderer;
+    [SerializeField] private AudioSource AudioSource;
 
     int shaderProperty;
 
@@ -27,6 +29,7 @@ public class PlatformerStone : MonoBehaviour
         }
 
         HasStarted = true;
+        AudioSource.Play();
     }
 
     public bool HasStarted = false;
@@ -43,11 +46,10 @@ public class PlatformerStone : MonoBehaviour
             }
             else
             {
-                timer = 0;
                 HasEnded = true;
             }
 
-            Renderer.material.SetFloat(shaderProperty, fadeIn.Evaluate(Mathf.InverseLerp(0, SpawnEffectTime, timer)));
+            Renderer.material.SetFloat(shaderProperty, fadeIn.Evaluate(timer/SpawnEffectTime));
         }
     }
 
@@ -56,6 +58,7 @@ public class PlatformerStone : MonoBehaviour
         timer = 0;
         HasStarted = false;
         HasEnded = false;
+        MoveAnimator.enabled = true;
     }
 
     private void OnTriggerEnter(Collider c)
@@ -63,7 +66,7 @@ public class PlatformerStone : MonoBehaviour
         Player player = c.gameObject.GetComponent<Player>();
         if (player != null)
         {
-            player.transform.SetParent(transform.GetChild(0));
+            player.transform.SetParent(transform);
             ParentPlatformer3D.ShowNext(this);
         }
     }
