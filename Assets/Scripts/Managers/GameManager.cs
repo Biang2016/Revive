@@ -224,7 +224,6 @@ public class GameManager : MonoSingleton<GameManager>
                     }
                     case TravelProcess.CaveStage1_WakeUp:
                     {
-                        AudioManager.Instance.BGMFadeIn("bgm/bgm_stage1", 3f, 1f);
                         AudioManager.Instance.SoundPlay("sfx/Cave1Mixed", 1f);
                         break;
                     }
@@ -234,6 +233,7 @@ public class GameManager : MonoSingleton<GameManager>
                         Player.Controller.MyController.enabled = false;
                         Player.Controller.MyMouseLooker.enabled = true;
                         Player.Controller.CapsuleCollider.enabled = true;
+                        AudioManager.Instance.BGMFadeIn("bgm/bgm_stage1", 10f, 1f, true);
                         break;
                     }
                     case TravelProcess.CaveStage1_BeforePuzzle:
@@ -259,6 +259,7 @@ public class GameManager : MonoSingleton<GameManager>
                         Cave1WaterStone.PuzzleSolved();
                         Player.Controller.MyMouseLooker.enabled = false;
                         Player.Controller.MyController.enabled = false;
+                        Player.Controller.CapsuleCollider.enabled = true;
                         break;
                     }
                     case TravelProcess.CaveStage1_AfterPuzzle:
@@ -266,10 +267,7 @@ public class GameManager : MonoSingleton<GameManager>
                         Player.Controller.MyMouseLooker.XSensitivity = 2f;
                         Player.Controller.MyMouseLooker.YSensitivity = 2f;
                         Player.Controller.MyMouseLooker.enabled = true;
-                        Player.Controller.MyController.enabled = true;
                         Raft.AutoMove.IsMoving = true;
-                        Player.Controller.MyController.enabled = false;
-                        Player.Controller.CapsuleCollider.enabled = true;
                         break;
                     }
                     case TravelProcess.CaveStage2_Narrow:

@@ -63,8 +63,7 @@ public class PlatformerStone : MonoBehaviour
         Player player = c.gameObject.GetComponent<Player>();
         if (player != null)
         {
-            player.transform.SetParent(transform);
-            player.transform.rotation = Quaternion.Euler(0, 0, 0);
+            player.transform.SetParent(transform.GetChild(0));
             ParentPlatformer3D.ShowNext(this);
         }
     }
@@ -75,7 +74,6 @@ public class PlatformerStone : MonoBehaviour
         if (player != null)
         {
             player.transform.SetParent(GameManager.Instance.SurroundingRoot);
-            player.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
 }

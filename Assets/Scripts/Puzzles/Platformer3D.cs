@@ -3,6 +3,7 @@
 public class Platformer3D : MonoBehaviour
 {
     [SerializeField] private PlatformerStone[] PlatformerStones;
+    [SerializeField] private BoxCollider DeadZone;
 
     public int CurrentIndex = -1;
 
@@ -15,6 +16,7 @@ public class Platformer3D : MonoBehaviour
     {
         PlatformerStones[0].gameObject.SetActive(true);
         PlatformerStones[0].Show();
+        DeadZone.enabled = true;
     }
 
     public void ShowNext(PlatformerStone current)

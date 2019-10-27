@@ -166,6 +166,7 @@
     <Compile Include="Assets\Scripts\Puzzles\Cave1WaterStone.cs" />
     <Compile Include="Assets\Scripts\Puzzles\CheckPoint.cs" />
     <Compile Include="Assets\Scripts\Puzzles\Platformer3D.cs" />
+    <Compile Include="Assets\Scripts\Puzzles\PlatformerDeadZone.cs" />
     <Compile Include="Assets\Scripts\Puzzles\PlatformerStone.cs" />
     <Compile Include="Assets\Scripts\Puzzles\Puzzle.cs" />
     <Compile Include="Assets\Scripts\Puzzles\PuzzlePart.cs" />

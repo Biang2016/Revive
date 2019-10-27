@@ -108,7 +108,7 @@ public class AudioManager : MonoSingleton<AudioManager>
 
     private string currentBGM;
 
-    public void BGMFadeIn(string bgmName, float fadeInDuration, float volume)
+    public void BGMFadeIn(string bgmName, float fadeInDuration, float volume, bool loop = false)
     {
         if (currentBGM != bgmName)
         {
@@ -119,7 +119,15 @@ public class AudioManager : MonoSingleton<AudioManager>
                 {
                     currentBGM = bgmName;
                     StartCoroutine(Co_BGMFadeOut(fadeInDuration));
-                    PlayOnceBGMAudioClip(bgmSound, volume);
+                    if (loop)
+                    {
+                        PlayLoopBGMAudioClip(bgmSound, volume);
+                    }
+                    else
+                    {
+                        PlayOnceBGMAudioClip(bgmSound, volume);
+                    }
+
                     StartCoroutine(Co_BGMFadeIn(fadeInDuration, volume));
                 }
             }

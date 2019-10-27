@@ -1777,7 +1777,7 @@ MonoBehaviour:
   - guid: 07080ee0ecf2db140825e527f58d4bf6
     ScriptSymbols: []
     ScriptTokens: []
-    stamp: 1572145555
+    stamp: 1572147665
     type: 5
     UseGUIDs: []
   - guid: f04f08f0e3481fb47876052b5f7f23b3
@@ -1813,7 +1813,7 @@ MonoBehaviour:
   - guid: 9fc0d4010bbf28b4594072e72b8655ab
     ScriptSymbols: []
     ScriptTokens: []
-    stamp: 1572145719
+    stamp: 1572149779
     type: 3
     UseGUIDs:
     - ab7065615d9765f4196d0580d05eabcf
@@ -10495,7 +10495,7 @@ MonoBehaviour:
   - guid: 640c7d4cf5019bf4ca0c74e00c94b249
     ScriptSymbols: []
     ScriptTokens: []
-    stamp: 1572145543
+    stamp: 1572147665
     type: 5
     UseGUIDs: []
   - guid: 96a4fd4c27ed4214f905c521891b2c87
@@ -12922,7 +12922,7 @@ MonoBehaviour:
   - guid: a5f2339f242f6cc41a982ec55ea3c201
     ScriptSymbols: []
     ScriptTokens: []
-    stamp: 1572145718
+    stamp: 1572149894
     type: 5
     UseGUIDs:
     - 475c4a4e617a8401b84ca7b32c7cc460
@@ -14160,14 +14160,13 @@ MonoBehaviour:
   - guid: 142176b3e0c56214badb5f8567c1f69f
     ScriptSymbols: []
     ScriptTokens: []
-    stamp: 1572134687
+    stamp: 1572149413
     type: 5
     UseGUIDs:
     - cbf6feac63b0439eb5f5124ca1648ee2
     - b20867f0e529161498f07a42b14342b0
-    - 4ee15682b85944f4ab7a5a12f54bf163
-    - f40f8ba7cc89e65409d5ce8e531a81a5
     - 414315c8d4d18674eb17deca7f35dcba
+    - 4ee15682b85944f4ab7a5a12f54bf163
     - a5f2339f242f6cc41a982ec55ea3c201
     - 2a91e8dd37cdd41efb4859b65aced7a2
     - 93c97da0a9a11174ab89575db81f7917
@@ -14175,18 +14174,22 @@ MonoBehaviour:
     - 3544992394a7b954789108f2fa57027e
     - dc789956fe23a1941adff98b407addf0
     - 79f6c9c6273db254a90593f38b94693e
+    - efad74b833fe66346810c2766d16be14
+    - 5a37f47fc3385fd4f954165507b4c468
     - a1da353243062479a9b31c85074a796b
     - de2ab2b9ac93bb544b9552e49030371b
     - 4185bc77c7194462ca3b1097ef4a5de0
     - 42e7f46d0e5a84171a3909479c1646ba
     - 058ffebb9a64be44aa97e90d854fc77e
+    - addcfd5c9d8b44a1f9500b87d1323a15
+    - 4e8e54730eb1022419e5ff72441b8570
     - b544816461f324e56a39767fdeb5b114
+    - f40f8ba7cc89e65409d5ce8e531a81a5
     - 44f3a44e361299445b85e016bfe7c2ed
     - b4939444530c5406d92d4fbd37497081
+    - 82f001e57d8bbeb448df7982b784da4e
     - b322afcd883bcba4a8b8daa0f8495312
-    - 741db7440ed3de542933e91bac0f3def
     - abdbb69bec36f41e3b583d70d296a264
-    - 3b754d54cbce548a1a9de61de1f2c319
     - fab6ff931a76d11458bf99f6ab42b8fd
   - guid: 93ad35a2c22e20e46bb345a0ff7b505c
     ScriptSymbols: []
@@ -14319,6 +14322,21 @@ MonoBehaviour:
     ScriptTokens: []
     stamp: 0
     type: 5
+    UseGUIDs: []
+  - guid: 738b42f7fd6b72343ac8f986c8722c9e
+    ScriptSymbols:
+    - PlatformerDeadZone
+    ScriptTokens:
+    - MonoBehaviour
+    - SerializeField
+    - Transform
+    - RebornPivot
+    - OnTriggerEnter
+    - Collider
+    - Player
+    - GameManager
+    stamp: 1572149250
+    type: 2
     UseGUIDs: []
   timeStamp: 1572064907
   priority: 5
