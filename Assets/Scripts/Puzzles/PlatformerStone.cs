@@ -23,11 +23,8 @@ public class PlatformerStone : MonoBehaviour
     {
         if (ParticleSystem != null)
         {
-            ParticleSystem.MainModule main = ParticleSystem.main;
-            main.duration = SpawnEffectTime;
             ParticleSystem.Play();
         }
-
         HasStarted = true;
         AudioSource.Play();
     }
@@ -49,7 +46,7 @@ public class PlatformerStone : MonoBehaviour
                 HasEnded = true;
             }
 
-            Renderer.material.SetFloat(shaderProperty, fadeIn.Evaluate(timer/SpawnEffectTime));
+            Renderer.material.SetFloat(shaderProperty, fadeIn.Evaluate(timer / SpawnEffectTime));
         }
     }
 

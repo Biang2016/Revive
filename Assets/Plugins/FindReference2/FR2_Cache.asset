@@ -1813,11 +1813,12 @@ MonoBehaviour:
   - guid: 9fc0d4010bbf28b4594072e72b8655ab
     ScriptSymbols: []
     ScriptTokens: []
-    stamp: 1572215507
+    stamp: 1572219649
     type: 3
     UseGUIDs:
     - ab7065615d9765f4196d0580d05eabcf
     - 428dd2d1139ed3f429af75ed771ae887
+    - 4dec5a4a83d5ab9408d869c8472c8da8
     - cb88ae7ed30b473ab7e893f4ecc400b9
     - ee17a15d13c80df4aaaddfd9ffabdad4
     - 51a8d4003be3f3b4ea21b1ab2c8c8fac
@@ -1845,7 +1846,11 @@ MonoBehaviour:
     - 042ca0d47acf3cb45a443bb13756c6f9
     - 15b2b43b417d4ff41a80e562c1666a6e
     - 35f7b369dd1caf54bad5b9830b8f9beb
+    - 02e5c6586b48d4360b893445609309c9
+    - 640e7aa5ce4f14c67a570e89af54b385
+    - 4c85f4a43f68b45488887fdbdce7ab61
     - 61254687921cd8c4f9a5d1231a85c1c4
+    - 2dc608c534479c043afa85a2b3522fb6
     - b4939444530c5406d92d4fbd37497081
     - 58f8586d478283d4ca469cd6306b4a7f
     - d844797ff7d6c43adb07f54b1d966f58
@@ -7487,7 +7492,7 @@ MonoBehaviour:
   - guid: 02e5c6586b48d4360b893445609309c9
     ScriptSymbols: []
     ScriptTokens: []
-    stamp: 1571875457
+    stamp: 1572217373
     type: 5
     UseGUIDs: []
   - guid: 4b403858fefaded4bb58c22aa41b8769
@@ -11965,7 +11970,7 @@ MonoBehaviour:
   - guid: 44f3a44e361299445b85e016bfe7c2ed
     ScriptSymbols: []
     ScriptTokens: []
-    stamp: 1572155874
+    stamp: 1572218164
     type: 5
     UseGUIDs: []
   - guid: ba66764ee2ab73442b80d720ecc4d9a0
@@ -12945,7 +12950,7 @@ MonoBehaviour:
   - guid: a5f2339f242f6cc41a982ec55ea3c201
     ScriptSymbols: []
     ScriptTokens: []
-    stamp: 1572215507
+    stamp: 1572220704
     type: 5
     UseGUIDs:
     - 475c4a4e617a8401b84ca7b32c7cc460
@@ -14571,5 +14576,74 @@ MonoBehaviour:
     type: 5
     UseGUIDs:
     - d9183767990c8ed4eb4495b2894cf805
+  - guid: 4c85f4a43f68b45488887fdbdce7ab61
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 1572215444
+    type: 7
+    UseGUIDs:
+    - 4c85f4a43f68b45488887fdbdce7ab61
+  - guid: ef51be60a1c43cc458c1a0b6e03c47c3
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 0
+    type: 9
+    UseGUIDs: []
+  - guid: 28fd6142a971788439b6b3564c0c6a6d
+    ScriptSymbols:
+    - TombStone
+    ScriptTokens:
+    - MonoBehaviour
+    - SerializeField
+    - MeshRenderer
+    - OnTriggerEnter
+    - Collider
+    - Player
+    - OnTriggerExit
+    stamp: 1572218914
+    type: 2
+    UseGUIDs: []
+  - guid: 2dc608c534479c043afa85a2b3522fb6
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 0
+    type: 9
+    UseGUIDs: []
+  - guid: 4dec5a4a83d5ab9408d869c8472c8da8
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 1572219525
+    type: 5
+    UseGUIDs:
+    - 428dd2d1139ed3f429af75ed771ae887
+    - 4c85f4a43f68b45488887fdbdce7ab61
+    - 02e5c6586b48d4360b893445609309c9
+    - 640e7aa5ce4f14c67a570e89af54b385
+    - 28fd6142a971788439b6b3564c0c6a6d
+    - ef51be60a1c43cc458c1a0b6e03c47c3
+  - guid: 6d1da12e84ef27b43ba3396c8d1ecaa8
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 1572220013
+    type: 5
+    UseGUIDs:
+    - 8f448cd4d5dac5047b5f9a86cb739085
+    - c701d8bbcea7c2c4abbf9c22ee81138a
+  - guid: 8d3d59a0bffb56748b891deb6ca539f3
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 1572220013
+    type: 5
+    UseGUIDs:
+    - 8f448cd4d5dac5047b5f9a86cb739085
+    - c701d8bbcea7c2c4abbf9c22ee81138a
+  - guid: a65f65eb40554df4485d6a2a9d8a3492
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 1572220013
+    type: 1
+    UseGUIDs:
+    - 6d1da12e84ef27b43ba3396c8d1ecaa8
+    - 8d3d59a0bffb56748b891deb6ca539f3
   timeStamp: 1572153260
   priority: 5
