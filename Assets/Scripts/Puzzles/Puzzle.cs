@@ -173,17 +173,26 @@ public class Puzzle : MonoBehaviour
         StartCoroutine(Co_MergePuzzle(duration));
     }
 
+    public ParticleSystem PuzzleCParticleEffect;
+    [SerializeField] private float PuzzleCFinalMergeSize = 3.32f;
+
     IEnumerator Co_MergePuzzle(float duration)
     {
         int steps = 60;
+        PuzzleCCenterPartMesh.localRotation = PuzzleCCenterPartFinalRotation.localRotation;
+        PuzzleCCenterPartMesh.localPosition = PuzzleCCenterPartFinalRotation.localPosition;
+
         for (int i = 0; i < steps; i++)
         {
             foreach (PuzzlePart part in PuzzleParts)
             {
-                part.SizeRatio += (PuzzleParts[0].SizeRatio - part.SizeRatio) / (60f - i);
+                part.SizeRatio += (PuzzleCFinalMergeSize - part.SizeRatio) / (60f - i);
             }
 
             yield return new WaitForSeconds(duration / steps);
         }
     }
+
+    [SerializeField] private Transform PuzzleCCenterPartMesh;
+    [SerializeField] private Transform PuzzleCCenterPartFinalRotation;
 }

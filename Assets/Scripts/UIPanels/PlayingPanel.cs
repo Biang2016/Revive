@@ -1,6 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayingPanel : BaseUIForm
@@ -17,6 +17,7 @@ public class PlayingPanel : BaseUIForm
         HintImage.enabled = false;
         PatternAImage.enabled = false;
         PatternCImage.enabled = false;
+        RestartImage.gameObject.SetActive(false);
 
         HintSpriteDict = new Dictionary<Hints, Sprite>
         {
@@ -37,6 +38,7 @@ public class PlayingPanel : BaseUIForm
     [SerializeField] private Image HintImage;
     [SerializeField] private Image PatternAImage;
     [SerializeField] private Image PatternCImage;
+    [SerializeField] private Image RestartImage;
 
     [SerializeField] private Sprite Sprite_HintStart;
     [SerializeField] private Sprite Sprite_HintPuzzleAMove;
@@ -99,5 +101,28 @@ public class PlayingPanel : BaseUIForm
     public void HidePuzzleCPattern()
     {
         PatternCImage.enabled = false;
+    }
+
+    public void ShowRestartImage()
+    {
+        RestartImage.gameObject.SetActive(true);
+    }
+
+    [SerializeField] private Text TimerText;
+    public bool IsFinalMusicStart = false;
+    private float TimerTick = 0f;
+
+    void Update()
+    {
+        if (IsFinalMusicStart)
+        {
+            TimerTick += Time.deltaTime;
+            TimerText.text = Math.Round(TimerTick, 1).ToString() + "s";
+        }
+        else
+        {
+            TimerTick = 0;
+            TimerText.text = "";
+        }
     }
 }

@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
 public class WorldTreeRevivingManager : MonoSingleton<WorldTreeRevivingManager>
 {
@@ -42,8 +42,7 @@ public class WorldTreeRevivingManager : MonoSingleton<WorldTreeRevivingManager>
                     }
                     case TreeStates.Reviving_Stage:
                     {
-                        Animator.speed = 0.2f;
-                        Animator.SetTrigger("Revive");
+                        StartCoroutine(Co_AnimDelay());
                         break;
                     }
                 }
@@ -56,9 +55,10 @@ public class WorldTreeRevivingManager : MonoSingleton<WorldTreeRevivingManager>
     IEnumerator Co_PuzzleCSolved()
     {
         AudioManager.Instance.BGMFadeOut(6f);
-        yield return new WaitForSeconds(5f);
-        GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.PlatformStage3_RevivingTree;
+        yield return new WaitForSeconds(3f);
+        GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.PlatformStage3_RevivingTree; // Music Start 0s
         GameManager.Instance.PuzzleC.ReturnAllPuzzlePartToFarthestPlaceAndMerge(3f);
+
         yield return new WaitForSeconds(15f);
         int steps = 10;
         for (int i = 0; i < steps; i++)
@@ -67,5 +67,15 @@ public class WorldTreeRevivingManager : MonoSingleton<WorldTreeRevivingManager>
             RenderSettings.fogEndDistance += 30f;
             yield return new WaitForSeconds(0.1f);
         }
+    }
+
+    IEnumerator Co_AnimDelay()
+    {
+        // Music Start 0s
+        yield return new WaitForSeconds(9f);
+        Animator.speed = 0.2f;
+        Animator.SetTrigger("Revive");
+        yield return new WaitForSeconds(24f);
+        GameManager.Instance.PuzzleC.PuzzleCParticleEffect.Play();
     }
 }

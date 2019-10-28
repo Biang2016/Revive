@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityStandardAssets.ImageEffects;
 
 public class GameManager : MonoSingleton<GameManager>
@@ -19,18 +20,26 @@ public class GameManager : MonoSingleton<GameManager>
 
     void Update()
     {
-        //if (Input.GetKeyUp(KeyCode.O))
-        //{
-        //    RenderSettings.fog = !RenderSettings.fog;
-        //}
+#if UNITY_EDITOR
+        if (Input.GetKeyUp(KeyCode.O))
+        {
+            RenderSettings.fog = !RenderSettings.fog;
+        }
 
-        //if (Input.GetKeyUp(KeyCode.K))
-        //{
-        //    Player.Controller.MyMouseLooker.enabled = !Player.Controller.MyMouseLooker.enabled;
-        //    StartSceneCameraCarrier.Controller.MyMouseLooker.enabled = !StartSceneCameraCarrier.Controller.MyMouseLooker.enabled;
-        //}
+        if (Input.GetKeyUp(KeyCode.K))
+        {
+            Player.Controller.MyMouseLooker.enabled = !Player.Controller.MyMouseLooker.enabled;
+            StartSceneCameraCarrier.Controller.MyMouseLooker.enabled = !StartSceneCameraCarrier.Controller.MyMouseLooker.enabled;
+        }
 
-        if (Input.GetKeyUp(KeyCode.P) || (Input.GetKeyUp(KeyCode.F) && CurTravelProcess == TravelProcess.PlatformStage3_TreeRevived))
+        if (Input.GetKeyUp(KeyCode.P))
+        {
+            Player.Controller.SuperManMode = !Player.Controller.SuperManMode;
+            StartSceneCameraCarrier.Controller.SuperManMode = !StartSceneCameraCarrier.Controller.SuperManMode;
+        }
+#endif
+
+        if (Input.GetKeyUp(KeyCode.F) && CurTravelProcess == TravelProcess.PlatformStage3_TreeRevived)
         {
             Player.Controller.SuperManMode = !Player.Controller.SuperManMode;
             StartSceneCameraCarrier.Controller.SuperManMode = !StartSceneCameraCarrier.Controller.SuperManMode;
@@ -56,14 +65,6 @@ public class GameManager : MonoSingleton<GameManager>
             SupermanSpeed /= 1.1f;
         }
 
-        if (CurTravelProcess == TravelProcess.None && Input.GetKeyUp(KeyCode.F10))
-        {
-            if (!RecordingStartSceneCameraPath)
-            {
-                CameraRecordingManager.Instance.PlayRecording(CameraRecordingManager.RecordingTypes.RecordingJustNow, true);
-            }
-        }
-
         if (CurTravelProcess == TravelProcess.None && Input.GetKeyUp(KeyCode.CapsLock))
         {
             if (!CameraRecordingManager.Instance.IsPlayingRecord)
@@ -80,6 +81,11 @@ public class GameManager : MonoSingleton<GameManager>
                     RecordingStartSceneCameraPath = true;
                 }
             }
+        }
+
+        if (Input.GetKey(KeyCode.F10))
+        {
+            SceneManager.LoadScene("MainScene");
         }
     }
 
@@ -370,6 +376,7 @@ public class GameManager : MonoSingleton<GameManager>
                     {
                         WorldTreeRevivingManager.Instance.Cur_TreeState = WorldTreeRevivingManager.TreeStates.Reviving_Stage;
                         AudioManager.Instance.BGMFadeIn("bgm/bgm_final", 5f, 1f, true);
+                        UIManager.Instance.GetBaseUIForm<PlayingPanel>().IsFinalMusicStart = true;
                         Player.MyCamera.enabled = false;
                         StartSceneCameraCarrier.gameObject.SetActive(true);
                         StartSceneCameraCarrier.Controller.MyController.enabled = false;
@@ -393,12 +400,14 @@ public class GameManager : MonoSingleton<GameManager>
                             Player.Controller.MyMouseLooker.XSensitivity = 2f;
                             Player.Controller.MyMouseLooker.YSensitivity = 2f;
                             CurTravelProcess = TravelProcess.PlatformStage3_TreeRevived;
+                            Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Airwall"), true);
                         });
                         break;
                     }
                     case TravelProcess.PlatformStage3_TreeRevived:
                     {
                         UIManager.Instance.ShowUIForms<PlayingPanel>().ShowHint(PlayingPanel.Hints.FinalFly);
+                        UIManager.Instance.ShowUIForms<PlayingPanel>().ShowRestartImage();
                         break;
                     }
                 }

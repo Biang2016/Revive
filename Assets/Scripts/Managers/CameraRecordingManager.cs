@@ -64,7 +64,7 @@ public class CameraRecordingManager : MonoSingleton<CameraRecordingManager>
 
     private List<RecordFrame> ReadRecordFrames = new List<RecordFrame>();
 
-    public void PlayRecording(RecordingTypes recordingTypes, bool canMoveAfterPlaying, UnityAction onComplete=null)
+    public void PlayRecording(RecordingTypes recordingTypes, bool canMoveAfterPlaying, UnityAction onComplete = null)
     {
         GameManager.Instance.StartSceneCameraCarrier.Controller.enabled = false;
         GameManager.Instance.StartSceneCameraCarrier.MouseLooker.enabled = false;
