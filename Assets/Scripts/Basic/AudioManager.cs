@@ -86,13 +86,13 @@ public class AudioManager : MonoSingleton<AudioManager>
 
     public void SoundStop(string audioName)
     {
-        Transform tran = transform.Find(audioName);
-        if (tran != null)
+        AudioSource[] allSource = FindObjectsOfType<AudioSource>();
+        foreach (AudioSource audioSource in allSource)
         {
-            GameObject obj = tran.gameObject;
-            if (obj != null)
+            if (audioSource.clip.name == audioName)
             {
-                Destroy(obj);
+                Destroy(audioSource.gameObject);
+                break;
             }
         }
     }
@@ -203,8 +203,15 @@ public class AudioManager : MonoSingleton<AudioManager>
             BGMAudioSource.volume = 0;
             for (int i = 0; i < 10; i++)
             {
-                BGMAudioSource.volume += increase;
-                yield return new WaitForSeconds(duration / 10);
+                if (BGMAudioSource != null)
+                {
+                    BGMAudioSource.volume += increase;
+                    yield return new WaitForSeconds(duration / 10);
+                }
+                else
+                {
+                    break;
+                }
             }
         }
     }
@@ -270,8 +277,6 @@ public class AudioManager : MonoSingleton<AudioManager>
     {
         AudioClip audioClip = Resources.Load(ResourcePath + audioName) as AudioClip;
         return audioClip;
-
-        return null;
     }
 
     #endregion

@@ -73,5 +73,15 @@ public class WorldTreeRevivingManager : MonoSingleton<WorldTreeRevivingManager>
         ///Something effects with the stones
         yield return new WaitForSeconds(2f);
         GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.PlatformStage3_RevivingTree;
+
+        yield return new WaitForSeconds(15f);
+
+        int steps = 10;
+        for (int i = 0; i < steps; i++)
+        {
+            RenderSettings.fogStartDistance += 30f;
+            RenderSettings.fogEndDistance += 30f;
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 }

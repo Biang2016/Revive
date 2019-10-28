@@ -1805,7 +1805,7 @@ MonoBehaviour:
   - guid: 9fc0d4010bbf28b4594072e72b8655ab
     ScriptSymbols: []
     ScriptTokens: []
-    stamp: 1572276387
+    stamp: 1572278904
     type: 3
     UseGUIDs:
     - ab7065615d9765f4196d0580d05eabcf
@@ -12882,7 +12882,7 @@ MonoBehaviour:
   - guid: a5f2339f242f6cc41a982ec55ea3c201
     ScriptSymbols: []
     ScriptTokens: []
-    stamp: 1572276556
+    stamp: 1572278904
     type: 5
     UseGUIDs:
     - 475c4a4e617a8401b84ca7b32c7cc460
