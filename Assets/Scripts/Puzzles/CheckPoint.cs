@@ -10,6 +10,7 @@ public class CheckPoint : MonoBehaviour
         if (p != null)
         {
             ParrentPuzzle.PlayerEnter = true;
+            p.IsEnterPuzzleCheckPoint = true;
         }
     }
 
@@ -19,6 +20,7 @@ public class CheckPoint : MonoBehaviour
         if (p != null)
         {
             ParrentPuzzle.PlayerEnter = false;
+            p.IsEnterPuzzleCheckPoint = false;
         }
     }
 }

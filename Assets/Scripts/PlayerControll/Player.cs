@@ -7,16 +7,26 @@ public class Player : MonoBehaviour
     public AutoMove AutoMove;
     public Controller Controller;
 
+    public bool IsEnterPuzzleCheckPoint = false;
+
     void Update()
     {
-        if (GameManager.Instance.CurTravelProcess == GameManager.TravelProcess.CaveStage1_WhenPuzzle)
+        if (IsEnterPuzzleCheckPoint)
         {
-            RayCastPuzzleSolve();
-        }
+            if (GameManager.Instance.CurTravelProcess == GameManager.TravelProcess.CaveStage1_WhenPuzzle)
+            {
+                RayCastPuzzleSolve();
+            }
 
-        if (GameManager.Instance.CurTravelProcess == GameManager.TravelProcess.None)
-        {
-            RayCastPuzzleSolve();
+            if (GameManager.Instance.CurTravelProcess == GameManager.TravelProcess.PlatformStage3_EnterSolvingLastPuzzleZone)
+            {
+                RayCastPuzzleSolve();
+            }
+
+            if (GameManager.Instance.CurTravelProcess == GameManager.TravelProcess.None)
+            {
+                RayCastPuzzleSolve();
+            }
         }
     }
 
@@ -25,10 +35,10 @@ public class Player : MonoBehaviour
         Ray ray = GameManager.Instance.MainCamera.ScreenPointToRay(Input.mousePosition);
 
         RaycastHit[] hits = Physics.RaycastAll(ray, 500f, GameManager.Instance.PuzzleLayer);
+        int ppCount = 0;
         if (hits.Length != 0)
         {
             HashSet<Puzzle> triedPuzzle = new HashSet<Puzzle>();
-            int ppCount = 0;
             foreach (RaycastHit hit in hits)
             {
                 PuzzlePart pp = hit.collider.gameObject.GetComponent<PuzzlePart>();
@@ -50,6 +60,8 @@ public class Player : MonoBehaviour
                 puzzle.CheckPuzzleSolved();
             }
         }
+
+        Debug.Log(ppCount);
 
         return false;
     }
@@ -73,6 +85,10 @@ public class Player : MonoBehaviour
     {
         GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.CaveStage2_Narrow;
     }
+    public void StartAfterWaterFall()
+    {
+        GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.CaveStage2_AfterWaterfall;
+    }
 
     public void OnEnterLastCave()
     {
@@ -86,6 +102,19 @@ public class Player : MonoBehaviour
 
     public void OnStart3DPlatformer()
     {
-        GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.CaveStage2_Before3DPlatformJump;
+        GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.CaveStage2_When3DPlatformJump;
+    }
+
+    public void OnEnterSolvingZone()
+    {
+        if (GameManager.Instance.CurTravelProcess == GameManager.TravelProcess.PlatformStage3_SideStepStonesSolved)
+        {
+            GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.PlatformStage3_EnterSolvingLastPuzzleZone;
+        }
+    }
+
+    public void OnSolvePuzzleC()
+    {
+        GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.PlatformStage3_SolvingPuzzleC;
     }
 }

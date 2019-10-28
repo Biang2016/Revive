@@ -26,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 334921826956329984}
-  m_LocalRotation: {x: -0.018541535, y: 0.7385456, z: -0.009272944, w: 0.6738848}
+  m_LocalRotation: {x: 0.069412544, y: 0.73551023, z: 0.07092637, w: 0.6702061}
   m_LocalPosition: {x: -0.15000153, y: 0.01, z: -0.4899826}
   m_LocalScale: {x: 0.5324163, y: 0.532416, z: 0.53241634}
   m_Children: []
   m_Father: {fileID: 1668531255984820969}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.647, y: 95.255005, z: 11.373}
 --- !u!33 &4720154985139855626
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -91,8 +91,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51783353, y: 2.2109528, z: 2.3547697}
-  m_Center: {x: -0.14888182, y: -0.13123856, z: -0.0897893}
+  m_Size: {x: 0.51783353, y: 23.955654, z: 20.81937}
+  m_Center: {x: -0.14887944, y: 0.23376805, z: 0.41153756}
 --- !u!1 &657214488119794014
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,8 +183,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51783353, y: 2.2109528, z: 2.3547697}
-  m_Center: {x: -0.14888182, y: -0.13123856, z: -0.0897893}
+  m_Size: {x: 0.51783353, y: 16.695896, z: 14.269455}
+  m_Center: {x: -0.14888182, y: -1.1658783, z: 1.8126802}
 --- !u!1 &800194846430514312
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,8 +276,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51783353, y: 2.2109528, z: 2.3547697}
-  m_Center: {x: -0.14888182, y: -0.13123856, z: -0.0897893}
+  m_Size: {x: 0.51783365, y: 16.846659, z: 10.720811}
+  m_Center: {x: -0.14888191, y: 1.1922026, z: -0.06915493}
 --- !u!1 &1294235708455849788
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,8 +303,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1294235708455849788}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 142}
-  m_LocalScale: {x: 7.1, y: 7.1, z: 7.1}
+  m_LocalPosition: {x: 0, y: 0, z: 67.0225}
+  m_LocalScale: {x: 4.15, y: 4.15, z: 4.15}
   m_Children:
   - {fileID: 6087119728091366757}
   m_Father: {fileID: 2561382919445929607}
@@ -323,7 +323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParrentPuzzle: {fileID: 608196428646520730}
-  SizeRatio: 7.1
+  SizeRatio: 4.15
 --- !u!1 &1308653000835028783
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,8 +349,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1308653000835028783}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 6.2}
-  m_LocalScale: {x: 0.31, y: 0.31, z: 0.31}
+  m_LocalPosition: {x: 20.09, y: 5.27, z: 56.848}
+  m_LocalScale: {x: 3.52, y: 3.52, z: 3.52}
   m_Children:
   - {fileID: 3721623549164244969}
   m_Father: {fileID: 2561382919445929607}
@@ -369,7 +369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParrentPuzzle: {fileID: 608196428646520730}
-  SizeRatio: 0.31
+  SizeRatio: 3.52
 --- !u!1 &1547819181764057209
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,8 +461,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51783353, y: 2.2109528, z: 2.3547697}
-  m_Center: {x: -0.14888182, y: -0.13123856, z: -0.0897893}
+  m_Size: {x: 0.51783353, y: 14.861603, z: 12.898237}
+  m_Center: {x: -0.14888182, y: -0.83405054, z: 0.11920165}
 --- !u!1 &1571903506410187924
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,7 +489,7 @@ Transform:
   m_GameObject: {fileID: 1571903506410187924}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 8930931738308803301}
   - {fileID: 1668531255984820969}
@@ -521,11 +521,33 @@ MonoBehaviour:
   PlayerEnter: 0
   SolveEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  DistanceFromViewPoint: 20
+  DistanceFromViewPoint: 16.15
   CheckPointBoxCollider: {fileID: 6941107465681490141}
+  LeftPuzzleParts:
+  - {fileID: 8795985159262331901}
+  - {fileID: 1404719437491565487}
+  - {fileID: 6920328813804174785}
+  - {fileID: 5556841354964184338}
+  RightPuzzleParts:
+  - {fileID: 1750924065938554993}
+  - {fileID: 5729045443328444723}
+  - {fileID: 7035142194398634191}
+  - {fileID: 2832693292340583412}
+  - {fileID: 6438988385962465590}
 --- !u!1 &1739920262353965844
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,8 +573,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1739920262353965844}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 24}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalPosition: {x: 5.46, y: 0.52, z: 8.075}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 8071066190503860950}
   m_Father: {fileID: 2561382919445929607}
@@ -571,7 +593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParrentPuzzle: {fileID: 608196428646520730}
-  SizeRatio: 1.2
+  SizeRatio: 0.5
 --- !u!1 &1862770270575681718
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,8 +619,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1862770270575681718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 50}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_LocalPosition: {x: 6.73, y: -1.67, z: 10.8205}
+  m_LocalScale: {x: 0.67, y: 0.67, z: 0.67}
   m_Children:
   - {fileID: 1176005155857067007}
   m_Father: {fileID: 2561382919445929607}
@@ -617,7 +639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParrentPuzzle: {fileID: 608196428646520730}
-  SizeRatio: 2.5
+  SizeRatio: 0.67
 --- !u!1 &1999045835272365392
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,8 +665,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1999045835272365392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 20}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -15.78, y: 10.98, z: 32.3}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 8358002290525317901}
   m_Father: {fileID: 2561382919445929607}
@@ -663,7 +685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParrentPuzzle: {fileID: 608196428646520730}
-  SizeRatio: 1
+  SizeRatio: 2
 --- !u!1 &2028374821659643184
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,8 +776,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51783353, y: 2.2109528, z: 2.3547697}
-  m_Center: {x: -0.14888182, y: -0.13123856, z: -0.0897893}
+  m_Size: {x: 0.51783353, y: 15.886181, z: 17.62947}
+  m_Center: {x: -0.14888182, y: -1.3008308, z: -2.1083167}
 --- !u!1 &2621745037651121649
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,8 +803,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2621745037651121649}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 16}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalPosition: {x: -7.59, y: 2.5, z: 16.15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8632753861385351194}
   m_Father: {fileID: 2561382919445929607}
@@ -801,7 +823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParrentPuzzle: {fileID: 608196428646520730}
-  SizeRatio: 0.8
+  SizeRatio: 1
 --- !u!1 &3170235630336473208
 GameObject:
   m_ObjectHideFlags: 0
@@ -827,8 +849,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3170235630336473208}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 50}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_LocalPosition: {x: -1.39, y: 1.2, z: 6.46}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 4203933685859333758}
   m_Father: {fileID: 2561382919445929607}
@@ -847,7 +869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParrentPuzzle: {fileID: 608196428646520730}
-  SizeRatio: 2.5
+  SizeRatio: 0.4
 --- !u!1 &4738818745187754065
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,8 +961,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51783353, y: 2.2109528, z: 2.3547697}
-  m_Center: {x: -0.14888182, y: -0.13123856, z: -0.0897893}
+  m_Size: {x: 0.51783353, y: 26.142593, z: 27.901455}
+  m_Center: {x: -0.14888182, y: 1.3982344, z: 1.3757658}
 --- !u!1 &6121738696059697494
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,8 +988,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6121738696059697494}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 32}
-  m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
+  m_LocalPosition: {x: 5.34, y: 1.02, z: 16.15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7464301258580534645}
   m_Father: {fileID: 2561382919445929607}
@@ -986,7 +1008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParrentPuzzle: {fileID: 608196428646520730}
-  SizeRatio: 1.6
+  SizeRatio: 1
 --- !u!1 &6489264257260093468
 GameObject:
   m_ObjectHideFlags: 0
@@ -1184,8 +1206,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51783353, y: 2.2109528, z: 2.3547697}
-  m_Center: {x: -0.14888182, y: -0.13123856, z: -0.0897893}
+  m_Size: {x: 0.51783353, y: 31.669216, z: 25.464287}
+  m_Center: {x: -0.14888182, y: 1.5814514, z: -0.20135403}
 --- !u!1 &7385876499357738879
 GameObject:
   m_ObjectHideFlags: 0
@@ -1211,8 +1233,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7385876499357738879}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: -12.33, y: 2.34, z: 16.15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6190829845331730307}
   m_Father: {fileID: 2561382919445929607}
@@ -1231,7 +1253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParrentPuzzle: {fileID: 608196428646520730}
-  SizeRatio: 0.5
+  SizeRatio: 1
 --- !u!1 &8052894394976574278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1322,8 +1344,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51783353, y: 2.2109528, z: 2.3547697}
-  m_Center: {x: -0.14888182, y: -0.13123856, z: -0.0897893}
+  m_Size: {x: 0.51783353, y: 25.152521, z: 22.77909}
+  m_Center: {x: -0.14888181, y: -0.7479286, z: -2.6647136}
 --- !u!1 &8231662029485830198
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,8 +1437,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51783353, y: 2.2109528, z: 2.3547697}
-  m_Center: {x: -0.14888182, y: -0.13123856, z: -0.0897893}
+  m_Size: {x: 0.5178335, y: 18.182116, z: 22.245619}
+  m_Center: {x: -0.14888182, y: 0.591667, z: 2.3240218}
 --- !u!1 &8411551946511286528
 GameObject:
   m_ObjectHideFlags: 0
@@ -1442,8 +1464,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8411551946511286528}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 40}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 14.58, y: 1.73, z: 48.449997}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 1983002914262429058}
   m_Father: {fileID: 2561382919445929607}
@@ -1462,7 +1484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParrentPuzzle: {fileID: 608196428646520730}
-  SizeRatio: 2
+  SizeRatio: 3
 --- !u!1 &8605141996085447860
 GameObject:
   m_ObjectHideFlags: 0
@@ -1554,5 +1576,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51783353, y: 2.2109528, z: 2.3547697}
-  m_Center: {x: -0.14888182, y: -0.13123856, z: -0.0897893}
+  m_Size: {x: 0.51783353, y: 15.166431, z: 17.65734}
+  m_Center: {x: -0.14888182, y: 0.5885086, z: -0.40931606}

@@ -5,10 +5,31 @@ public class TravelTrigger : MonoBehaviour
 {
     [SerializeField] private BoxCollider Collider;
 
-    public void OnTriggerEnter()
+    [SerializeField] private bool TriggerAnyTime;
+    [SerializeField] private GameManager.TravelProcess OnlyTriggerOn;
+
+    public void OnTriggerEnter(Collider c)
     {
-        Collider.enabled = false;
-        EnterEvent?.Invoke();
+        if (TriggerAnyTime)
+        {
+            Player p = c.gameObject.GetComponent<Player>();
+            if (p != null)
+            {
+                EnterEvent?.Invoke();
+            }
+        }
+        else
+        {
+            if (GameManager.Instance.CurTravelProcess == OnlyTriggerOn)
+            {
+                Player p = c.gameObject.GetComponent<Player>();
+                if (p != null)
+                {
+                    Collider.enabled = false;
+                    EnterEvent?.Invoke();
+                }
+            }
+        }
     }
 
     public UnityEvent EnterEvent;

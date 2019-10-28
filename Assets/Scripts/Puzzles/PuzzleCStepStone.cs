@@ -6,7 +6,8 @@ public class PuzzleCStepStone : MonoBehaviour
 {
     [SerializeField] private MeshRenderer MeshRenderer;
     [SerializeField] private Animator Animator;
-    [SerializeField] private ParticleSystem ParticleSystem;
+    [SerializeField] private ParticleSystem ParticleSystem_Default;
+    [SerializeField] private ParticleSystem ParticleSystem_Triggered;
 
     public void Start()
     {
@@ -29,7 +30,9 @@ public class PuzzleCStepStone : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         AudioManager.Instance.SoundPlay("sfx/puzzle1");
-        ParticleSystem.Play();
+        ParticleSystem_Triggered.Play();
+        ParticleSystem_Default.startSpeed *= 2f;
+        ParticleSystem_Default.startSize *= 2f;
         for (int i = 0; i < 10; i++)
         {
             MeshRenderer.material.color = Color.Lerp(StartColor, ReviveColor, i / 10f);

@@ -25,6 +25,7 @@ public class PlatformerStone : MonoBehaviour
         {
             ParticleSystem.Play();
         }
+
         HasStarted = true;
         AudioSource.Play();
     }
@@ -63,6 +64,7 @@ public class PlatformerStone : MonoBehaviour
         Player player = c.gameObject.GetComponent<Player>();
         if (player != null)
         {
+            AudioManager.Instance.SoundPlay("sfx/StepOn3DPlatformStone");
             player.transform.SetParent(transform);
             ParentPlatformer3D.ShowNext(this);
         }

@@ -86,12 +86,17 @@ public class Puzzle : MonoBehaviour
     [SerializeField] private List<PuzzlePart> LeftPuzzleParts = new List<PuzzlePart>();
     [SerializeField] private List<PuzzlePart> RightPuzzleParts = new List<PuzzlePart>();
 
+    private bool PuzzleCAllReturn => PuzzleCLeftReturn && PuzzleCRightReturn;
+    private bool PuzzleCLeftReturn = false;
+    private bool PuzzleCRightReturn = false;
+
     /// <summary>
     /// Only used in PuzzleC
     /// </summary>
     public void PuzzlePartXYPositionReturn_Left()
     {
         StartCoroutine(Co_Return(LeftPuzzleParts, 3f));
+        PuzzleCLeftReturn = true;
     }
 
     IEnumerator Co_Return(List<PuzzlePart> pps, float duration)
@@ -103,6 +108,11 @@ public class Puzzle : MonoBehaviour
         }
 
         yield return new WaitForSeconds(duration);
+
+        if (PuzzleCAllReturn)
+        {
+            GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.PlatformStage3_SideStepStonesSolved;
+        }
     }
 
     /// <summary>
@@ -111,5 +121,6 @@ public class Puzzle : MonoBehaviour
     public void PuzzlePartXYPositionReturn_Right()
     {
         StartCoroutine(Co_Return(RightPuzzleParts, 3f));
+        PuzzleCRightReturn = true;
     }
 }

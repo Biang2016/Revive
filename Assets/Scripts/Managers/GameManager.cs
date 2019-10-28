@@ -96,7 +96,6 @@ public class GameManager : MonoSingleton<GameManager>
     public Cave1WaterStone Cave1WaterStone;
     public Transform SurroundingRoot;
     public Platformer3D Platformer3D;
-    public PuzzleC PuzzleC;
 
     public float SupermanSpeed = 20f;
 
@@ -155,9 +154,9 @@ public class GameManager : MonoSingleton<GameManager>
         CaveStage2_When3DPlatformJump,
         CaveStage2_After3DPlatformJumpNarrow,
         PlatformStage3_CameOutFromCave,
-        PlatformStage3_UnlockFirstPuzzle,
-        PlatformStage3_UnlockSecondPuzzle,
-        PlatformStage3_SolvingLastPuzzle,
+        PlatformStage3_SideStepStonesSolved,
+        PlatformStage3_EnterSolvingLastPuzzleZone,
+        PlatformStage3_SolvingPuzzleC,
         PlatformStage3_RevivingTree,
         PlatformStage3_TreeRevived,
     }
@@ -294,20 +293,53 @@ public class GameManager : MonoSingleton<GameManager>
                     }
                     case TravelProcess.CaveStage2_AfterWaterfall:
                     {
+                        AudioManager.Instance.SoundPlay("sfx/WaterDrop");
                         break;
                     }
                     case TravelProcess.CaveStage2_Before3DPlatformJump:
                     {
-                        Platformer3D.ShowFirst();
                         break;
                     }
                     case TravelProcess.CaveStage2_When3DPlatformJump:
                     {
+                        AudioManager.Instance.SoundStop("WaterDrop");
+                        Platformer3D.ShowFirst();
                         break;
                     }
                     case TravelProcess.CaveStage2_After3DPlatformJumpNarrow:
                     {
+                        break;
+                    }
+                    case TravelProcess.PlatformStage3_CameOutFromCave:
+                    {
                         AudioManager.Instance.BGMFadeIn("bgm/bgm_SeeTheTree", 5f, 1f, true);
+                        break;
+                    }
+                    case TravelProcess.PlatformStage3_SideStepStonesSolved:
+                    {
+                        break;
+                    }
+                    case TravelProcess.PlatformStage3_EnterSolvingLastPuzzleZone:
+                    {
+                        Player.Controller.MoveSpeed = 3f;
+                        Player.Controller.default_MoveSpeed = 3f;
+                        Player.Controller.MyMouseLooker.XSensitivity = 0.5f;
+                        Player.Controller.MyMouseLooker.YSensitivity = 0.5f;
+                        break;
+                    }
+                    case TravelProcess.PlatformStage3_SolvingPuzzleC:
+                    {
+                        MainCameraAnimator.SetTrigger("PuzzleASolved");
+                        AudioManager.Instance.SoundPlay("sfx/puzzle1");
+                        StartCoroutine(Co_PuzzleCSolved());
+                        Player.Controller.MyMouseLooker.enabled = false;
+                        Player.Controller.MyController.enabled = false;
+                        Player.Controller.CapsuleCollider.enabled = true;
+                        break;
+                    }
+                    case TravelProcess.PlatformStage3_RevivingTree:
+                    {
+                        AudioManager.Instance.BGMFadeIn("bgm/bgm_final", 5f, 1f, true);
                         break;
                     }
                 }
@@ -326,5 +358,10 @@ public class GameManager : MonoSingleton<GameManager>
     {
         yield return new WaitForSeconds(2f);
         CurTravelProcess = TravelProcess.CaveStage1_AfterPuzzle;
+    }
+    IEnumerator Co_PuzzleCSolved()
+    {
+        yield return new WaitForSeconds(2f);
+        CurTravelProcess = TravelProcess.PlatformStage3_RevivingTree;
     }
 }
