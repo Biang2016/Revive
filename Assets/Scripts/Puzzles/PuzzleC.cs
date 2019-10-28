@@ -7,6 +7,7 @@ public class PuzzleC : MonoBehaviour
     public bool RightStepOn;
 
     public Puzzle CenterPuzzle;
+
     public void TriggerLeft()
     {
     }

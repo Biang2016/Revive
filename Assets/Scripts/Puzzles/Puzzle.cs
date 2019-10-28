@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -80,4 +82,34 @@ public class Puzzle : MonoBehaviour
     }
 
     #endregion
+
+    [SerializeField] private List<PuzzlePart> LeftPuzzleParts = new List<PuzzlePart>();
+    [SerializeField] private List<PuzzlePart> RightPuzzleParts = new List<PuzzlePart>();
+
+    /// <summary>
+    /// Only used in PuzzleC
+    /// </summary>
+    public void PuzzlePartXYPositionReturn_Left()
+    {
+        StartCoroutine(Co_Return(LeftPuzzleParts, 3f));
+    }
+
+    IEnumerator Co_Return(List<PuzzlePart> pps, float duration)
+    {
+        foreach (PuzzlePart pp in pps)
+        {
+            pp.transform.DOLocalMoveX(0, duration);
+            pp.transform.DOLocalMoveY(0, duration);
+        }
+
+        yield return new WaitForSeconds(duration);
+    }
+
+    /// <summary>
+    /// Only used in PuzzleC
+    /// </summary>
+    public void PuzzlePartXYPositionReturn_Right()
+    {
+        StartCoroutine(Co_Return(RightPuzzleParts, 3f));
+    }
 }
