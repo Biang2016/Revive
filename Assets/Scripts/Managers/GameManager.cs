@@ -270,6 +270,7 @@ public class GameManager : MonoSingleton<GameManager>
                     }
                     case TravelProcess.CaveStage2_Narrow:
                     {
+                        Input.ResetInputAxes();
                         Player.Controller.MyController.enabled = true;
                         Player.Controller.CapsuleCollider.enabled = false;
                         Player.Controller.MoveSpeed = 10f;
@@ -329,16 +330,18 @@ public class GameManager : MonoSingleton<GameManager>
                     {
                         MainCameraAnimator.SetTrigger("PuzzleASolved");
                         AudioManager.Instance.SoundPlay("sfx/puzzle1");
+                        Player.Controller.MyMouseLooker.enabled = false;
+                        Player.Controller.MyController.enabled = false;
+                        Player.Controller.enabled = false;
                         StartCoroutine(Co_PuzzleCSolved());
                         break;
                     }
                     case TravelProcess.PlatformStage3_RevivingTree:
                     {
                         AudioManager.Instance.BGMFadeIn("bgm/bgm_final", 2f, 1f, true);
-                        Player.Controller.SuperManMode = !Player.Controller.SuperManMode;
                         Player.Controller.MyMouseLooker.enabled = true;
                         Player.Controller.MyController.enabled = true;
-                        Player.Controller.CapsuleCollider.enabled = true;
+                        Player.Controller.enabled = true;
                         break;
                     }
                 }
@@ -361,7 +364,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     IEnumerator Co_PuzzleCSolved()
     {
-        CurTravelProcess = TravelProcess.PlatformStage3_RevivingTree;
         yield return new WaitForSeconds(2f);
+        CurTravelProcess = TravelProcess.PlatformStage3_RevivingTree;
     }
 }
