@@ -6567,7 +6567,7 @@ MonoBehaviour:
   SupermanSpeed: 50
   StartGameState: 100
   curGameState: 100
-  StartTravelProcess: -1
+  StartTravelProcess: 1
   curTravelProcess: 100
 --- !u!114 &439133381
 MonoBehaviour:
@@ -6999,8 +6999,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 602351159}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 213.5, y: -124.82, z: -19.6}
+  m_LocalRotation: {x: 0.559828, y: 0.08633554, z: 0.058789045, w: -0.82199925}
+  m_LocalPosition: {x: 170.01035, y: -220.92165, z: -3.2593994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7670,8 +7670,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 767872607}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 213.5, y: -124.82, z: -19.6}
+  m_LocalRotation: {x: 0.559828, y: 0.08633554, z: 0.058789045, w: -0.82199925}
+  m_LocalPosition: {x: 170.01035, y: -220.92165, z: -3.2593994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8111,8 +8111,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 952372829}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 213.5, y: -124.82, z: -19.6}
+  m_LocalRotation: {x: 0.053617105, y: 0.87501293, z: 0.099645585, w: -0.47068924}
+  m_LocalPosition: {x: 63.60079, y: -80.89841, z: -33.949547}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9697,8 +9697,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1766027474}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 213.5, y: -124.82, z: -19.6}
+  m_LocalRotation: {x: -0.22442514, y: -0.67901623, z: 0.23098037, w: -0.6597108}
+  m_LocalPosition: {x: 4.5213203, y: 64.09505, z: -54.659218}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9987,8 +9987,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855208647}
-  m_LocalRotation: {x: 0.17713717, y: 0.81418705, z: -0.45097616, w: 0.31991008}
-  m_LocalPosition: {x: 73.47537, y: 112.47689, z: -50.28005}
+  m_LocalRotation: {x: 0.30444536, y: 0.14046612, z: 0.04543621, w: -0.9410196}
+  m_LocalPosition: {x: 184.83759, y: -180.66441, z: -81.77843}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10921,6 +10921,11 @@ PrefabInstance:
       propertyPath: EnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 428915962}
+    - target: {fileID: 4539462275939887445, guid: 142176b3e0c56214badb5f8567c1f69f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 82f001e57d8bbeb448df7982b784da4e, type: 2}
     - target: {fileID: 52005780, guid: 142176b3e0c56214badb5f8567c1f69f, type: 3}
       propertyPath: AppearAfterTravelProcess
       value: 14

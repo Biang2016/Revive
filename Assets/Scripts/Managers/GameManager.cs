@@ -307,7 +307,7 @@ public class GameManager : MonoSingleton<GameManager>
                     }
                     case TravelProcess.CaveStage2_After3DPlatformJumpNarrow:
                     {
-                        AudioManager.Instance.BGMFadeIn("bgm/WhisperStage2", 3f, 1f);
+                        AudioManager.Instance.BGMFadeIn("bgm/bgm_SeeTheTree", 5f, 1f, true);
                         break;
                     }
                 }
