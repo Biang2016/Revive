@@ -133,6 +133,19 @@ public class AudioManager : MonoSingleton<AudioManager>
         }
     }
 
+    public void BGMFadeOut(float fadeOutDuration)
+    {
+        if (!string.IsNullOrEmpty(currentBGM))
+        {
+            AudioClip bgmSound = GetAudioClip(currentBGM);
+            if (bgmSound != null)
+            {
+                StartCoroutine(Co_BGMFadeOut(fadeOutDuration));
+                currentBGM = null;
+            }
+        }
+    }
+
     private Coroutine BGMLoop;
     private List<string> CurrentLoopList = new List<string>();
 

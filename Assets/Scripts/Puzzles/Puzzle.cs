@@ -11,7 +11,7 @@ public class Puzzle : MonoBehaviour
     internal bool[] PuzzleHits;
     public bool IsSolved = false;
 
-    void Start()
+    void Awake()
     {
         PuzzleParts = new List<PuzzlePart>();
         for (int i = 0; i < transform.childCount; i++)
@@ -108,7 +108,7 @@ public class Puzzle : MonoBehaviour
         GameManager.Instance.Player.Controller.MyMouseLooker.enabled = false;
         GameManager.Instance.Player.Controller.MyController.enabled = false;
         GameManager.Instance.Player.Controller.enabled = false;
-        CameraRecordingManager.Instance.PlayRecording(isLeft ? CameraRecordingManager.RecordingTypes.LeftStoneMoving : CameraRecordingManager.RecordingTypes.RightStoneMoving);
+        CameraRecordingManager.Instance.PlayRecording(isLeft ? CameraRecordingManager.RecordingTypes.LeftStoneMoving : CameraRecordingManager.RecordingTypes.RightStoneMoving, false);
 
         foreach (PuzzlePart pp in pps)
         {
@@ -139,5 +139,29 @@ public class Puzzle : MonoBehaviour
     {
         StartCoroutine(Co_Return(RightPuzzleParts, 3f, false));
         PuzzleCRightReturn = true;
+    }
+
+    /// <summary>
+    /// Only used in PuzzleC
+    /// </summary>
+    public void HideAllFragmentOfPuzzleC()
+    {
+        foreach (PuzzlePart part in PuzzleParts)
+        {
+            part.gameObject.SetActive(false);
+        }
+
+        PuzzleParts[0].gameObject.SetActive(true);
+    }
+
+    /// <summary>
+    /// Only used in PuzzleC
+    /// </summary>
+    public void ShowAllFragmentOfPuzzleC()
+    {
+        foreach (PuzzlePart part in PuzzleParts)
+        {
+            part.gameObject.SetActive(true);
+        }
     }
 }

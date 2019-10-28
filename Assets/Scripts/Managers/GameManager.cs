@@ -60,7 +60,7 @@ public class GameManager : MonoSingleton<GameManager>
         {
             if (!RecordingStartSceneCameraPath)
             {
-                CameraRecordingManager.Instance.PlayRecording(CameraRecordingManager.RecordingTypes.RecordingJustNow);
+                CameraRecordingManager.Instance.PlayRecording(CameraRecordingManager.RecordingTypes.RecordingJustNow, true);
             }
         }
 
@@ -93,6 +93,8 @@ public class GameManager : MonoSingleton<GameManager>
     public Cave1WaterStone Cave1WaterStone;
     public Transform SurroundingRoot;
     public Platformer3D Platformer3D;
+    public Puzzle PuzzleA;
+    public Puzzle PuzzleC;
 
     public float SupermanSpeed = 20f;
 
@@ -171,7 +173,7 @@ public class GameManager : MonoSingleton<GameManager>
                 StartSceneCameraCarrier.Controller.SuperManMode = false;
                 StartSceneCameraCarrier.Controller.SuperManMode = true;
                 StartSceneCameraCarrier.gameObject.SetActive(true);
-                Raft.gameObject.SetActive(false);
+                Player.gameObject.SetActive(false);
                 UIManager.Instance.ShowUIForms<EditorPanel>();
             }
             else
@@ -185,18 +187,32 @@ public class GameManager : MonoSingleton<GameManager>
                 {
                     case TravelProcess.None:
                     {
+                        WorldTreeRevivingManager.Instance.Cur_TreeState = WorldTreeRevivingManager.TreeStates.StartSceneRotateSlow;
                         break;
                     }
                     case TravelProcess.StartScene:
                     {
-                        // start UI
+                        WorldTreeRevivingManager.Instance.Cur_TreeState = WorldTreeRevivingManager.TreeStates.StartSceneRotateSlow;
+                        PuzzleC.HideAllFragmentOfPuzzleC();
+                        AudioManager.Instance.BGMFadeIn("bgm/bgm_stage1", 1f, 1, true);
+                        UIManager.Instance.ShowUIForms<StartMenuPanel>();
+                        CameraRecordingManager.Instance.PlayRecording(CameraRecordingManager.RecordingTypes.StartSceneRecording, false);
+                        StartSceneCameraCarrier.gameObject.SetActive(true);
+                        Player.gameObject.SetActive(false);
+                        StartSceneCameraCarrier.Controller.enabled = false;
+                        StartSceneCameraCarrier.Controller.MyController.enabled = false;
+                        StartSceneCameraCarrier.Controller.MyMouseLooker.enabled = false;
                         break;
                     }
                     case TravelProcess.CaveStage1_DropDown:
                     {
+                        AudioManager.Instance.BGMFadeOut(0.5f);
+                        UIManager.Instance.CloseUIForm<StartMenuPanel>();
+                        WorldTreeRevivingManager.Instance.Cur_TreeState = WorldTreeRevivingManager.TreeStates.Died;
+                        PuzzleC.ShowAllFragmentOfPuzzleC();
                         AudioManager.Instance.SoundPlay("sfx/sound_wind");
                         StartSceneCameraCarrier.gameObject.SetActive(false);
-                        Raft.gameObject.SetActive(true);
+                        Player.gameObject.SetActive(true);
 
                         Player.AutoMove.AutoMoveStart();
                         Raft.AutoMove.AutoMoveStart();
@@ -210,9 +226,6 @@ public class GameManager : MonoSingleton<GameManager>
                         Player.Controller.MyController.enabled = false;
                         Player.Controller.MyMouseLooker.enabled = false;
                         Player.Controller.CapsuleCollider.enabled = true;
-
-                        //click UI start button enter this phase
-                        // start drop down sound
                         break;
                     }
                     case TravelProcess.CaveStage1_DropEnterCave:
@@ -282,8 +295,9 @@ public class GameManager : MonoSingleton<GameManager>
                         Player.Controller.SetColliderRadiusOnLand();
 
                         Player.transform.SetParent(SurroundingRoot);
+                        Raft.AutoMove.IsMoving = false;
                         Raft.gameObject.SetActive(false);
-                        AudioManager.Instance.SoundStop("sfx/Cave1Mixed");
+                        AudioManager.Instance.SoundStop("Cave1Mixed");
                         break;
                     }
                     case TravelProcess.CaveStage2_OpenPlaceBeforeWaterfall:
@@ -333,11 +347,12 @@ public class GameManager : MonoSingleton<GameManager>
                         Player.Controller.MyMouseLooker.enabled = false;
                         Player.Controller.MyController.enabled = false;
                         Player.Controller.enabled = false;
-                        StartCoroutine(Co_PuzzleCSolved());
+                        WorldTreeRevivingManager.Instance.Cur_TreeState = WorldTreeRevivingManager.TreeStates.SolvingStonePuzzle;
                         break;
                     }
                     case TravelProcess.PlatformStage3_RevivingTree:
                     {
+                        WorldTreeRevivingManager.Instance.Cur_TreeState = WorldTreeRevivingManager.TreeStates.Reviving_Stage1;
                         AudioManager.Instance.BGMFadeIn("bgm/bgm_final", 2f, 1f, true);
                         Player.Controller.MyMouseLooker.enabled = true;
                         Player.Controller.MyController.enabled = true;
@@ -360,11 +375,5 @@ public class GameManager : MonoSingleton<GameManager>
     {
         yield return new WaitForSeconds(2f);
         CurTravelProcess = TravelProcess.CaveStage1_AfterPuzzle;
-    }
-
-    IEnumerator Co_PuzzleCSolved()
-    {
-        yield return new WaitForSeconds(2f);
-        CurTravelProcess = TravelProcess.PlatformStage3_RevivingTree;
     }
 }

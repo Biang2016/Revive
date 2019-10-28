@@ -63,7 +63,7 @@ public class CameraRecordingManager : MonoSingleton<CameraRecordingManager>
 
     private List<RecordFrame> ReadRecordFrames = new List<RecordFrame>();
 
-    public void PlayRecording(RecordingTypes recordingTypes)
+    public void PlayRecording(RecordingTypes recordingTypes, bool canMoveAfterPlaying)
     {
         GameManager.Instance.StartSceneCameraCarrier.Controller.enabled = false;
         GameManager.Instance.StartSceneCameraCarrier.MouseLooker.enabled = false;
@@ -88,7 +88,7 @@ public class CameraRecordingManager : MonoSingleton<CameraRecordingManager>
             StopCoroutine(CameraMoveCoroutine);
         }
 
-        CameraMoveCoroutine = StartCoroutine(Co_CameraMove());
+        CameraMoveCoroutine = StartCoroutine(Co_CameraMove(canMoveAfterPlaying));
     }
 
     public enum RecordingTypes
@@ -110,7 +110,7 @@ public class CameraRecordingManager : MonoSingleton<CameraRecordingManager>
     private Coroutine CameraMoveCoroutine;
     public bool IsPlayingRecord = false;
 
-    IEnumerator Co_CameraMove()
+    IEnumerator Co_CameraMove(bool canMoveAfterPlaying)
     {
         foreach (RecordFrame rf in ReadRecordFrames)
         {
@@ -121,7 +121,7 @@ public class CameraRecordingManager : MonoSingleton<CameraRecordingManager>
         }
 
         IsPlayingRecord = false;
-        GameManager.Instance.StartSceneCameraCarrier.Controller.enabled = true;
-        GameManager.Instance.StartSceneCameraCarrier.MouseLooker.enabled = true;
+        GameManager.Instance.StartSceneCameraCarrier.Controller.enabled = canMoveAfterPlaying;
+        GameManager.Instance.StartSceneCameraCarrier.MouseLooker.enabled = canMoveAfterPlaying;
     }
 }
