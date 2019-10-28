@@ -85,6 +85,7 @@ public class Player : MonoBehaviour
     {
         GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.CaveStage2_Narrow;
     }
+
     public void StartAfterWaterFall()
     {
         GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.CaveStage2_AfterWaterfall;

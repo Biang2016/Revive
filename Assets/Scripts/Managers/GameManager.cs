@@ -1,6 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using System.Media;
 using UnityEngine;
 using UnityStandardAssets.ImageEffects;
 
@@ -62,24 +60,23 @@ public class GameManager : MonoSingleton<GameManager>
         {
             if (!RecordingStartSceneCameraPath)
             {
-                CameraRecordingManager.Instance.PlayRecording();
+                CameraRecordingManager.Instance.PlayRecording(CameraRecordingManager.RecordingTypes.RecordingJustNow);
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.F11))
+        if (Input.GetKeyUp(KeyCode.CapsLock))
         {
             if (!CameraRecordingManager.Instance.IsPlayingRecord)
             {
-                RecordingStartSceneCameraPath = true;
-            }
-        }
-
-        if (Input.GetKeyUp(KeyCode.F12))
-        {
-            if (!CameraRecordingManager.Instance.IsPlayingRecord)
-            {
-                RecordingStartSceneCameraPath = false;
-                CameraRecordingManager.Instance.SaveRecord();
+                if (RecordingStartSceneCameraPath)
+                {
+                    RecordingStartSceneCameraPath = false;
+                    CameraRecordingManager.Instance.SaveRecord();
+                }
+                else
+                {
+                    RecordingStartSceneCameraPath = true;
+                }
             }
         }
     }
@@ -139,26 +136,26 @@ public class GameManager : MonoSingleton<GameManager>
     {
         None = -1,
         StartScene = 0,
-        CaveStage1_DropDown,
-        CaveStage1_DropEnterCave,
-        CaveStage1_WakeUp,
-        CaveStage1_Stand,
-        CaveStage1_BeforePuzzle,
-        CaveStage1_WhenPuzzle,
-        CaveStage1_PuzzleSolveAnimation,
-        CaveStage1_AfterPuzzle,
-        CaveStage2_Narrow,
-        CaveStage2_OpenPlaceBeforeWaterfall,
-        CaveStage2_AfterWaterfall,
-        CaveStage2_Before3DPlatformJump,
-        CaveStage2_When3DPlatformJump,
-        CaveStage2_After3DPlatformJumpNarrow,
-        PlatformStage3_CameOutFromCave,
-        PlatformStage3_SideStepStonesSolved,
-        PlatformStage3_EnterSolvingLastPuzzleZone,
-        PlatformStage3_SolvingPuzzleC,
-        PlatformStage3_RevivingTree,
-        PlatformStage3_TreeRevived,
+        CaveStage1_DropDown = 1,
+        CaveStage1_DropEnterCave = 2,
+        CaveStage1_WakeUp = 3,
+        CaveStage1_Stand = 4,
+        CaveStage1_BeforePuzzle = 5,
+        CaveStage1_WhenPuzzle = 6,
+        CaveStage1_PuzzleSolveAnimation = 7,
+        CaveStage1_AfterPuzzle = 8,
+        CaveStage2_Narrow = 9,
+        CaveStage2_OpenPlaceBeforeWaterfall = 10,
+        CaveStage2_AfterWaterfall = 11,
+        CaveStage2_Before3DPlatformJump = 12,
+        CaveStage2_When3DPlatformJump = 13,
+        CaveStage2_After3DPlatformJumpNarrow = 14,
+        PlatformStage3_CameOutFromCave = 15,
+        PlatformStage3_SideStepStonesSolved = 16,
+        PlatformStage3_EnterSolvingLastPuzzleZone = 17,
+        PlatformStage3_SolvingPuzzleC = 18,
+        PlatformStage3_RevivingTree = 19,
+        PlatformStage3_TreeRevived = 20,
     }
 
     [SerializeField] private TravelProcess StartTravelProcess = TravelProcess.None;
@@ -197,6 +194,7 @@ public class GameManager : MonoSingleton<GameManager>
                     }
                     case TravelProcess.CaveStage1_DropDown:
                     {
+                        AudioManager.Instance.SoundPlay("sfx/sound_wind");
                         StartSceneCameraCarrier.gameObject.SetActive(false);
                         Raft.gameObject.SetActive(true);
 
@@ -332,14 +330,15 @@ public class GameManager : MonoSingleton<GameManager>
                         MainCameraAnimator.SetTrigger("PuzzleASolved");
                         AudioManager.Instance.SoundPlay("sfx/puzzle1");
                         StartCoroutine(Co_PuzzleCSolved());
-                        Player.Controller.MyMouseLooker.enabled = false;
-                        Player.Controller.MyController.enabled = false;
-                        Player.Controller.CapsuleCollider.enabled = true;
                         break;
                     }
                     case TravelProcess.PlatformStage3_RevivingTree:
                     {
-                        AudioManager.Instance.BGMFadeIn("bgm/bgm_final", 5f, 1f, true);
+                        AudioManager.Instance.BGMFadeIn("bgm/bgm_final", 2f, 1f, true);
+                        Player.Controller.SuperManMode = !Player.Controller.SuperManMode;
+                        Player.Controller.MyMouseLooker.enabled = true;
+                        Player.Controller.MyController.enabled = true;
+                        Player.Controller.CapsuleCollider.enabled = true;
                         break;
                     }
                 }
@@ -359,9 +358,10 @@ public class GameManager : MonoSingleton<GameManager>
         yield return new WaitForSeconds(2f);
         CurTravelProcess = TravelProcess.CaveStage1_AfterPuzzle;
     }
+
     IEnumerator Co_PuzzleCSolved()
     {
-        yield return new WaitForSeconds(2f);
         CurTravelProcess = TravelProcess.PlatformStage3_RevivingTree;
+        yield return new WaitForSeconds(2f);
     }
 }

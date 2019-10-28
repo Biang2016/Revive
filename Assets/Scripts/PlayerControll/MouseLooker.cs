@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class MouseLooker : MonoBehaviour
 {
@@ -23,15 +22,15 @@ public class MouseLooker : MonoBehaviour
         ResetMouseLooker();
     }
 
-   void OnDisable()
+    void OnDisable()
     {
         LockCursor(false);
     }
 
-   void OnEnable()
-   {
-       ResetMouseLooker();
-   }
+    void OnEnable()
+    {
+        ResetMouseLooker();
+    }
 
     public void ResetMouseLooker()
     {

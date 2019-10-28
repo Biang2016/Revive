@@ -95,12 +95,21 @@ public class Puzzle : MonoBehaviour
     /// </summary>
     public void PuzzlePartXYPositionReturn_Left()
     {
-        StartCoroutine(Co_Return(LeftPuzzleParts, 3f));
+        StartCoroutine(Co_Return(LeftPuzzleParts, 3f, true));
         PuzzleCLeftReturn = true;
     }
 
-    IEnumerator Co_Return(List<PuzzlePart> pps, float duration)
+    IEnumerator Co_Return(List<PuzzlePart> pps, float duration, bool isLeft)
     {
+        GameManager.Instance.Player.MyCamera.enabled = false;
+        GameManager.Instance.StartSceneCameraCarrier.gameObject.SetActive(true);
+        GameManager.Instance.StartSceneCameraCarrier.Controller.MyController.enabled = false;
+        GameManager.Instance.StartSceneCameraCarrier.Controller.MyMouseLooker.enabled = false;
+        GameManager.Instance.Player.Controller.MyMouseLooker.enabled = false;
+        GameManager.Instance.Player.Controller.MyController.enabled = false;
+        GameManager.Instance.Player.Controller.enabled = false;
+        CameraRecordingManager.Instance.PlayRecording(isLeft ? CameraRecordingManager.RecordingTypes.LeftStoneMoving : CameraRecordingManager.RecordingTypes.RightStoneMoving);
+
         foreach (PuzzlePart pp in pps)
         {
             pp.transform.DOLocalMoveX(0, duration);
@@ -113,6 +122,14 @@ public class Puzzle : MonoBehaviour
         {
             GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.PlatformStage3_SideStepStonesSolved;
         }
+
+        GameManager.Instance.Player.MyCamera.enabled = true;
+        GameManager.Instance.StartSceneCameraCarrier.Controller.MyController.enabled = true;
+        GameManager.Instance.StartSceneCameraCarrier.Controller.MyMouseLooker.enabled = true;
+        GameManager.Instance.StartSceneCameraCarrier.gameObject.SetActive(false);
+        GameManager.Instance.Player.Controller.MyMouseLooker.enabled = true;
+        GameManager.Instance.Player.Controller.MyController.enabled = true;
+        GameManager.Instance.Player.Controller.enabled = true;
     }
 
     /// <summary>
@@ -120,7 +137,7 @@ public class Puzzle : MonoBehaviour
     /// </summary>
     public void PuzzlePartXYPositionReturn_Right()
     {
-        StartCoroutine(Co_Return(RightPuzzleParts, 3f));
+        StartCoroutine(Co_Return(RightPuzzleParts, 3f, false));
         PuzzleCRightReturn = true;
     }
 }

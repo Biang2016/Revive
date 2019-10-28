@@ -1813,7 +1813,7 @@ MonoBehaviour:
   - guid: 9fc0d4010bbf28b4594072e72b8655ab
     ScriptSymbols: []
     ScriptTokens: []
-    stamp: 1572229630
+    stamp: 1572232148
     type: 3
     UseGUIDs:
     - ab7065615d9765f4196d0580d05eabcf
@@ -1848,6 +1848,7 @@ MonoBehaviour:
     - cf35323a7c234b99a07a3beacaa71027
     - 2a5e0fc39ddb747458a4ebb67db96157
     - 042ca0d47acf3cb45a443bb13756c6f9
+    - 0667e3d8be40bf748bde490b95c0951b
     - 15b2b43b417d4ff41a80e562c1666a6e
     - 35f7b369dd1caf54bad5b9830b8f9beb
     - 4c85f4a43f68b45488887fdbdce7ab61
@@ -12951,7 +12952,7 @@ MonoBehaviour:
   - guid: a5f2339f242f6cc41a982ec55ea3c201
     ScriptSymbols: []
     ScriptTokens: []
-    stamp: 1572229630
+    stamp: 1572232271
     type: 5
     UseGUIDs:
     - 475c4a4e617a8401b84ca7b32c7cc460
@@ -14649,5 +14650,58 @@ MonoBehaviour:
     type: 7
     UseGUIDs:
     - a40987c9326c0b349b04508ef5683c67
+  - guid: 0667e3d8be40bf748bde490b95c0951b
+    ScriptSymbols:
+    - RaftPointLight
+    ScriptTokens:
+    - MonoBehaviour
+    - SerializeField
+    - Light
+    - Start
+    - LoopType
+    stamp: 1572230003
+    type: 2
+    UseGUIDs: []
+  - guid: 571d5026d46f37649bb2afb4fa4eafbd
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 1572230924
+    type: 1
+    UseGUIDs:
+    - f0dd776c57b644646801500c453f12c6
+    - 142176b3e0c56214badb5f8567c1f69f
+    - abcc2ed0193bf1e46a9814fa462ae047
+    - 4dec5a4a83d5ab9408d869c8472c8da8
+    - 80bb629c2c389ac47befbc8098b4793d
+  - guid: 9358ee2dca803d646bccffc96ccc968a
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 1572230740
+    type: 1
+    UseGUIDs:
+    - 6d6e62642f7514d089fd271f5bb4c641
+    - bbae6f0cbdbce4b6e94f5c3e35ced790
+    - 608d2316ebc18468392cd42103b024ad
+  - guid: 62d6dcfdcf5ad564d851f335806b0325
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 1572230647
+    type: 1
+    UseGUIDs:
+    - addcfd5c9d8b44a1f9500b87d1323a15
+    - 5f5e148d7705d458e89077a272ca6235
+    - d844797ff7d6c43adb07f54b1d966f58
+  - guid: 394c1510301a7134ca5ab62f442129ed
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 0
+    type: 9
+    UseGUIDs: []
+  - guid: a8023c667d6747b4dbcf243dca3d8a31
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 0
+    type: 9
+    UseGUIDs: []
   timeStamp: 1572153260
   priority: 5

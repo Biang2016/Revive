@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class PuzzleCStepStone : MonoBehaviour
@@ -22,14 +22,12 @@ public class PuzzleCStepStone : MonoBehaviour
             Animator.SetTrigger("StepOn");
             AudioManager.Instance.SoundPlay("sfx/stonemovemnet");
             StartCoroutine(Co_Sound());
-            TriggerEvent?.Invoke();
         }
     }
 
     IEnumerator Co_Sound()
     {
         yield return new WaitForSeconds(1f);
-        AudioManager.Instance.SoundPlay("sfx/puzzle1");
         ParticleSystem_Triggered.Play();
         ParticleSystem_Default.startSpeed *= 2f;
         ParticleSystem_Default.startSize *= 2f;
@@ -38,6 +36,8 @@ public class PuzzleCStepStone : MonoBehaviour
             MeshRenderer.material.color = Color.Lerp(StartColor, ReviveColor, i / 10f);
             yield return new WaitForSeconds(0.1f);
         }
+
+        TriggerEvent?.Invoke();
     }
 
     [SerializeField] private UnityEvent TriggerEvent;

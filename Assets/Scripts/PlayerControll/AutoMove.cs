@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class AutoMove : MonoBehaviour
 {

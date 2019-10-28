@@ -1,9 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using DG.Tweening;
-using UnityEngine.UI;
+using UnityEngine;
 
 public class CameraRecordingManager : MonoSingleton<CameraRecordingManager>
 {
@@ -48,11 +47,9 @@ public class CameraRecordingManager : MonoSingleton<CameraRecordingManager>
         }
     }
 
-    private string CameraAnimTXTPath = Application.streamingAssetsPath + "/CameraAnim.txt";
-
     public void SaveRecord()
     {
-        StreamWriter sw = new StreamWriter(CameraAnimTXTPath);
+        StreamWriter sw = new StreamWriter(RecordingPathDictionary[RecordingTypes.RecordingJustNow]);
         foreach (RecordFrame rf in RecordFrames)
         {
             sw.WriteLine($"{rf.Pos.x},{rf.Pos.y},{rf.Pos.z},{rf.Rot.x},{rf.Rot.y},{rf.Rot.z},{rf.Rot.w},{rf.RotCamera.x},{rf.RotCamera.y},{rf.RotCamera.z},{rf.RotCamera.w}");
@@ -66,14 +63,14 @@ public class CameraRecordingManager : MonoSingleton<CameraRecordingManager>
 
     private List<RecordFrame> ReadRecordFrames = new List<RecordFrame>();
 
-    public void PlayRecording()
+    public void PlayRecording(RecordingTypes recordingTypes)
     {
         GameManager.Instance.StartSceneCameraCarrier.Controller.enabled = false;
         GameManager.Instance.StartSceneCameraCarrier.MouseLooker.enabled = false;
 
         IsPlayingRecord = true;
         ReadRecordFrames.Clear();
-        StreamReader sr = new StreamReader(CameraAnimTXTPath);
+        StreamReader sr = new StreamReader(RecordingPathDictionary[recordingTypes]);
         string line = "";
         while (!string.IsNullOrEmpty(line = sr.ReadLine()))
         {
@@ -93,6 +90,22 @@ public class CameraRecordingManager : MonoSingleton<CameraRecordingManager>
 
         CameraMoveCoroutine = StartCoroutine(Co_CameraMove());
     }
+
+    public enum RecordingTypes
+    {
+        RecordingJustNow,
+        StartSceneRecording,
+        LeftStoneMoving,
+        RightStoneMoving,
+    }
+
+    public Dictionary<RecordingTypes, string> RecordingPathDictionary = new Dictionary<RecordingTypes, string>
+    {
+        {RecordingTypes.RecordingJustNow, Application.streamingAssetsPath + "/CameraAnim.txt"},
+        {RecordingTypes.StartSceneRecording, Application.streamingAssetsPath + "/CameraAnim_StartSceneRecording.txt"},
+        {RecordingTypes.LeftStoneMoving, Application.streamingAssetsPath + "/CameraAnim_LeftStoneMove.txt"},
+        {RecordingTypes.RightStoneMoving, Application.streamingAssetsPath + "/CameraAnim_RightStoneMove.txt"},
+    };
 
     private Coroutine CameraMoveCoroutine;
     public bool IsPlayingRecord = false;

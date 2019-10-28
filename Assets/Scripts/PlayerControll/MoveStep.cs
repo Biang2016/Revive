@@ -19,6 +19,4 @@ public class MoveStep : MonoBehaviour
     public int ShakeRotate_Vibration;
 
     public UnityEvent NextEvent;
-
-
 }

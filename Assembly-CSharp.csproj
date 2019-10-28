@@ -162,6 +162,7 @@
     <Compile Include="Assets\Scripts\PlayerControll\MoveStep.cs" />
     <Compile Include="Assets\Scripts\PlayerControll\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerControll\Raft.cs" />
+    <Compile Include="Assets\Scripts\PlayerControll\RaftPointLight.cs" />
     <Compile Include="Assets\Scripts\PlayerControll\TravelTrigger.cs" />
     <Compile Include="Assets\Scripts\Puzzles\Cave1WaterStone.cs" />
     <Compile Include="Assets\Scripts\Puzzles\CheckPoint.cs" />
@@ -172,6 +173,7 @@
     <Compile Include="Assets\Scripts\Puzzles\PuzzleCStepStone.cs" />
     <Compile Include="Assets\Scripts\Puzzles\PuzzlePart.cs" />
     <Compile Include="Assets\Scripts\Puzzles\TombStone.cs" />
+    <None Include="Assets\StreamingAssets\CameraAnim_RightStoneMove.txt" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Resources\Shaders\DepthOfField.shader" />
     <None Include="Assets\Imports\Advanced Dissolve\Shaders\Cl_3D-Dissolve-Cylinder-One.shader" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\Shaders\SpeedTree\STCustomCore.cginc" />
@@ -229,7 +231,7 @@
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\Dynamic Sky Lite\Dynamic Sky Lite Standard Clouds Type 1.shader" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Resources\Shaders\Bloom.shader" />
     <None Include="Assets\Materials\Shaders\GodRays.shader" />
-    <None Include="Assets\StreamingAssets\CameraAnim.txt" />
+    <None Include="Assets\StreamingAssets\CameraAnim_LeftStoneMove.txt" />
     <None Include="Assets\Imports\UnityParticleEffets\EffectExamples\Magic Effects\Shaders\Ice.shader" />
     <None Include="Assets\Imports\Advanced Dissolve\Shaders\Cl_3D-Dissolve-Cylinder-Four.shader" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Editor Resources\Monitors\VectorscopeRender.shader" />
