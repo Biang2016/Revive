@@ -151,6 +151,7 @@
     <Compile Include="Assets\Scripts\Basic\UI\UIFramework\UIMaskMgr.cs" />
     <Compile Include="Assets\Scripts\Basic\UI\UIFramework\UIType.cs" />
     <Compile Include="Assets\Scripts\Basic\UI\UtilPanels\ConfirmPanel.cs" />
+    <Compile Include="Assets\Scripts\Basic\UIPanels\StartMenuPanel.cs" />
     <Compile Include="Assets\Scripts\Managers\CameraRecordingManager.cs" />
     <Compile Include="Assets\Scripts\Managers\EditorPanel.cs" />
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />

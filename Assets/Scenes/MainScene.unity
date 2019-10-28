@@ -4782,6 +4782,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1538452132}
   m_Mesh: {fileID: -2701523647263373825, guid: 51a8d4003be3f3b4ea21b1ab2c8c8fac, type: 3}
+--- !u!1 &1588206174
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1588206175}
+  m_Layer: 5
+  m_Name: StartMenuPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1588206175
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588206174}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1930331078}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1623939723
 GameObject:
   m_ObjectHideFlags: 0
@@ -5847,8 +5882,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855208647}
-  m_LocalRotation: {x: 0.30444536, y: 0.14046612, z: 0.04543621, w: -0.9410196}
-  m_LocalPosition: {x: 184.83759, y: -180.66441, z: -81.77843}
+  m_LocalRotation: {x: 0, y: 0.20791166, z: 0, w: 0.9781476}
+  m_LocalPosition: {x: 65.82507, y: 48.333, z: -85.600044}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6167,6 +6202,12 @@ Transform:
   m_Father: {fileID: 2052144654}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &1930331078 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1378464407461346390, guid: 608d2316ebc18468392cd42103b024ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 282754025}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1942096188 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: ab7065615d9765f4196d0580d05eabcf,

@@ -1813,7 +1813,7 @@ MonoBehaviour:
   - guid: 9fc0d4010bbf28b4594072e72b8655ab
     ScriptSymbols: []
     ScriptTokens: []
-    stamp: 1572234058
+    stamp: 1572235314
     type: 3
     UseGUIDs:
     - ab7065615d9765f4196d0580d05eabcf
@@ -12946,7 +12946,7 @@ MonoBehaviour:
   - guid: a5f2339f242f6cc41a982ec55ea3c201
     ScriptSymbols: []
     ScriptTokens: []
-    stamp: 1572234058
+    stamp: 1572235314
     type: 5
     UseGUIDs:
     - 475c4a4e617a8401b84ca7b32c7cc460
@@ -14702,6 +14702,167 @@ MonoBehaviour:
     ScriptTokens: []
     stamp: 0
     type: 9
+    UseGUIDs: []
+  - guid: f85d17708ad4a68418315f13c785f46e
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 0
+    type: 9
+    UseGUIDs: []
+  - guid: ad087ea0d6247754d920e75e7a73da80
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 0
+    type: 9
+    UseGUIDs: []
+  - guid: 0dc5ef119429fe74f8f406cf4c4adeb0
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 0
+    type: 9
+    UseGUIDs: []
+  - guid: 8b2503f11404e7c45b6630a9e8b0d81c
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 0
+    type: 9
+    UseGUIDs: []
+  - guid: bffe16c29dc0af9428518c69649d29eb
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 0
+    type: 9
+    UseGUIDs: []
+  - guid: 2f32002358a8c214fb02cd5cdd5267ee
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 0
+    type: 9
+    UseGUIDs: []
+  - guid: 9402b543b825db84aba19621cfa08405
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 0
+    type: 9
+    UseGUIDs: []
+  - guid: 2c0f0ee337c14ff478fe0115b75fbaad
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 0
+    type: 9
+    UseGUIDs: []
+  - guid: ac3a4cf425e9fc945b76b499a2e6f136
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 0
+    type: 9
+    UseGUIDs: []
+  - guid: c11bd2e68141d9c47a4a8e9a62737a01
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 0
+    type: 9
+    UseGUIDs: []
+  - guid: 27682348a93005340b39ee6bb18621e9
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 0
+    type: 9
+    UseGUIDs: []
+  - guid: 25a15f58a024e954b8d8fa9f25f047ce
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 0
+    type: 9
+    UseGUIDs: []
+  - guid: 5a94a3c80fae70548a1ca43d2e76a2b5
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 0
+    type: 9
+    UseGUIDs: []
+  - guid: 328be749a8f0b114fadd5e32266f73b5
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 0
+    type: 9
+    UseGUIDs: []
+  - guid: 36ee662a2a4f14548953157fb05c1309
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 0
+    type: 9
+    UseGUIDs: []
+  - guid: 15fc374ba8c75be4a9d3da19d1e8371c
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 0
+    type: 9
+    UseGUIDs: []
+  - guid: 3118479cc3c805649aeb893ff5245349
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 0
+    type: 9
+    UseGUIDs: []
+  - guid: 02d6814e1f78e934d8b0dd792eaa2bf2
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 0
+    type: 9
+    UseGUIDs: []
+  - guid: a9e548cef92a2a64f99f181dc2db5bd0
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 0
+    type: 9
+    UseGUIDs: []
+  - guid: 95ac01313b1ba45499a6635872f5917a
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 1572235305
+    type: 1
+    UseGUIDs:
+    - 4a43469538d3cd74a9eb58eaa53a7e11
+  - guid: 403cf5d255529264f92b0a2605e5e0bf
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 1572234857
+    type: 1
+    UseGUIDs:
+    - 2f32002358a8c214fb02cd5cdd5267ee
+    - a9e548cef92a2a64f99f181dc2db5bd0
+    - 2c0f0ee337c14ff478fe0115b75fbaad
+    - 8b2503f11404e7c45b6630a9e8b0d81c
+    - ac3a4cf425e9fc945b76b499a2e6f136
+    - 3118479cc3c805649aeb893ff5245349
+    - f85d17708ad4a68418315f13c785f46e
+    - 27682348a93005340b39ee6bb18621e9
+    - 15fc374ba8c75be4a9d3da19d1e8371c
+    - bffe16c29dc0af9428518c69649d29eb
+    - 5a94a3c80fae70548a1ca43d2e76a2b5
+    - 9402b543b825db84aba19621cfa08405
+    - 25a15f58a024e954b8d8fa9f25f047ce
+    - c11bd2e68141d9c47a4a8e9a62737a01
+    - ad087ea0d6247754d920e75e7a73da80
+    - 0dc5ef119429fe74f8f406cf4c4adeb0
+    - 02d6814e1f78e934d8b0dd792eaa2bf2
+    - 36ee662a2a4f14548953157fb05c1309
+    - 328be749a8f0b114fadd5e32266f73b5
+  - guid: 4a43469538d3cd74a9eb58eaa53a7e11
+    ScriptSymbols:
+    - StartMenuPanel
+    ScriptTokens:
+    - BaseUIForm
+    - Awake
+    - UIType
+    - UIFormLucencyTypes
+    - UIFormShowModes
+    - UIFormTypes
+    - Start
+    - Update
+    stamp: 1572235302
+    type: 2
     UseGUIDs: []
   timeStamp: 1572153260
   priority: 5
