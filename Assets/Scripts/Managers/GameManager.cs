@@ -19,18 +19,18 @@ public class GameManager : MonoSingleton<GameManager>
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.O))
-        {
-            RenderSettings.fog = !RenderSettings.fog;
-        }
+        //if (Input.GetKeyUp(KeyCode.O))
+        //{
+        //    RenderSettings.fog = !RenderSettings.fog;
+        //}
 
-        if (Input.GetKeyUp(KeyCode.K))
-        {
-            Player.Controller.MyMouseLooker.enabled = !Player.Controller.MyMouseLooker.enabled;
-            StartSceneCameraCarrier.Controller.MyMouseLooker.enabled = !StartSceneCameraCarrier.Controller.MyMouseLooker.enabled;
-        }
+        //if (Input.GetKeyUp(KeyCode.K))
+        //{
+        //    Player.Controller.MyMouseLooker.enabled = !Player.Controller.MyMouseLooker.enabled;
+        //    StartSceneCameraCarrier.Controller.MyMouseLooker.enabled = !StartSceneCameraCarrier.Controller.MyMouseLooker.enabled;
+        //}
 
-        if (Input.GetKeyUp(KeyCode.P))
+        if (Input.GetKeyUp(KeyCode.P) || (Input.GetKeyUp(KeyCode.F) && CurTravelProcess == TravelProcess.PlatformStage3_TreeRevived))
         {
             Player.Controller.SuperManMode = !Player.Controller.SuperManMode;
             StartSceneCameraCarrier.Controller.SuperManMode = !StartSceneCameraCarrier.Controller.SuperManMode;
@@ -56,7 +56,7 @@ public class GameManager : MonoSingleton<GameManager>
             SupermanSpeed /= 1.1f;
         }
 
-        if (Input.GetKeyUp(KeyCode.F10))
+        if (CurTravelProcess == TravelProcess.None && Input.GetKeyUp(KeyCode.F10))
         {
             if (!RecordingStartSceneCameraPath)
             {
@@ -64,7 +64,7 @@ public class GameManager : MonoSingleton<GameManager>
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.CapsLock))
+        if (CurTravelProcess == TravelProcess.None && Input.GetKeyUp(KeyCode.CapsLock))
         {
             if (!CameraRecordingManager.Instance.IsPlayingRecord)
             {
@@ -75,6 +75,8 @@ public class GameManager : MonoSingleton<GameManager>
                 }
                 else
                 {
+                    AudioManager.Instance.BGMFadeOut(1f);
+                    AudioManager.Instance.BGMFadeIn("bgm/bgm_final", 1f, 1f, false);
                     RecordingStartSceneCameraPath = true;
                 }
             }
@@ -95,6 +97,8 @@ public class GameManager : MonoSingleton<GameManager>
     public Platformer3D Platformer3D;
     public Puzzle PuzzleA;
     public Puzzle PuzzleC;
+    public GameObject ReviveArea;
+    public GameObject ReviveAreaTooEarly;
 
     public float SupermanSpeed = 20f;
 
@@ -245,6 +249,7 @@ public class GameManager : MonoSingleton<GameManager>
                         Player.Controller.MyMouseLooker.enabled = true;
                         Player.Controller.CapsuleCollider.enabled = true;
                         AudioManager.Instance.BGMFadeIn("bgm/bgm_stage1", 10f, 1f, true);
+                        UIManager.Instance.ShowUIForms<PlayingPanel>().ShowHint(PlayingPanel.Hints.Start);
                         break;
                     }
                     case TravelProcess.CaveStage1_BeforePuzzle:
@@ -260,6 +265,8 @@ public class GameManager : MonoSingleton<GameManager>
                         Raft.AutoMove.IsMoving = false;
                         Player.Controller.MyController.enabled = true;
                         Player.Controller.CapsuleCollider.enabled = false;
+                        UIManager.Instance.GetBaseUIForm<PlayingPanel>().ShowPuzzleAPattern();
+                        UIManager.Instance.GetBaseUIForm<PlayingPanel>().ShowHint(PlayingPanel.Hints.PuzzleAMove);
                         break;
                     }
                     case TravelProcess.CaveStage1_PuzzleSolveAnimation:
@@ -271,6 +278,7 @@ public class GameManager : MonoSingleton<GameManager>
                         Player.Controller.MyMouseLooker.enabled = false;
                         Player.Controller.MyController.enabled = false;
                         Player.Controller.CapsuleCollider.enabled = true;
+                        UIManager.Instance.GetBaseUIForm<PlayingPanel>().HidePuzzleAPattern();
                         break;
                     }
                     case TravelProcess.CaveStage1_AfterPuzzle:
@@ -298,6 +306,7 @@ public class GameManager : MonoSingleton<GameManager>
                         Raft.AutoMove.IsMoving = false;
                         Raft.gameObject.SetActive(false);
                         AudioManager.Instance.SoundStop("Cave1Mixed");
+                        UIManager.Instance.ShowUIForms<PlayingPanel>().ShowHint(PlayingPanel.Hints.CanJump);
                         break;
                     }
                     case TravelProcess.CaveStage2_OpenPlaceBeforeWaterfall:
@@ -330,6 +339,11 @@ public class GameManager : MonoSingleton<GameManager>
                     }
                     case TravelProcess.PlatformStage3_SideStepStonesSolved:
                     {
+                        Player.Controller.MoveSpeed = 10f;
+                        Player.Controller.default_MoveSpeed = 10f;
+                        Player.Controller.MyMouseLooker.XSensitivity = 2f;
+                        Player.Controller.MyMouseLooker.YSensitivity = 2f;
+                        UIManager.Instance.GetBaseUIForm<PlayingPanel>().HidePuzzleCPattern();
                         break;
                     }
                     case TravelProcess.PlatformStage3_EnterSolvingLastPuzzleZone:
@@ -338,6 +352,7 @@ public class GameManager : MonoSingleton<GameManager>
                         Player.Controller.default_MoveSpeed = 3f;
                         Player.Controller.MyMouseLooker.XSensitivity = 0.5f;
                         Player.Controller.MyMouseLooker.YSensitivity = 0.5f;
+                        UIManager.Instance.GetBaseUIForm<PlayingPanel>().ShowPuzzleCPattern();
                         break;
                     }
                     case TravelProcess.PlatformStage3_SolvingPuzzleC:
@@ -348,15 +363,42 @@ public class GameManager : MonoSingleton<GameManager>
                         Player.Controller.MyController.enabled = false;
                         Player.Controller.enabled = false;
                         WorldTreeRevivingManager.Instance.Cur_TreeState = WorldTreeRevivingManager.TreeStates.SolvingStonePuzzle;
+                        UIManager.Instance.GetBaseUIForm<PlayingPanel>().HidePuzzleCPattern();
                         break;
                     }
                     case TravelProcess.PlatformStage3_RevivingTree:
                     {
-                        WorldTreeRevivingManager.Instance.Cur_TreeState = WorldTreeRevivingManager.TreeStates.Reviving_Stage1;
-                        AudioManager.Instance.BGMFadeIn("bgm/bgm_final", 2f, 1f, true);
-                        Player.Controller.MyMouseLooker.enabled = true;
-                        Player.Controller.MyController.enabled = true;
-                        Player.Controller.enabled = true;
+                        WorldTreeRevivingManager.Instance.Cur_TreeState = WorldTreeRevivingManager.TreeStates.Reviving_Stage;
+                        AudioManager.Instance.BGMFadeIn("bgm/bgm_final", 5f, 1f, true);
+                        Player.MyCamera.enabled = false;
+                        StartSceneCameraCarrier.gameObject.SetActive(true);
+                        StartSceneCameraCarrier.Controller.MyController.enabled = false;
+                        StartSceneCameraCarrier.Controller.MyMouseLooker.enabled = false;
+                        Player.Controller.MyMouseLooker.enabled = false;
+                        Player.Controller.MyController.enabled = false;
+                        Player.Controller.enabled = false;
+                        CameraRecordingManager.Instance.PlayRecording(CameraRecordingManager.RecordingTypes.Reviving, true, delegate
+                        {
+                            Player.MyCamera.enabled = true;
+                            StartSceneCameraCarrier.gameObject.SetActive(false);
+                            StartSceneCameraCarrier.Controller.MyController.enabled = false;
+                            StartSceneCameraCarrier.Controller.MyMouseLooker.enabled = false;
+                            Player.Controller.MyMouseLooker.enabled = true;
+                            Player.Controller.MyController.enabled = true;
+                            Player.Controller.enabled = true;
+                            ReviveArea.SetActive(false);
+                            ReviveAreaTooEarly.SetActive(false);
+                            Player.Controller.MoveSpeed = 10f;
+                            Player.Controller.default_MoveSpeed = 10f;
+                            Player.Controller.MyMouseLooker.XSensitivity = 2f;
+                            Player.Controller.MyMouseLooker.YSensitivity = 2f;
+                            CurTravelProcess = TravelProcess.PlatformStage3_TreeRevived;
+                        });
+                        break;
+                    }
+                    case TravelProcess.PlatformStage3_TreeRevived:
+                    {
+                        UIManager.Instance.ShowUIForms<PlayingPanel>().ShowHint(PlayingPanel.Hints.FinalFly);
                         break;
                     }
                 }

@@ -114,6 +114,19 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void OnLeaveSolvingZone()
+    {
+        if (GameManager.Instance.CurTravelProcess == GameManager.TravelProcess.PlatformStage3_EnterSolvingLastPuzzleZone)
+        {
+            GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.PlatformStage3_SideStepStonesSolved;
+        }
+    }
+
+    public void OnEnterSolvingZoneTooEarly()
+    {
+        UIManager.Instance.ShowUIForms<PlayingPanel>().ShowHint(PlayingPanel.Hints.ReviveFailure);
+    }
+
     public void OnSolvePuzzleC()
     {
         GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.PlatformStage3_SolvingPuzzleC;

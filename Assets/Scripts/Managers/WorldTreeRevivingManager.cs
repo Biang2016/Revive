@@ -10,10 +10,7 @@ public class WorldTreeRevivingManager : MonoSingleton<WorldTreeRevivingManager>
         Died,
         StartSceneRotateSlow,
         SolvingStonePuzzle,
-        Reviving_Stage1,
-        Reviving_Stage2,
-        Reviving_Stage3,
-        Reviving_Stage4,
+        Reviving_Stage
     }
 
     private TreeStates cur_TreeState;
@@ -43,22 +40,10 @@ public class WorldTreeRevivingManager : MonoSingleton<WorldTreeRevivingManager>
                         StartCoroutine(Co_PuzzleCSolved());
                         break;
                     }
-                    case TreeStates.Reviving_Stage1:
+                    case TreeStates.Reviving_Stage:
                     {
                         Animator.speed = 0.2f;
                         Animator.SetTrigger("Revive");
-                        break;
-                    }
-                    case TreeStates.Reviving_Stage2:
-                    {
-                        break;
-                    }
-                    case TreeStates.Reviving_Stage3:
-                    {
-                        break;
-                    }
-                    case TreeStates.Reviving_Stage4:
-                    {
                         break;
                     }
                 }
@@ -70,12 +55,11 @@ public class WorldTreeRevivingManager : MonoSingleton<WorldTreeRevivingManager>
 
     IEnumerator Co_PuzzleCSolved()
     {
-        ///Something effects with the stones
-        yield return new WaitForSeconds(2f);
+        AudioManager.Instance.BGMFadeOut(6f);
+        yield return new WaitForSeconds(5f);
         GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.PlatformStage3_RevivingTree;
-
+        GameManager.Instance.PuzzleC.ReturnAllPuzzlePartToFarthestPlaceAndMerge(3f);
         yield return new WaitForSeconds(15f);
-
         int steps = 10;
         for (int i = 0; i < steps; i++)
         {

@@ -164,4 +164,26 @@ public class Puzzle : MonoBehaviour
             part.gameObject.SetActive(true);
         }
     }
+
+    /// <summary>
+    /// Only used in PuzzleC
+    /// </summary>
+    public void ReturnAllPuzzlePartToFarthestPlaceAndMerge(float duration)
+    {
+        StartCoroutine(Co_MergePuzzle(duration));
+    }
+
+    IEnumerator Co_MergePuzzle(float duration)
+    {
+        int steps = 60;
+        for (int i = 0; i < steps; i++)
+        {
+            foreach (PuzzlePart part in PuzzleParts)
+            {
+                part.SizeRatio += (PuzzleParts[0].SizeRatio - part.SizeRatio) / (60f - i);
+            }
+
+            yield return new WaitForSeconds(duration / steps);
+        }
+    }
 }

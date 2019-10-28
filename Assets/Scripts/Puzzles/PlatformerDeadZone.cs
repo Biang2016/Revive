@@ -27,6 +27,7 @@ public class PlatformerDeadZone : MonoBehaviour
             player.Controller.enabled = true;
 
             AudioManager.Instance.SoundPlay("sfx/puzzle1");
+            UIManager.Instance.ShowUIForms<PlayingPanel>().ShowHint(PlayingPanel.Hints._3DPlatformerFailure);
         }
     }
 }

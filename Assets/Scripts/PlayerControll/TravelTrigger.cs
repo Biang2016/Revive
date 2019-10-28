@@ -5,32 +5,46 @@ public class TravelTrigger : MonoBehaviour
 {
     [SerializeField] private BoxCollider Collider;
 
+    private bool AlreadyTriggered = false;
+    [SerializeField] private bool MultipleTrigger;
     [SerializeField] private bool TriggerAnyTime;
     [SerializeField] private GameManager.TravelProcess OnlyTriggerOn;
 
     public void OnTriggerEnter(Collider c)
     {
-        if (TriggerAnyTime)
+        Player p = c.gameObject.GetComponent<Player>();
+        if (p != null)
         {
-            Player p = c.gameObject.GetComponent<Player>();
-            if (p != null)
+            if (TriggerAnyTime || GameManager.Instance.CurTravelProcess == OnlyTriggerOn)
             {
+                AlreadyTriggered = true;
                 EnterEvent?.Invoke();
             }
-        }
-        else
-        {
-            if (GameManager.Instance.CurTravelProcess == OnlyTriggerOn)
+
+            if (!MultipleTrigger)
             {
-                Player p = c.gameObject.GetComponent<Player>();
-                if (p != null)
-                {
-                    Collider.enabled = false;
-                    EnterEvent?.Invoke();
-                }
+                Collider.enabled = false;
+            }
+        }
+    }
+
+    public void OnTriggerExit(Collider c)
+    {
+        Player p = c.gameObject.GetComponent<Player>();
+        if (p != null)
+        {
+            if (AlreadyTriggered)
+            {
+                LeaveEvent?.Invoke();
+            }
+
+            if (!MultipleTrigger && AlreadyTriggered)
+            {
+                Collider.enabled = false;
             }
         }
     }
 
     public UnityEvent EnterEvent;
+    public UnityEvent LeaveEvent;
 }

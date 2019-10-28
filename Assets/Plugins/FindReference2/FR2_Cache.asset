@@ -1805,11 +1805,12 @@ MonoBehaviour:
   - guid: 9fc0d4010bbf28b4594072e72b8655ab
     ScriptSymbols: []
     ScriptTokens: []
-    stamp: 1572278904
+    stamp: 1572290441
     type: 3
     UseGUIDs:
     - ab7065615d9765f4196d0580d05eabcf
     - 428dd2d1139ed3f429af75ed771ae887
+    - 9e9814ad8aaa33b43b393c8f48c9a322
     - 4dec5a4a83d5ab9408d869c8472c8da8
     - cb88ae7ed30b473ab7e893f4ecc400b9
     - ee17a15d13c80df4aaaddfd9ffabdad4
@@ -1841,9 +1842,11 @@ MonoBehaviour:
     - 2a5e0fc39ddb747458a4ebb67db96157
     - 042ca0d47acf3cb45a443bb13756c6f9
     - 0667e3d8be40bf748bde490b95c0951b
+    - b20867f0e529161498f07a42b14342b0
     - 5f5e148d7705d458e89077a272ca6235
     - 35f7b369dd1caf54bad5b9830b8f9beb
     - 4c85f4a43f68b45488887fdbdce7ab61
+    - 093b7efb153e25841979a903662bddf3
     - b4939444530c5406d92d4fbd37497081
     - 6ffd9c7f676a4034f9c5a9bb61ebded5
     - 58f8586d478283d4ca469cd6306b4a7f
@@ -12882,7 +12885,7 @@ MonoBehaviour:
   - guid: a5f2339f242f6cc41a982ec55ea3c201
     ScriptSymbols: []
     ScriptTokens: []
-    stamp: 1572278904
+    stamp: 1572290547
     type: 5
     UseGUIDs:
     - 475c4a4e617a8401b84ca7b32c7cc460
@@ -13918,7 +13921,7 @@ MonoBehaviour:
   - guid: 272ae2332f424471aaadecff55a37811
     ScriptSymbols: []
     ScriptTokens: []
-    stamp: 1572211533
+    stamp: 1572284287
     type: 5
     UseGUIDs: []
   - guid: 4e8e54730eb1022419e5ff72441b8570
@@ -14894,5 +14897,141 @@ MonoBehaviour:
     - f26c039627aac7544a9fabc504e69275
     - c8ee5552fbfbf8d40ac7ffdf36058c79
     - 6ffd9c7f676a4034f9c5a9bb61ebded5
+  - guid: d0a142b3881111e43a3ba93d4fbc65da
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 1572281861
+    type: 5
+    UseGUIDs:
+    - 27682348a93005340b39ee6bb18621e9
+    - 54d4562ee7b724d46a4ab4b9176f542a
+    - 4a43469538d3cd74a9eb58eaa53a7e11
+  - guid: 7824e057f255990428f61586f6483336
+    ScriptSymbols:
+    - PlayingPanel
+    ScriptTokens:
+    - BaseUIForm
+    - Awake
+    - UIType
+    - UIFormLucencyTypes
+    - UIFormShowModes
+    - UIFormTypes
+    - SerializeField
+    - Sprite
+    - Sprite_HintStart
+    - Sprite_PatterPuzzleA
+    - Sprite_HintPuzzleAMove
+    - Sprite_HintCanJump
+    stamp: 1572282019
+    type: 2
+    UseGUIDs: []
+  - guid: bc0fdbc1d03d0d247a6564ecf2d2ffe8
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 1572282101
+    type: 1
+    UseGUIDs:
+    - 2f32002358a8c214fb02cd5cdd5267ee
+    - a9e548cef92a2a64f99f181dc2db5bd0
+    - 9402b543b825db84aba19621cfa08405
+    - 25a15f58a024e954b8d8fa9f25f047ce
+    - c11bd2e68141d9c47a4a8e9a62737a01
+    - ad087ea0d6247754d920e75e7a73da80
+    - 0dc5ef119429fe74f8f406cf4c4adeb0
+    - 02d6814e1f78e934d8b0dd792eaa2bf2
+  - guid: e13aa6e78398bf446950d081dc9ffbbd
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 1572282072
+    type: 1
+    UseGUIDs:
+    - 36ee662a2a4f14548953157fb05c1309
+    - 328be749a8f0b114fadd5e32266f73b5
+  - guid: 8b9a4ffacde9a934ca05f4090193e39c
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 1572282205
+    type: 1
+    UseGUIDs:
+    - f85d17708ad4a68418315f13c785f46e
+    - 2c0f0ee337c14ff478fe0115b75fbaad
+    - 8b2503f11404e7c45b6630a9e8b0d81c
+    - ac3a4cf425e9fc945b76b499a2e6f136
+    - 3118479cc3c805649aeb893ff5245349
+    - 27682348a93005340b39ee6bb18621e9
+    - 15fc374ba8c75be4a9d3da19d1e8371c
+    - bffe16c29dc0af9428518c69649d29eb
+    - 5a94a3c80fae70548a1ca43d2e76a2b5
+  - guid: 39a281eb52c7a01408d8f44f26b130d2
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 1572282119
+    type: 1
+    UseGUIDs:
+    - c488511507bbc71409f985157a89a3ff
+    - d9aacb40f9e94be4cae92b96f362f407
+    - cc152b918618e6e43a7d55ff1543a0d9
+    - 542d6ac060ab45d4ba9fc8fb42af0240
+    - 66fc09c01ed11094ba570d96e250e75c
+    - b0bcdb78005c78a48bafc0107cb84cdf
+    - aecbd991605df2044a5ea0f230625336
+    - 75b0b0ebe737d1f48ac86af85a89c07f
+    - c308c7292eb4fa042a6b5c3f6402559a
+    - b98fa2eec93f9ac4cb417290a11dbbc7
+    - 305bbc54a53356049b5d35135c25b3b2
+    - dbfd3cefad667814990221fe454de41e
+    - 81a2c61f384c37e4f9504c43429b615e
+    - bb0e0cbfcee394a49b7a96e5432b2c6b
+    - 4cedf52891dad7343a0dfc879d4324db
+    - e722d23e685e8f541a30382ba8ef2978
+    - fd1bee884a798544bb671604d583d61f
+    - 4fb5486051431b44a880ff8a220a7008
+  - guid: 0dcacee3dd80da64dae45164a794e61f
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 1572284993
+    type: 5
+    UseGUIDs: []
+  - guid: 382704f337a512c4788fd40298ff75c4
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 1572284126
+    type: 5
+    UseGUIDs:
+    - 0dcacee3dd80da64dae45164a794e61f
+    - ed54fd9e5a34c014fb8ee91889602674
+  - guid: 11cd800c22777874d81c91ab322ec018
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 1572282283
+    type: 1
+    UseGUIDs:
+    - 0dcacee3dd80da64dae45164a794e61f
+    - 382704f337a512c4788fd40298ff75c4
+  - guid: ed54fd9e5a34c014fb8ee91889602674
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 1572284033
+    type: 5
+    UseGUIDs: []
+  - guid: 093b7efb153e25841979a903662bddf3
+    ScriptSymbols:
+    - NormalTombStone
+    ScriptTokens:
+    - MonoBehaviour
+    - OnTriggerEnter
+    - Collider
+    - TriggerEvent
+    - SerializeField
+    - UnityEvent
+    stamp: 1572284460
+    type: 2
+    UseGUIDs: []
+  - guid: ad767652191ff6044b5e5b41c7a48ff4
+    ScriptSymbols: []
+    ScriptTokens: []
+    stamp: 0
+    type: 9
+    UseGUIDs: []
   timeStamp: 1572267744
   priority: 5

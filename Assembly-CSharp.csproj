@@ -166,6 +166,7 @@
     <Compile Include="Assets\Scripts\PlayerControll\TravelTrigger.cs" />
     <Compile Include="Assets\Scripts\Puzzles\Cave1WaterStone.cs" />
     <Compile Include="Assets\Scripts\Puzzles\CheckPoint.cs" />
+    <Compile Include="Assets\Scripts\Puzzles\NormalTombStone.cs" />
     <Compile Include="Assets\Scripts\Puzzles\Platformer3D.cs" />
     <Compile Include="Assets\Scripts\Puzzles\PlatformerDeadZone.cs" />
     <Compile Include="Assets\Scripts\Puzzles\PlatformerStone.cs" />
@@ -174,6 +175,7 @@
     <Compile Include="Assets\Scripts\Puzzles\PuzzlePart.cs" />
     <Compile Include="Assets\Scripts\Puzzles\TombStone.cs" />
     <Compile Include="Assets\Scripts\UIPanels\EditorPanel.cs" />
+    <Compile Include="Assets\Scripts\UIPanels\PlayingPanel.cs" />
     <Compile Include="Assets\Scripts\UIPanels\StartMenuPanel.cs" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Resources\Shaders\DepthOfField.shader" />
     <None Include="Assets\Imports\Advanced Dissolve\Shaders\Cl_3D-Dissolve-Cylinder-One.shader" />
@@ -189,6 +191,7 @@
     <None Include="Assets\StreamingAssets\CameraAnim_RightStoneMove.txt" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Resources\Shaders\LutGen.shader" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Editor Resources\Monitors\HistogramRender.shader" />
+    <None Include="Assets\StreamingAssets\CameraAnim_Reviving.txt" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Editor Resources\UI\CurveBackground.shader" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\license_nvjob.txt" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Resources\Shaders\ScreenSpaceReflection.shader" />

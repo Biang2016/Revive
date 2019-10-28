@@ -8,6 +8,7 @@ public class TombStone : MonoBehaviour
     [SerializeField] private AnimationCurve fadeIn;
     [SerializeField] private ParticleSystem ParticleSystem;
     [SerializeField] private AudioSource AudioSource;
+    [SerializeField] private PlayingPanel.Hints Hint;
 
     void Start()
     {
@@ -42,6 +43,7 @@ public class TombStone : MonoBehaviour
         ShowHasStarted = true;
         HasEnded = false;
         AudioSource.Play();
+        UIManager.Instance.ShowUIForms<PlayingPanel>().ShowHint(Hint);
     }
 
     public void Hide()
@@ -50,6 +52,7 @@ public class TombStone : MonoBehaviour
         ParticleSystem?.Stop();
         HideHasStarted = true;
         HasEnded = false;
+        UIManager.Instance.ShowUIForms<PlayingPanel>().ShowHint(PlayingPanel.Hints.None);
     }
 
     public bool ShowHasStarted = false;

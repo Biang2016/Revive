@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CameraRecordingManager : MonoSingleton<CameraRecordingManager>
 {
@@ -63,7 +64,7 @@ public class CameraRecordingManager : MonoSingleton<CameraRecordingManager>
 
     private List<RecordFrame> ReadRecordFrames = new List<RecordFrame>();
 
-    public void PlayRecording(RecordingTypes recordingTypes, bool canMoveAfterPlaying)
+    public void PlayRecording(RecordingTypes recordingTypes, bool canMoveAfterPlaying, UnityAction onComplete=null)
     {
         GameManager.Instance.StartSceneCameraCarrier.Controller.enabled = false;
         GameManager.Instance.StartSceneCameraCarrier.MouseLooker.enabled = false;
@@ -88,7 +89,7 @@ public class CameraRecordingManager : MonoSingleton<CameraRecordingManager>
             StopCoroutine(CameraMoveCoroutine);
         }
 
-        CameraMoveCoroutine = StartCoroutine(Co_CameraMove(canMoveAfterPlaying));
+        CameraMoveCoroutine = StartCoroutine(Co_CameraMove(canMoveAfterPlaying, onComplete));
     }
 
     public enum RecordingTypes
@@ -97,6 +98,7 @@ public class CameraRecordingManager : MonoSingleton<CameraRecordingManager>
         StartSceneRecording,
         LeftStoneMoving,
         RightStoneMoving,
+        Reviving,
     }
 
     public Dictionary<RecordingTypes, string> RecordingPathDictionary = new Dictionary<RecordingTypes, string>
@@ -105,12 +107,13 @@ public class CameraRecordingManager : MonoSingleton<CameraRecordingManager>
         {RecordingTypes.StartSceneRecording, Application.streamingAssetsPath + "/CameraAnim_StartSceneRecording.txt"},
         {RecordingTypes.LeftStoneMoving, Application.streamingAssetsPath + "/CameraAnim_LeftStoneMove.txt"},
         {RecordingTypes.RightStoneMoving, Application.streamingAssetsPath + "/CameraAnim_RightStoneMove.txt"},
+        {RecordingTypes.Reviving, Application.streamingAssetsPath + "/CameraAnim_Reviving.txt"},
     };
 
     private Coroutine CameraMoveCoroutine;
     public bool IsPlayingRecord = false;
 
-    IEnumerator Co_CameraMove(bool canMoveAfterPlaying)
+    IEnumerator Co_CameraMove(bool canMoveAfterPlaying, UnityAction onComplete)
     {
         foreach (RecordFrame rf in ReadRecordFrames)
         {
@@ -123,5 +126,6 @@ public class CameraRecordingManager : MonoSingleton<CameraRecordingManager>
         IsPlayingRecord = false;
         GameManager.Instance.StartSceneCameraCarrier.Controller.enabled = canMoveAfterPlaying;
         GameManager.Instance.StartSceneCameraCarrier.MouseLooker.enabled = canMoveAfterPlaying;
+        onComplete?.Invoke();
     }
 }
