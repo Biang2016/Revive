@@ -75,7 +75,10 @@ public class WorldTreeRevivingManager : MonoSingleton<WorldTreeRevivingManager>
         yield return new WaitForSeconds(9f);
         Animator.speed = 0.2f;
         Animator.SetTrigger("Revive");
-        yield return new WaitForSeconds(24f);
+        yield return new WaitForSeconds(26f);// Music 35s strong beat
         GameManager.Instance.PuzzleC.PuzzleCParticleEffect.Play();
+        yield return new WaitForSeconds(12f);// Music 47s strong beat
+        GameManager.Instance.PuzzleC.PuzzleCParticleEffect2.Play();
+        GameManager.Instance.PuzzleC.ChangePuzzleStoneColor(2f);
     }
 }

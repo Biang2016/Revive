@@ -21,6 +21,10 @@ public class Puzzle : MonoBehaviour
         }
 
         PuzzleHits = new bool[PuzzleParts.Count];
+        if (PuzzleStoneMR)
+        {
+            PuzzleStoneMR.sharedMaterials[0].color = StartColor;
+        }
     }
 
     public void ResetPuzzle()
@@ -174,6 +178,7 @@ public class Puzzle : MonoBehaviour
     }
 
     public ParticleSystem PuzzleCParticleEffect;
+    public ParticleSystem PuzzleCParticleEffect2;
     [SerializeField] private float PuzzleCFinalMergeSize = 3.32f;
 
     IEnumerator Co_MergePuzzle(float duration)
@@ -195,4 +200,33 @@ public class Puzzle : MonoBehaviour
 
     [SerializeField] private Transform PuzzleCCenterPartMesh;
     [SerializeField] private Transform PuzzleCCenterPartFinalRotation;
+
+    [SerializeField] private MeshRenderer PuzzleStoneMR;
+    [SerializeField] private Color StartColor;
+    [SerializeField] private Color MiddleColor;
+    [SerializeField] private Color EndColor;
+
+    /// <summary>
+    /// Only used in PuzzleC
+    /// </summary>
+    public void ChangePuzzleStoneColor(float duration)
+    {
+        StartCoroutine(Co_ChangePuzzleStoneColor(duration));
+    }
+
+    IEnumerator Co_ChangePuzzleStoneColor(float duration)
+    {
+        int steps = 30;
+        for (int i = 0; i < steps; i++)
+        {
+            PuzzleStoneMR.sharedMaterials[0].color = Color.Lerp(StartColor, MiddleColor, (float) i / steps);
+            yield return new WaitForSeconds(duration / steps / 2);
+        }
+
+        for (int i = 0; i < steps; i++)
+        {
+            PuzzleStoneMR.sharedMaterials[0].color = Color.Lerp(MiddleColor, EndColor, (float) i / steps);
+            yield return new WaitForSeconds(duration / steps / 2);
+        }
+    }
 }

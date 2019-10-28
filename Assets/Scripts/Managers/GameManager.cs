@@ -43,6 +43,7 @@ public class GameManager : MonoSingleton<GameManager>
         {
             Player.Controller.SuperManMode = !Player.Controller.SuperManMode;
             StartSceneCameraCarrier.Controller.SuperManMode = !StartSceneCameraCarrier.Controller.SuperManMode;
+            Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Airwall"), true);
         }
 
         if (Input.GetKey(KeyCode.Equals))
@@ -400,7 +401,6 @@ public class GameManager : MonoSingleton<GameManager>
                             Player.Controller.MyMouseLooker.XSensitivity = 2f;
                             Player.Controller.MyMouseLooker.YSensitivity = 2f;
                             CurTravelProcess = TravelProcess.PlatformStage3_TreeRevived;
-                            Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Airwall"), true);
                         });
                         break;
                     }
