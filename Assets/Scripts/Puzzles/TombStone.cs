@@ -52,7 +52,11 @@ public class TombStone : MonoBehaviour
         ParticleSystem?.Stop();
         HideHasStarted = true;
         HasEnded = false;
-        UIManager.Instance.ShowUIForms<PlayingPanel>().ShowHint(PlayingPanel.Hints.None);
+        PlayingPanel pp = UIManager.Instance.GetBaseUIForm<PlayingPanel>();
+        if (pp)
+        {
+            pp.ShowHint(PlayingPanel.Hints.None);
+        }
     }
 
     public bool ShowHasStarted = false;

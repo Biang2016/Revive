@@ -44,6 +44,12 @@ public class PlayingPanel : BaseUIForm
         };
     }
 
+    public override void Display()
+    {
+        int a = 0;
+        base.Display();
+    }
+
     [SerializeField] private Animator HintImageAnim;
     [SerializeField] private Image HintImage;
     [SerializeField] private Image PatternAImage;

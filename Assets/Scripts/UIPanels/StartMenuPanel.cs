@@ -26,6 +26,12 @@ public class StartMenuPanel : BaseUIForm
     {
     }
 
+    public override void Display()
+    {
+        UIManager.Instance.CloseUIForm<PlayingPanel>();
+        base.Display();
+    }
+
     public void OnHoverRevive()
     {
         WorldTreeRevivingManager.Instance.SetAnimSpeedOfStartScene(0.4f);

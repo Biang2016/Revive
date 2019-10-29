@@ -20,11 +20,11 @@ PlayerSettings:
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 1
-  m_SplashScreenAnimation: 1
+  m_SplashScreenAnimation: 2
   m_SplashScreenLogoStyle: 1
   m_SplashScreenDrawMode: 1
   m_SplashScreenBackgroundAnimationZoom: 1
-  m_SplashScreenLogoAnimationZoom: 1
+  m_SplashScreenLogoAnimationZoom: 0
   m_SplashScreenBackgroundLandscapeAspect: 1
   m_SplashScreenBackgroundPortraitAspect: 1
   m_SplashScreenBackgroundLandscapeUvs:
@@ -45,8 +45,6 @@ PlayerSettings:
   - logo: {fileID: 21300000, guid: 1ebec14974278d740be3599dcbc10ac2, type: 3}
     duration: 2
   - logo: {fileID: 21300000, guid: db8708d09660ff144b66da4c52f18223, type: 3}
-    duration: 3
-  - logo: {fileID: 21300000, guid: 65461c28a7ef4294abb75992f6690c48, type: 3}
     duration: 3
   m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}
