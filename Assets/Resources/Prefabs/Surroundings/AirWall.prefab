@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 8889894429772883604}
   - component: {fileID: 8889894429772883605}
   m_Layer: 13
-  m_Name: airwall (9)
+  m_Name: Stage2OverNotBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoxCollider: {fileID: 8889894429772883604}
-  AppearAfterTravelProcess: 10
+  AppearAfterTravelProcess: 14
 --- !u!1 &8889894429938472575
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 8889894429938472568}
   - component: {fileID: 8889894429938472569}
   m_Layer: 13
-  m_Name: airwall (11)
+  m_Name: Stage2OverNotBack2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -349,7 +349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoxCollider: {fileID: 8889894429938472568}
-  AppearAfterTravelProcess: 10
+  AppearAfterTravelProcess: 14
 --- !u!1 &8889894430055074731
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,7 +1070,7 @@ GameObject:
   - component: {fileID: 8889894431159626536}
   - component: {fileID: 8889894431159626537}
   m_Layer: 13
-  m_Name: airwall (10)
+  m_Name: Stage2OverNotBack1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1116,7 +1116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoxCollider: {fileID: 8889894431159626536}
-  AppearAfterTravelProcess: 10
+  AppearAfterTravelProcess: 14
 --- !u!1 &8889894431199264331
 GameObject:
   m_ObjectHideFlags: 0
@@ -1483,7 +1483,7 @@ GameObject:
   - component: {fileID: 8889894431457528772}
   - component: {fileID: 8889894431457528775}
   m_Layer: 13
-  m_Name: airwall
+  m_Name: Stage1OverNotBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
