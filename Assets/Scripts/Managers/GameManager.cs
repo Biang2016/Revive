@@ -87,7 +87,12 @@ public class GameManager : MonoSingleton<GameManager>
             }
         }
 
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKey(KeyCode.R) && CurTravelProcess == TravelProcess.PlatformStage3_TreeRevived)
+        {
+            SceneManager.LoadScene("MainScene");
+        }
+
+        if (Input.GetKey(KeyCode.F10))
         {
             SceneManager.LoadScene("MainScene");
         }
@@ -380,7 +385,7 @@ public class GameManager : MonoSingleton<GameManager>
                     case TravelProcess.PlatformStage3_RevivingTree:
                     {
                         WorldTreeRevivingManager.Instance.Cur_TreeState = WorldTreeRevivingManager.TreeStates.Reviving_Stage;
-                        AudioManager.Instance.BGMFadeIn("bgm/bgm_final", 5f, 1f, true);
+                        AudioManager.Instance.BGMFadeIn("bgm/bgm_final", 2f, 1f, true);
                         UIManager.Instance.GetBaseUIForm<PlayingPanel>().IsFinalMusicStart = true;
                         Player.MyCamera.enabled = false;
                         StartSceneCameraCarrier.gameObject.SetActive(true);

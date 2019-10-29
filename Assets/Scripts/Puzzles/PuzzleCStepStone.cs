@@ -19,6 +19,7 @@ public class PuzzleCStepStone : MonoBehaviour
         Player p = c.gameObject.GetComponent<Player>();
         if (p != null)
         {
+            CorrespondingStone.DisableSphereCollider();
             Animator.SetTrigger("StepOn");
             AudioManager.Instance.SoundPlay("sfx/stonemovemnet");
             StartCoroutine(Co_Sound());
@@ -53,4 +54,5 @@ public class PuzzleCStepStone : MonoBehaviour
 
     [SerializeField] private Color StartColor;
     [SerializeField] private Color ReviveColor;
+    [SerializeField] private NormalTombStone CorrespondingStone;
 }

@@ -69,7 +69,7 @@ public class PlayingPanel : BaseUIForm
         }
         else
         {
-            AudioManager.Instance.SoundPlay("sfx/sound_newHint");
+            AudioManager.Instance.SoundPlay("sfx/sound_newHint",0.7f);
             HintImage.enabled = true;
             HintImage.sprite = HintSpriteDict[hint];
             HintImageAnim.SetTrigger("Show");

@@ -15,4 +15,11 @@ public class NormalTombStone : MonoBehaviour
     }
 
     public PlayingPanel.Hints Hint;
+
+    public SphereCollider SphereCollider;
+
+    public void DisableSphereCollider()
+    {
+        SphereCollider.enabled = false;
+    }
 }
