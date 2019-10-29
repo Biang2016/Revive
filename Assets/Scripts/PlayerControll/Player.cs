@@ -66,6 +66,11 @@ public class Player : MonoBehaviour
         return false;
     }
 
+    public void OnDropIntoCave()
+    {
+        GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.CaveStage1_DropEnterCave;
+    }
+
     public void OnWakeUp()
     {
         GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.CaveStage1_WakeUp;

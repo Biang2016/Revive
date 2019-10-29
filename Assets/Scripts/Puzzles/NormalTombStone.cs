@@ -7,7 +7,10 @@ public class NormalTombStone : MonoBehaviour
     void OnTriggerEnter(Collider c)
     {
         UIManager.Instance.ShowUIForms<PlayingPanel>().ShowHint(Hint);
-        PS.Play();
+        if (PS != null)
+        {
+            PS.Play();
+        }
         AudioManager.Instance.SoundPlay("sfx/tombstone_sound");
     }
 

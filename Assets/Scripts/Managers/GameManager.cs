@@ -39,11 +39,12 @@ public class GameManager : MonoSingleton<GameManager>
         }
 #endif
 
-        if (Input.GetKeyUp(KeyCode.F) && CurTravelProcess == TravelProcess.PlatformStage3_TreeRevived)
+        if (Input.GetKeyUp(KeyCode.Space) && CurTravelProcess == TravelProcess.PlatformStage3_TreeRevived)
         {
             Player.Controller.SuperManMode = !Player.Controller.SuperManMode;
             StartSceneCameraCarrier.Controller.SuperManMode = !StartSceneCameraCarrier.Controller.SuperManMode;
             Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Airwall"), true);
+            UIManager.Instance.ShowUIForms<PlayingPanel>().ShowHint(PlayingPanel.Hints.FinalDive);
         }
 
         if (Input.GetKey(KeyCode.Equals))
@@ -84,7 +85,7 @@ public class GameManager : MonoSingleton<GameManager>
             }
         }
 
-        if (Input.GetKey(KeyCode.F10))
+        if (Input.GetKey(KeyCode.R))
         {
             SceneManager.LoadScene("MainScene");
         }
@@ -219,7 +220,6 @@ public class GameManager : MonoSingleton<GameManager>
                     {
                         AudioManager.Instance.BGMFadeOut(0.5f);
                         UIManager.Instance.CloseUIForm<StartMenuPanel>();
-                        WorldTreeRevivingManager.Instance.Cur_TreeState = WorldTreeRevivingManager.TreeStates.Died;
                         PuzzleC.ShowAllFragmentOfPuzzleC();
                         AudioManager.Instance.SoundPlay("sfx/sound_wind");
                         StartSceneCameraCarrier.gameObject.SetActive(false);
@@ -241,12 +241,14 @@ public class GameManager : MonoSingleton<GameManager>
                     }
                     case TravelProcess.CaveStage1_DropEnterCave:
                     {
-                        // start black
-                        break;
+                        AudioManager.Instance.SoundStop("sound_wind");
+                        UIManager.Instance.ShowUIForms<PlayingPanel>().ShowBlackScreen();
+                            break;
                     }
                     case TravelProcess.CaveStage1_WakeUp:
                     {
                         AudioManager.Instance.SoundPlay("sfx/Cave1Mixed", 1f);
+                        UIManager.Instance.ShowUIForms<PlayingPanel>().HideBlackScreen();
                         break;
                     }
                     case TravelProcess.CaveStage1_Stand:

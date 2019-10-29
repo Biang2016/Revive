@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,6 +33,9 @@ public class PlayingPanel : BaseUIForm
             {Hints._3DPlatformerFailure, Sprite_Hint3DPlatformerFailure},
             {Hints.ReviveFailure, Sprite_HintReviveFailure},
             {Hints.FinalFly, Sprite_HintFinalFly},
+            {Hints.FinalDive, Sprite_HintFinalDive},
+            {Hints.PlatformLeft, Sprite_HintPlatformLeft},
+            {Hints.PlatformRight, Sprite_HintPlatformRight},
         };
     }
 
@@ -48,7 +53,10 @@ public class PlayingPanel : BaseUIForm
     [SerializeField] private Sprite Sprite_Hint3DPlatformerTombStone;
     [SerializeField] private Sprite Sprite_Hint3DPlatformerFailure;
     [SerializeField] private Sprite Sprite_HintReviveFailure;
+    [SerializeField] private Sprite Sprite_HintPlatformLeft;
+    [SerializeField] private Sprite Sprite_HintPlatformRight;
     [SerializeField] private Sprite Sprite_HintFinalFly;
+    [SerializeField] private Sprite Sprite_HintFinalDive;
 
     [SerializeField] private Sprite Sprite_PatterPuzzleA;
     [SerializeField] private Sprite Sprite_PatterPuzzleC;
@@ -69,16 +77,19 @@ public class PlayingPanel : BaseUIForm
 
     public enum Hints
     {
-        None,
-        Start,
-        PuzzleAMove,
-        CanJump,
-        DeadRoadTombStone,
-        WaterfallTombStone,
-        _3DPlatformerTombStone,
-        _3DPlatformerFailure,
-        ReviveFailure,
-        FinalFly
+        None = 0,
+        Start = 1,
+        PuzzleAMove = 2,
+        CanJump = 3,
+        DeadRoadTombStone = 4,
+        WaterfallTombStone = 5,
+        _3DPlatformerTombStone = 6,
+        _3DPlatformerFailure = 7,
+        ReviveFailure = 8,
+        FinalFly = 9,
+        FinalDive = 10,
+        PlatformLeft = 11,
+        PlatformRight = 12
     }
 
     private Dictionary<Hints, Sprite> HintSpriteDict;
@@ -114,6 +125,7 @@ public class PlayingPanel : BaseUIForm
 
     void Update()
     {
+#if UNITY_EDITOR
         if (IsFinalMusicStart)
         {
             TimerTick += Time.deltaTime;
@@ -124,5 +136,29 @@ public class PlayingPanel : BaseUIForm
             TimerTick = 0;
             TimerText.text = "";
         }
+#endif
+    }
+
+    [SerializeField] private Image BlackScree;
+
+    public void ShowBlackScreen()
+    {
+        BlackScree.DOFade(1, 0.3f);
+    }
+
+    public void HideBlackScreen()
+    {
+        StartCoroutine(Co_HideBlackScreen());
+    }
+
+    IEnumerator Co_HideBlackScreen()
+    {
+        BlackScree.DOFade(0.5f, 2f);
+        yield return new WaitForSeconds(2f);
+        BlackScree.DOFade(0.75f, 0.5f);
+        yield return new WaitForSeconds(0.5f);
+        BlackScree.DOFade(0.0f, 0.5f);
+        yield return new WaitForSeconds(0.5f);
+
     }
 }

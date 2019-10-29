@@ -52,6 +52,11 @@ public class WorldTreeRevivingManager : MonoSingleton<WorldTreeRevivingManager>
         }
     }
 
+    public void SetAnimSpeedOfStartScene(float speed)
+    {
+        Animator.speed = speed;
+    }
+
     IEnumerator Co_PuzzleCSolved()
     {
         AudioManager.Instance.BGMFadeOut(6f);
