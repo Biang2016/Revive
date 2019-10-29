@@ -458,8 +458,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 115864800}
-  m_LocalRotation: {x: 0.13351293, y: 0.8503589, z: 0.4381704, w: -0.25898042}
-  m_LocalPosition: {x: 87.16825, y: -148.29355, z: -29.43442}
+  m_LocalRotation: {x: 0.24452516, y: 0.46024683, z: 0.13346253, w: -0.84295195}
+  m_LocalPosition: {x: 93.4946, y: -143.21228, z: -16.95108}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2212,7 +2212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20cf1c949e1056043a74952f8124f0d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AutoMoveSpeedUpFactor: 10
+  AutoMoveSpeedUpFactor: 0.7
   RecordingStartSceneCameraPath: 0
   MainCamera: {fileID: 269355985}
   MainCameraBloom: {fileID: 798556998}
@@ -6274,7 +6274,7 @@ ParticleSystem:
   TrailModule:
     enabled: 1
     mode: 0
-    ratio: 0.1
+    ratio: 0.15
     lifetime:
       serializedVersion: 2
       minMaxState: 0
@@ -13457,8 +13457,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 785893258}
-  m_LocalRotation: {x: 0.09735972, y: -0.79424185, z: 0.58497924, w: 0.13228884}
-  m_LocalPosition: {x: 85.43203, y: 119.44195, z: -31.293932}
+  m_LocalRotation: {x: 0.08542156, y: 0.76702046, z: 0.10440744, w: -0.62728137}
+  m_LocalPosition: {x: 438.85257, y: -358.30713, z: 71.45834}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -13664,7 +13664,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 850132825}
   m_LocalRotation: {x: -0.11671808, y: -0.09809375, z: -0.7067484, w: -0.69084096}
-  m_LocalPosition: {x: -0.5, y: -1.57, z: 3.89}
+  m_LocalPosition: {x: 0.07, y: -0.3, z: 3.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1198912888}
@@ -14503,7 +14503,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 65
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -17517,7 +17517,7 @@ ParticleSystem:
   TrailModule:
     enabled: 1
     mode: 0
-    ratio: 0.1
+    ratio: 0.15
     lifetime:
       serializedVersion: 2
       minMaxState: 0

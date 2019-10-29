@@ -178,7 +178,7 @@
     <Compile Include="Assets\Scripts\UIPanels\PlayingPanel.cs" />
     <Compile Include="Assets\Scripts\UIPanels\StartMenuPanel.cs" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Resources\Shaders\DepthOfField.shader" />
-    <None Include="Assets\StreamingAssets\CameraAnim.txt" />
+    <None Include="Assets\StreamingAssets\CameraAnim_Reviving.txt" />
     <None Include="Assets\Imports\Advanced Dissolve\Shaders\Cl_3D-Dissolve-Cylinder-One.shader" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\Shaders\SpeedTree\STCustomCore.cginc" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\Shaders\SpeedTree\STCustom.shader" />
@@ -218,7 +218,6 @@
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Resources\Shaders\BuiltinDebugViews.shader" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\Shaders\Sky\Sky (Diffuse, Detail, Parallax, Transparent, Nolight, Noshadow, Optimized, Render 500).shader" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Resources\Shaders\Common.cginc" />
-    <None Include="Assets\StreamingAssets\CameraAnim_Reviving.txt" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Resources\Bluenoise64\COPYING.txt" />
     <None Include="Assets\Imports\ShaderOutput\Shader\D_Shader_HolographicProjection.shader" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Editor Resources\UI\Trackball.shader" />
