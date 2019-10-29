@@ -350,7 +350,7 @@ public class GameManager : MonoSingleton<GameManager>
                     }
                     case TravelProcess.PlatformStage3_CameOutFromCave:
                     {
-                        AudioManager.Instance.BGMFadeIn("bgm/bgm_SeeTheTree", 5f, 1f, true);
+                        AudioManager.Instance.BGMFadeIn("bgm/bgm_SeeTheTree", 2f, 1f, true);
                         break;
                     }
                     case TravelProcess.PlatformStage3_SideStepStonesSolved:
@@ -416,7 +416,7 @@ public class GameManager : MonoSingleton<GameManager>
                     case TravelProcess.PlatformStage3_TreeRevived:
                     {
                         UIManager.Instance.ShowUIForms<PlayingPanel>().ShowHint(PlayingPanel.Hints.FinalFly);
-                        UIManager.Instance.ShowUIForms<PlayingPanel>().ShowRestartImage();
+                        StartCoroutine(Co_ShowRestart());
                         break;
                     }
                 }
@@ -424,6 +424,12 @@ public class GameManager : MonoSingleton<GameManager>
 
             curTravelProcess = value;
         }
+    }
+
+    IEnumerator Co_ShowRestart()
+    {
+        yield return new WaitForSeconds(5f);
+        UIManager.Instance.ShowUIForms<PlayingPanel>().ShowRestartImage();
     }
 
     public void PuzzleASolved()

@@ -58,8 +58,13 @@ public class StartMenuPanel : BaseUIForm
         yield return new WaitForSeconds(0.3f);
         WorldTreeRevivingManager.Instance.Cur_TreeState = WorldTreeRevivingManager.TreeStates.Died;
         AudioManager.Instance.SoundPlay("sfx/ColdWind");
+
+        //yield return new WaitForSeconds(2f);
+        //StartMenuAnim.SetTrigger("FlyAway");
+
+        StartMenuAnim.SetTrigger("FadeOut");
         yield return new WaitForSeconds(2f);
-        StartMenuAnim.SetTrigger("FlyAway");
+
         yield return new WaitForSeconds(2f);
         WhiteScreenImage.DOFade(1f, 0.3f);
         yield return new WaitForSeconds(0.3f);

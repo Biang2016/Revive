@@ -154,6 +154,7 @@ MonoBehaviour:
   PatternAImage: {fileID: 5685364834117857755}
   PatternCImage: {fileID: 1614211887571852646}
   RestartImage: {fileID: 1735364486930293204}
+  RestartImageAnim: {fileID: 6710302895831223738}
   Sprite_HintStart: {fileID: 21300000, guid: 82aea0a2461da7b43bf08d4ac0e03e8c, type: 3}
   Sprite_HintPuzzleAMove: {fileID: 21300000, guid: 3118479cc3c805649aeb893ff5245349,
     type: 3}
@@ -165,6 +166,8 @@ MonoBehaviour:
   Sprite_Hint3DPlatformerTombStone: {fileID: 21300000, guid: ed14799fc7940e44cb22479242ba389b,
     type: 3}
   Sprite_Hint3DPlatformerFailure: {fileID: 21300000, guid: ac3a4cf425e9fc945b76b499a2e6f136,
+    type: 3}
+  Sprite_HintAfter3DPlatformerTombStone: {fileID: 21300000, guid: 5a94a3c80fae70548a1ca43d2e76a2b5,
     type: 3}
   Sprite_HintReviveFailure: {fileID: 21300000, guid: 2c0f0ee337c14ff478fe0115b75fbaad,
     type: 3}
@@ -459,7 +462,7 @@ Animator:
   m_GameObject: {fileID: 6456010233209470256}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 382704f337a512c4788fd40298ff75c4, type: 2}
+  m_Controller: {fileID: 9100000, guid: dd5835f9d93a34c4ba7ecbff3e1076ec, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

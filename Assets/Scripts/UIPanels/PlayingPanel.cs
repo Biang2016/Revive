@@ -16,6 +16,10 @@ public class PlayingPanel : BaseUIForm
         UIType.UIForms_ShowMode = UIFormShowModes.Normal;
         UIType.UIForms_Type = UIFormTypes.Normal;
 
+        TimerText.enabled = false;
+#if UNITY_EDITOR
+        TimerText.enabled = true;
+#endif
         HintImage.enabled = false;
         PatternAImage.enabled = false;
         PatternCImage.enabled = false;
@@ -31,6 +35,7 @@ public class PlayingPanel : BaseUIForm
             {Hints.WaterfallTombStone, Sprite_HintWaterfallTombStone},
             {Hints._3DPlatformerTombStone, Sprite_Hint3DPlatformerTombStone},
             {Hints._3DPlatformerFailure, Sprite_Hint3DPlatformerFailure},
+            {Hints.After3DPlatformerFailure, Sprite_HintAfter3DPlatformerTombStone},
             {Hints.ReviveFailure, Sprite_HintReviveFailure},
             {Hints.FinalFly, Sprite_HintFinalFly},
             {Hints.FinalDive, Sprite_HintFinalDive},
@@ -44,6 +49,7 @@ public class PlayingPanel : BaseUIForm
     [SerializeField] private Image PatternAImage;
     [SerializeField] private Image PatternCImage;
     [SerializeField] private Image RestartImage;
+    [SerializeField] private Animator RestartImageAnim;
 
     [SerializeField] private Sprite Sprite_HintStart;
     [SerializeField] private Sprite Sprite_HintPuzzleAMove;
@@ -52,6 +58,7 @@ public class PlayingPanel : BaseUIForm
     [SerializeField] private Sprite Sprite_HintWaterfallTombStone;
     [SerializeField] private Sprite Sprite_Hint3DPlatformerTombStone;
     [SerializeField] private Sprite Sprite_Hint3DPlatformerFailure;
+    [SerializeField] private Sprite Sprite_HintAfter3DPlatformerTombStone;
     [SerializeField] private Sprite Sprite_HintReviveFailure;
     [SerializeField] private Sprite Sprite_HintPlatformLeft;
     [SerializeField] private Sprite Sprite_HintPlatformRight;
@@ -69,7 +76,7 @@ public class PlayingPanel : BaseUIForm
         }
         else
         {
-            AudioManager.Instance.SoundPlay("sfx/sound_newHint",0.7f);
+            AudioManager.Instance.SoundPlay("sfx/sound_newHint", 0.7f);
             HintImage.enabled = true;
             HintImage.sprite = HintSpriteDict[hint];
             HintImageAnim.SetTrigger("Show");
@@ -86,11 +93,12 @@ public class PlayingPanel : BaseUIForm
         WaterfallTombStone = 5,
         _3DPlatformerTombStone = 6,
         _3DPlatformerFailure = 7,
+        After3DPlatformerFailure = 13,
         ReviveFailure = 8,
         FinalFly = 9,
         FinalDive = 10,
         PlatformLeft = 11,
-        PlatformRight = 12
+        PlatformRight = 12,
     }
 
     private Dictionary<Hints, Sprite> HintSpriteDict;
@@ -118,6 +126,7 @@ public class PlayingPanel : BaseUIForm
     public void ShowRestartImage()
     {
         RestartImage.gameObject.SetActive(true);
+        RestartImageAnim.SetTrigger("Show");
     }
 
     [SerializeField] private Text TimerText;
@@ -160,6 +169,5 @@ public class PlayingPanel : BaseUIForm
         yield return new WaitForSeconds(0.5f);
         BlackScree.DOFade(0.0f, 0.5f);
         yield return new WaitForSeconds(0.5f);
-
     }
 }
