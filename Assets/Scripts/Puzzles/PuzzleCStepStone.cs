@@ -9,9 +9,14 @@ public class PuzzleCStepStone : MonoBehaviour
     [SerializeField] private ParticleSystem ParticleSystem_Default;
     [SerializeField] private ParticleSystem ParticleSystem_Triggered;
 
+    private float defaultStartSpeed;
+    private float defaultStartSize;
+
     public void Start()
     {
         MeshRenderer.material.color = StartColor;
+        defaultStartSpeed = ParticleSystem_Default.startSpeed;
+        defaultStartSize = ParticleSystem_Default.startSize;
     }
 
     private void OnTriggerEnter(Collider c)
@@ -35,8 +40,8 @@ public class PuzzleCStepStone : MonoBehaviour
 //        GameManager.Instance.Player.Controller.enabled = false;
         yield return new WaitForSeconds(1.6f);
         ParticleSystem_Triggered.Play();
-        ParticleSystem_Default.startSpeed *= 2f;
-        ParticleSystem_Default.startSize *= 2f;
+        ParticleSystem_Default.startSpeed = defaultStartSpeed * 2;
+        ParticleSystem_Default.startSize = defaultStartSize * 2;
         for (int i = 0; i < 10; i++)
         {
             MeshRenderer.material.color = Color.Lerp(StartColor, ReviveColor, i / 10f);
