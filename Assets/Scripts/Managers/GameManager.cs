@@ -417,7 +417,6 @@ public class GameManager : MonoSingleton<GameManager>
                     case TravelProcess.PlatformStage3_TreeRevived:
                     {
                         UIManager.Instance.ShowUIForms<PlayingPanel>().ShowHint(PlayingPanel.Hints.FinalFly);
-                        StartCoroutine(Co_ShowRestart());
                         break;
                     }
                 }
@@ -427,11 +426,6 @@ public class GameManager : MonoSingleton<GameManager>
         }
     }
 
-    IEnumerator Co_ShowRestart()
-    {
-        yield return new WaitForSeconds(5f);
-        UIManager.Instance.ShowUIForms<PlayingPanel>().ShowRestartImage();
-    }
 
     public void PuzzleASolved()
     {

@@ -44,12 +44,6 @@ public class PlayingPanel : BaseUIForm
         };
     }
 
-    public override void Display()
-    {
-        int a = 0;
-        base.Display();
-    }
-
     [SerializeField] private Animator HintImageAnim;
     [SerializeField] private Image HintImage;
     [SerializeField] private Image PatternAImage;
@@ -82,6 +76,11 @@ public class PlayingPanel : BaseUIForm
         }
         else
         {
+            if (hint == Hints.FinalDive)
+            {
+                StartCoroutine(Co_ShowRestart());
+            }
+
             AudioManager.Instance.SoundPlay("sfx/sound_newHint", 0.7f);
             HintImage.enabled = true;
             HintImage.sprite = HintSpriteDict[hint];
@@ -135,6 +134,12 @@ public class PlayingPanel : BaseUIForm
         RestartImageAnim.SetTrigger("Show");
     }
 
+    IEnumerator Co_ShowRestart()
+    {
+        yield return new WaitForSeconds(7f);
+        ShowRestartImage();
+    }
+
     [SerializeField] private Text TimerText;
     public bool IsFinalMusicStart = false;
     private float TimerTick = 0f;
@@ -145,7 +150,7 @@ public class PlayingPanel : BaseUIForm
         if (IsFinalMusicStart)
         {
             TimerTick += Time.deltaTime;
-            TimerText.text = Math.Round(TimerTick, 1).ToString() + "s";
+            TimerText.text = Math.Round(TimerTick, 1) + "s";
         }
         else
         {

@@ -185,6 +185,7 @@
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Editor Resources\Monitors\ParadeRender.shader" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Resources\Shaders\LutGen.shader" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Editor Resources\Monitors\HistogramRender.shader" />
+    <None Include="Assets\StreamingAssets\CameraAnim_RevivingBack.txt" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Editor Resources\UI\CurveBackground.shader" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\license_nvjob.txt" />
     <None Include="Assets\StreamingAssets\CameraAnim_LeftStoneMove.txt" />
@@ -226,7 +227,6 @@
     <None Include="Assets\Imports\Water\Water\Shaders\FXWaterPro.shader" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Resources\Shaders\GrainGen.shader" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\Dynamic Sky Lite\Dynamic Sky Lite Standard Clouds Type 2.shader" />
-    <None Include="Assets\StreamingAssets\CameraAnim_RevivingBack2.txt" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Resources\Shaders\FXAA.shader" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Resources\Shaders\DiskKernels.cginc" />
     <None Include="Assets\Imports\NVJOB Water Shader SAF\Example Scene\PostProcessing\Resources\Shaders\DepthOfField.cginc" />
