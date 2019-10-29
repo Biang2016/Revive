@@ -10093,6 +10093,10 @@ MonoBehaviour:
   PuzzleCFinalMergeSize: 3.32
   PuzzleCCenterPartMesh: {fileID: 6087119728091366757}
   PuzzleCCenterPartFinalRotation: {fileID: 325120389}
+  PuzzleStoneMR: {fileID: 0}
+  StartColor: {r: 0, g: 0, b: 0, a: 0}
+  MiddleColor: {r: 0, g: 0, b: 0, a: 0}
+  EndColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1739920262353965844
 GameObject:
   m_ObjectHideFlags: 0
@@ -15642,8 +15646,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5178335, y: 3.7613282, z: 4.0597024}
-  m_Center: {x: -0.14888416, y: -0.92813283, z: 0.61789936}
+  m_Size: {x: 0.5178335, y: 20.997828, z: 16.844387}
+  m_Center: {x: -0.14888413, y: 0.16237855, z: -1.1139679}
 --- !u!1 &8231662029485830198
 GameObject:
   m_ObjectHideFlags: 0

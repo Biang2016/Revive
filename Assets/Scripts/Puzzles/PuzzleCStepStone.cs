@@ -28,11 +28,11 @@ public class PuzzleCStepStone : MonoBehaviour
 
     IEnumerator Co_Sound()
     {
-        Input.ResetInputAxes();
-        GameManager.Instance.Player.Controller.MyMouseLooker.LookDown();
-        GameManager.Instance.Player.Controller.MyMouseLooker.enabled = false;
-        GameManager.Instance.Player.Controller.MyController.enabled = false;
-        GameManager.Instance.Player.Controller.enabled = false;
+//        Input.ResetInputAxes();
+//        GameManager.Instance.Player.Controller.MyMouseLooker.LookDown();
+//        GameManager.Instance.Player.Controller.MyMouseLooker.enabled = false;
+//        GameManager.Instance.Player.Controller.MyController.enabled = false;
+//        GameManager.Instance.Player.Controller.enabled = false;
         yield return new WaitForSeconds(1.6f);
         ParticleSystem_Triggered.Play();
         ParticleSystem_Default.startSpeed *= 2f;
@@ -43,9 +43,9 @@ public class PuzzleCStepStone : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
 
-        GameManager.Instance.Player.Controller.MyMouseLooker.enabled = true;
-        GameManager.Instance.Player.Controller.MyController.enabled = true;
-        GameManager.Instance.Player.Controller.enabled = true;
+//        GameManager.Instance.Player.Controller.MyMouseLooker.enabled = true;
+//        GameManager.Instance.Player.Controller.MyController.enabled = true;
+//        GameManager.Instance.Player.Controller.enabled = true;
 
         TriggerEvent?.Invoke();
     }

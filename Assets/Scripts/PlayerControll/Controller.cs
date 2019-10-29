@@ -2,12 +2,13 @@
 
 public class Controller : MonoBehaviour
 {
-    public float MoveSpeed = 3.0f;
-    public float JumpPower = 5f;
-    public float Gravity = 9.81f;
-    internal float default_MoveSpeed = 3.0f;
-    private float default_JumpPower = 5f;
-    private float default_Gravity = 9.81f;
+    public float MoveSpeed = 10f;
+    public float JumpPower = 1.5f;
+    public float Gravity = 0.8f;
+
+    internal float default_MoveSpeed = 10f;
+    private float default_JumpPower = 1.5f;
+    private float default_Gravity = 0.8f;
 
     public CharacterController MyController;
     public MouseLooker MyMouseLooker;
@@ -17,6 +18,12 @@ public class Controller : MonoBehaviour
 
     void Awake()
     {
+#if UNITY_STANDALONE_OSX
+        Gravity = 1.6f;
+#elif UNITY_STANDALONE
+        Gravity = 0.8f;
+#endif
+
         default_MoveSpeed = MoveSpeed;
         default_JumpPower = JumpPower;
         default_Gravity = Gravity;

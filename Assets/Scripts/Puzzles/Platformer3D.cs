@@ -4,6 +4,7 @@ public class Platformer3D : MonoBehaviour
 {
     [SerializeField] private PlatformerStone[] PlatformerStones;
     [SerializeField] private GameObject DeadZone;
+    [SerializeField] private AudioSource ArrivePlaceAS;
 
     public int CurrentIndex = -1;
 
@@ -35,6 +36,10 @@ public class Platformer3D : MonoBehaviour
                     {
                         PlatformerStones[i + 1].gameObject.SetActive(true);
                         PlatformerStones[i + 1].Show();
+                    }
+                    else
+                    {
+                        ArrivePlaceAS.Play();
                     }
 
                     CurrentIndex++;

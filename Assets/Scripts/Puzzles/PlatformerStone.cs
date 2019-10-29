@@ -46,7 +46,7 @@ public class PlatformerStone : MonoBehaviour
                 HasEnded = true;
             }
 
-            Renderer.material.SetFloat(shaderProperty, fadeIn.Evaluate(timer / SpawnEffectTime));
+            Renderer.material.SetFloat(shaderProperty, fadeIn.Evaluate(Mathf.Min(0.8f, timer / SpawnEffectTime)));
         }
     }
 
@@ -66,6 +66,7 @@ public class PlatformerStone : MonoBehaviour
             AudioManager.Instance.SoundPlay("sfx/StepOn3DPlatformStone");
             player.transform.SetParent(transform);
             ParentPlatformer3D.ShowNext(this);
+            Renderer.material.SetFloat(shaderProperty, fadeIn.Evaluate(1));
         }
     }
 
