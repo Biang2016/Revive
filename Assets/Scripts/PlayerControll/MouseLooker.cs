@@ -131,4 +131,9 @@ public class MouseLooker : MonoBehaviour
 
         return q;
     }
+
+    public void LookDown()
+    {
+        cameraTransform.localRotation = Quaternion.Euler(65f, 0, 0);
+    }
 }

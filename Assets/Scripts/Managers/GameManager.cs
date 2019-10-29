@@ -41,10 +41,12 @@ public class GameManager : MonoSingleton<GameManager>
 
         if (Input.GetKeyUp(KeyCode.Space) && CurTravelProcess == TravelProcess.PlatformStage3_TreeRevived)
         {
-            Player.Controller.SuperManMode = !Player.Controller.SuperManMode;
-            StartSceneCameraCarrier.Controller.SuperManMode = !StartSceneCameraCarrier.Controller.SuperManMode;
-            Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Airwall"), true);
-            UIManager.Instance.ShowUIForms<PlayingPanel>().ShowHint(PlayingPanel.Hints.FinalDive);
+            if (!Player.Controller.SuperManMode)
+            {
+                Player.Controller.SuperManMode = true;
+                Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Airwall"), true);
+                UIManager.Instance.ShowUIForms<PlayingPanel>().ShowHint(PlayingPanel.Hints.FinalDive);
+            }
         }
 
         if (Input.GetKey(KeyCode.Equals))
@@ -243,7 +245,7 @@ public class GameManager : MonoSingleton<GameManager>
                     {
                         AudioManager.Instance.SoundStop("sound_wind");
                         UIManager.Instance.ShowUIForms<PlayingPanel>().ShowBlackScreen();
-                            break;
+                        break;
                     }
                     case TravelProcess.CaveStage1_WakeUp:
                     {

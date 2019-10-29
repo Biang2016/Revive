@@ -27,10 +27,12 @@ public class PuzzleCStepStone : MonoBehaviour
 
     IEnumerator Co_Sound()
     {
+        Input.ResetInputAxes();
+        GameManager.Instance.Player.Controller.MyMouseLooker.LookDown();
         GameManager.Instance.Player.Controller.MyMouseLooker.enabled = false;
         GameManager.Instance.Player.Controller.MyController.enabled = false;
         GameManager.Instance.Player.Controller.enabled = false;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.6f);
         ParticleSystem_Triggered.Play();
         ParticleSystem_Default.startSpeed *= 2f;
         ParticleSystem_Default.startSize *= 2f;

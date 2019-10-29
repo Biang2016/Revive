@@ -162,7 +162,7 @@ MonoBehaviour:
     type: 3}
   Sprite_HintWaterfallTombStone: {fileID: 21300000, guid: bffe16c29dc0af9428518c69649d29eb,
     type: 3}
-  Sprite_Hint3DPlatformerTombStone: {fileID: 21300000, guid: 5a94a3c80fae70548a1ca43d2e76a2b5,
+  Sprite_Hint3DPlatformerTombStone: {fileID: 21300000, guid: ed14799fc7940e44cb22479242ba389b,
     type: 3}
   Sprite_Hint3DPlatformerFailure: {fileID: 21300000, guid: ac3a4cf425e9fc945b76b499a2e6f136,
     type: 3}
