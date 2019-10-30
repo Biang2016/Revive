@@ -311,8 +311,8 @@ public class GameManager : MonoSingleton<GameManager>
                         Input.ResetInputAxes();
                         Player.Controller.MyController.enabled = true;
                         Player.Controller.CapsuleCollider.enabled = false;
-                        Player.Controller.MoveSpeed = 10f;
-                        Player.Controller.default_MoveSpeed = 10f;
+                        Player.Controller.MoveSpeed = 7f;
+                        Player.Controller.default_MoveSpeed = 7f;
                         Player.Controller.MyMouseLooker.XSensitivity = 2f;
                         Player.Controller.MyMouseLooker.YSensitivity = 2f;
 
@@ -341,12 +341,16 @@ public class GameManager : MonoSingleton<GameManager>
                     }
                     case TravelProcess.CaveStage2_When3DPlatformJump:
                     {
+                        Player.Controller.MoveSpeed = 9f;
+                        Player.Controller.default_MoveSpeed = 9f;
                         AudioManager.Instance.SoundStop("WaterDrop");
                         Platformer3D.ShowFirst();
                         break;
                     }
                     case TravelProcess.CaveStage2_After3DPlatformJumpNarrow:
                     {
+                        Player.Controller.MoveSpeed = 7f;
+                        Player.Controller.default_MoveSpeed = 7f;
                         break;
                     }
                     case TravelProcess.PlatformStage3_CameOutFromCave:
@@ -356,8 +360,8 @@ public class GameManager : MonoSingleton<GameManager>
                     }
                     case TravelProcess.PlatformStage3_SideStepStonesSolved:
                     {
-                        Player.Controller.MoveSpeed = 10f;
-                        Player.Controller.default_MoveSpeed = 10f;
+                        Player.Controller.MoveSpeed = 7f;
+                        Player.Controller.default_MoveSpeed = 7f;
                         Player.Controller.MyMouseLooker.XSensitivity = 2f;
                         Player.Controller.MyMouseLooker.YSensitivity = 2f;
                         UIManager.Instance.GetBaseUIForm<PlayingPanel>().HidePuzzleCPattern();
@@ -406,8 +410,8 @@ public class GameManager : MonoSingleton<GameManager>
                             Player.Controller.enabled = true;
                             ReviveArea.SetActive(false);
                             ReviveAreaTooEarly.SetActive(false);
-                            Player.Controller.MoveSpeed = 10f;
-                            Player.Controller.default_MoveSpeed = 10f;
+                            Player.Controller.MoveSpeed = 7f;
+                            Player.Controller.default_MoveSpeed = 7f;
                             Player.Controller.MyMouseLooker.XSensitivity = 2f;
                             Player.Controller.MyMouseLooker.YSensitivity = 2f;
                             CurTravelProcess = TravelProcess.PlatformStage3_TreeRevived;
@@ -425,7 +429,6 @@ public class GameManager : MonoSingleton<GameManager>
             curTravelProcess = value;
         }
     }
-
 
     public void PuzzleASolved()
     {
