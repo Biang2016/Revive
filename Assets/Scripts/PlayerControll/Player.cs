@@ -61,8 +61,6 @@ public class Player : MonoBehaviour
             }
         }
 
-        Debug.Log(ppCount);
-
         return false;
     }
 

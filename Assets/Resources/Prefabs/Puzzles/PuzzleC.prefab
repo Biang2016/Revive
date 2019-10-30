@@ -4808,13 +4808,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1806981158}
-  m_LocalRotation: {x: 0.61405104, y: 0.7158429, z: 0.3215216, w: 0.08446426}
-  m_LocalPosition: {x: 3.8, y: -49.3, z: 62.7}
+  m_LocalRotation: {x: 0.4039842, y: 0.6583562, z: -0.42705294, w: -0.47009543}
+  m_LocalPosition: {x: 8.9, y: -50.6, z: 71.5}
   m_LocalScale: {x: 2.2095287, y: 2.20953, z: 2.2095318}
   m_Children: []
   m_Father: {fileID: 2561382919445929607}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -20.891, y: 146.49, z: 87.600006}
+  m_LocalEulerAnglesHint: {x: 10.514001, y: 258.663, z: 71.692}
 --- !u!199 &1806981161
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -5068,7 +5068,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 0.19607843}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5814,8 +5814,66 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    m_BurstCount: 0
-    m_Bursts: []
+    m_BurstCount: 1
+    m_Bursts:
+    - serializedVersion: 2
+      time: 0
+      countCurve:
+        serializedVersion: 2
+        minMaxState: 0
+        scalar: 20
+        minScalar: 30
+        maxCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        minCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+      cycleCount: 0
+      repeatInterval: 0.2
+      probability: 1
   SizeModule:
     enabled: 1
     curve:
@@ -6493,7 +6551,7 @@ ParticleSystem:
     orbitalX:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.33
+      scalar: -1.33
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -8729,7 +8787,7 @@ ParticleSystem:
     lifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.2
+      scalar: 0.3
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -9596,7 +9654,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 02e5c6586b48d4360b893445609309c9, type: 2}
-  - {fileID: 2100000, guid: 640e7aa5ce4f14c67a570e89af54b385, type: 2}
+  - {fileID: 2100000, guid: 1ff5fba36a5a345ef9da640a9a33d195, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9628,8 +9686,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51783353, y: 13.657597, z: 13.360008}
-  m_Center: {x: -0.14887854, y: -0.30477008, z: -0.106645755}
+  m_Size: {x: 0.51783353, y: 25.274868, z: 28.725029}
+  m_Center: {x: -0.14888105, y: -0.5707708, z: -0.4865391}
 --- !u!1 &657214488119794014
 GameObject:
   m_ObjectHideFlags: 0
@@ -9720,8 +9778,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51783353, y: 16.695896, z: 14.269455}
-  m_Center: {x: -0.14888182, y: -1.1658783, z: 1.8126802}
+  m_Size: {x: 0.51783353, y: 52.662178, z: 48.842964}
+  m_Center: {x: -0.14887035, y: -1.3016481, z: 1.4813002}
 --- !u!1 &800194846430514312
 GameObject:
   m_ObjectHideFlags: 0
@@ -9781,7 +9839,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 02e5c6586b48d4360b893445609309c9, type: 2}
-  - {fileID: 2100000, guid: 640e7aa5ce4f14c67a570e89af54b385, type: 2}
+  - {fileID: 2100000, guid: 8a7da5078fa164494a85ae1ba0019c1f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9813,8 +9871,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51783365, y: 16.846659, z: 10.720811}
-  m_Center: {x: -0.14888191, y: 1.1922026, z: -0.06915493}
+  m_Size: {x: 0.51783365, y: 31.121674, z: 25.772358}
+  m_Center: {x: -0.14888375, y: -0.66252357, z: 1.2796389}
 --- !u!1 &1294235708455849788
 GameObject:
   m_ObjectHideFlags: 0
@@ -9966,7 +10024,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 02e5c6586b48d4360b893445609309c9, type: 2}
-  - {fileID: 2100000, guid: 640e7aa5ce4f14c67a570e89af54b385, type: 2}
+  - {fileID: 2100000, guid: 8a7da5078fa164494a85ae1ba0019c1f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9998,8 +10056,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51783353, y: 14.861603, z: 12.898237}
-  m_Center: {x: -0.14888182, y: -0.83405054, z: 0.11920165}
+  m_Size: {x: 0.5178336, y: 22.931175, z: 21.594578}
+  m_Center: {x: -0.1488901, y: -1.9518939, z: 0.23039623}
 --- !u!1 &1571903506410187924
 GameObject:
   m_ObjectHideFlags: 0
@@ -10093,10 +10151,15 @@ MonoBehaviour:
   PuzzleCFinalMergeSize: 3.32
   PuzzleCCenterPartMesh: {fileID: 6087119728091366757}
   PuzzleCCenterPartFinalRotation: {fileID: 325120389}
-  PuzzleStoneMR: {fileID: 0}
-  StartColor: {r: 0, g: 0, b: 0, a: 0}
-  MiddleColor: {r: 0, g: 0, b: 0, a: 0}
-  EndColor: {r: 0, g: 0, b: 0, a: 0}
+  PuzzleStoneMR_Left: {fileID: 1548482999534141540}
+  PuzzleStoneMR_Right: {fileID: 3494659276030923749}
+  PuzzleStoneMR_Center: {fileID: 7047385082375921257}
+  StartColor: {r: 0.21568628, g: 0.21568628, b: 0.21568628, a: 1}
+  MiddleColor: {r: 0.8301887, g: 0.8301887, b: 0.8301887, a: 1}
+  EndColor: {r: 0.6156863, g: 0.3019608, b: 0.15686275, a: 1}
+  StartColor_Inscribe: {r: 0.3207547, g: 0.1660167, b: 0.13163048, a: 1}
+  BreathColor_Inscribe: {r: 0, g: 0, b: 0, a: 1}
+  EndColor_Inscribe: {r: 0.0627451, g: 0.9647059, b: 0.6431373, a: 1}
 --- !u!1 &1739920262353965844
 GameObject:
   m_ObjectHideFlags: 0
@@ -10325,8 +10388,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51783353, y: 15.886181, z: 17.62947}
-  m_Center: {x: -0.14888182, y: -1.3008308, z: -2.1083167}
+  m_Size: {x: 0.51783353, y: 55.97809, z: 59.49276}
+  m_Center: {x: -0.14889476, y: -2.3368943, z: -1.1949652}
 --- !u!1 &2621745037651121649
 GameObject:
   m_ObjectHideFlags: 0
@@ -15230,7 +15293,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 640e7aa5ce4f14c67a570e89af54b385, type: 2}
+  - {fileID: 2100000, guid: 8a7da5078fa164494a85ae1ba0019c1f, type: 2}
   - {fileID: 2100000, guid: 02e5c6586b48d4360b893445609309c9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -15263,8 +15326,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51783353, y: 26.142593, z: 27.901455}
-  m_Center: {x: -0.14888182, y: 1.3982344, z: 1.3757658}
+  m_Size: {x: 0.51783353, y: 76.60282, z: 67.66598}
+  m_Center: {x: -0.14886771, y: 1.7014332, z: 0.69086444}
 --- !u!1 &6121738696059697494
 GameObject:
   m_ObjectHideFlags: 0
@@ -15476,7 +15539,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 02e5c6586b48d4360b893445609309c9, type: 2}
-  - {fileID: 2100000, guid: 640e7aa5ce4f14c67a570e89af54b385, type: 2}
+  - {fileID: 2100000, guid: a43441546b0b84e5eafec0cc97696f56, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15508,8 +15571,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51783353, y: 31.669216, z: 25.464287}
-  m_Center: {x: -0.14888182, y: 1.5814514, z: -0.20135403}
+  m_Size: {x: 0.51783353, y: 46.855427, z: 42.01706}
+  m_Center: {x: -0.14887543, y: 1.4661771, z: 0.0027179348}
 --- !u!1 &7385876499357738879
 GameObject:
   m_ObjectHideFlags: 0
@@ -15646,8 +15709,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5178335, y: 20.997828, z: 16.844387}
-  m_Center: {x: -0.14888413, y: 0.16237855, z: -1.1139679}
+  m_Size: {x: 0.5178335, y: 31.598566, z: 24.160086}
+  m_Center: {x: -0.14888234, y: -0.337317, z: -2.58215}
 --- !u!1 &8231662029485830198
 GameObject:
   m_ObjectHideFlags: 0
@@ -15707,7 +15770,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 02e5c6586b48d4360b893445609309c9, type: 2}
-  - {fileID: 2100000, guid: 640e7aa5ce4f14c67a570e89af54b385, type: 2}
+  - {fileID: 2100000, guid: 8a7da5078fa164494a85ae1ba0019c1f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15739,8 +15802,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5178335, y: 18.182116, z: 22.245619}
-  m_Center: {x: -0.14888182, y: 0.591667, z: 2.3240218}
+  m_Size: {x: 0.51783335, y: 70.3279, z: 77.14742}
+  m_Center: {x: -0.14881355, y: 2.2991366, z: 0.44991782}
 --- !u!1 &8411551946511286528
 GameObject:
   m_ObjectHideFlags: 0
@@ -15846,7 +15909,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 02e5c6586b48d4360b893445609309c9, type: 2}
-  - {fileID: 2100000, guid: 640e7aa5ce4f14c67a570e89af54b385, type: 2}
+  - {fileID: 2100000, guid: a43441546b0b84e5eafec0cc97696f56, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15878,5 +15941,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.51783353, y: 15.166431, z: 17.65734}
-  m_Center: {x: -0.14888182, y: 0.5885086, z: -0.40931606}
+  m_Size: {x: 0.51783353, y: 48.61988, z: 69.11465}
+  m_Center: {x: -0.14889161, y: 1.0615884, z: -0.8097324}
