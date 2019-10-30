@@ -1978,7 +1978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20cf1c949e1056043a74952f8124f0d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AutoMoveSpeedUpFactor: 3
+  AutoMoveSpeedUpFactor: 5
   RecordingStartSceneCameraPath: 0
   MainCamera: {fileID: 269355985}
   MainCameraBloom: {fileID: 798556998}
