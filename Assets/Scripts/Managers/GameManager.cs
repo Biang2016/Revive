@@ -213,7 +213,6 @@ public class GameManager : MonoSingleton<GameManager>
                     {
                         WorldTreeRevivingManager.Instance.Cur_TreeState = WorldTreeRevivingManager.TreeStates.StartSceneRotateSlow;
                         PuzzleC.HideAllFragmentOfPuzzleC();
-                        AudioManager.Instance.BGMFadeIn("bgm/bgm_stage1", 1f, 1, true);
                         UIManager.Instance.ShowUIForms<StartMenuPanel>();
                         UIManager.Instance.CloseUIForm<PlayingPanel>();
                         CameraRecordingManager.Instance.PlayRecording(CameraRecordingManager.RecordingTypes.StartSceneRecording, false);

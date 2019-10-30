@@ -52,6 +52,11 @@ public class StartMenuPanel : BaseUIForm
         WorldTreeRevivingManager.Instance.SetAnimSpeedOfStartScene(0.2f);
     }
 
+    public void OnStartListen()
+    {
+        AudioManager.Instance.BGMFadeIn("bgm/bgm_stage1", 1f, 1, true);
+    }
+    
     public void OnStartButtonClick()
     {
         AudioManager.Instance.SoundPlay("sfx/tombstone_sound");
