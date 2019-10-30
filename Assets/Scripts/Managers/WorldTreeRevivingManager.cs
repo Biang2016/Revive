@@ -62,7 +62,7 @@ public class WorldTreeRevivingManager : MonoSingleton<WorldTreeRevivingManager>
         AudioManager.Instance.BGMFadeOut(3f);
         yield return new WaitForSeconds(3f);
         GameManager.Instance.CurTravelProcess = GameManager.TravelProcess.PlatformStage3_RevivingTree; // Music Start 0s
-        GameManager.Instance.PuzzleC.ReturnAllPuzzlePartToFarthestPlaceAndMerge(3f);
+        GameManager.Instance.PuzzleC.ReturnAllPuzzlePartToFarthestPlaceAndMerge(7f);
 
         yield return new WaitForSeconds(31f);
         int steps = 10;
@@ -80,12 +80,12 @@ public class WorldTreeRevivingManager : MonoSingleton<WorldTreeRevivingManager>
         yield return new WaitForSeconds(9f);
         Animator.speed = 0.2f;
         Animator.SetTrigger("Revive");
-        yield return new WaitForSeconds(26f); // Music 35s strong beat
         GameManager.Instance.PuzzleC.PuzzleCParticleEffect.Play();
-        yield return new WaitForSeconds(12f); // Music 47s strong beat
-
+        yield return new WaitForSeconds(26f); // Music 35s strong beat
         GameManager.Instance.PuzzleC.PuzzleCParticleEffect.Stop();
         GameManager.Instance.PuzzleC.PuzzleCParticleEffect2.Play();
+        yield return new WaitForSeconds(12f); // Music 47s strong beat
+
         GameManager.Instance.PuzzleC.ChangePuzzleStoneColor(2f);
 
         yield return new WaitForSeconds(3f); // Music 50s
